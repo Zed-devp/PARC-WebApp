@@ -46,7 +46,7 @@
 	<body>
 		<div class="header-back">
 			<div class="header">
-			  <p><g:link controller="agent" action="index" style="text-decoration:none">Privacy Preserved Data Cleaning</g:link></p>
+			  <p><g:link controller="agent" action="index" style="text-decoration:none">Privacy Preserving Data Cleaning</g:link></p>
 			  <p id="header-sub">A data cleaning tool</p>
 			  <span style="font-size:60%; float:right; font-weight:normal">
 				  <g:if test="${session.user}">
