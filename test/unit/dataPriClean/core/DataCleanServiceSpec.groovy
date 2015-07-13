@@ -89,6 +89,54 @@ class DataCleanServiceSpec extends Specification {
 		println("Running time: " + (after - before) + "ms")
 	}
 	
+	//dataset load test with 20k records
+	void "test loadTargetDataset3"() {
+		def before = System.currentTimeMillis()
+		
+		given:
+		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_20k.csv"
+		String fileName = "imdb_20k.csv"
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_fds.csv";
+		char separator = ','
+		char quoteChar =  '"'
+		
+		when:
+		def dataset = service.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
+		
+		def after = System.currentTimeMillis()
+		
+		then:
+		dataset != null
+		
+		println("Number of records: " + dataset.getRecords().size())
+		println("Number of constraints: " + dataset.getConstraints().size())
+		println("Running time: " + (after - before) + "ms")
+	}
+	
+	//dataset load test with 200k records
+	void "test loadTargetDataset4"() {
+		def before = System.currentTimeMillis()
+		
+		given:
+		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_200k.csv"
+		String fileName = "imdb_400k.csv"
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_fds.csv";
+		char separator = ','
+		char quoteChar =  '"'
+		
+		when:
+		def dataset = service.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
+		
+		def after = System.currentTimeMillis()
+		
+		then:
+		dataset != null
+		
+		println("Number of records: " + dataset.getRecords().size())
+		println("Number of constraints: " + dataset.getConstraints().size())
+		println("Running time: " + (after - before) + "ms")
+	}
+	
 	//test small dataset and constraint
 	void "test findViolations"() {
 		def before = System.currentTimeMillis()
@@ -237,6 +285,118 @@ class DataCleanServiceSpec extends Specification {
 		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata4/Canada_trials.csv"
 		String fileName = "Canada_trials.csv"
 		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata4/fds1.csv";
+		char separator = ','
+		char quoteChar = '"'
+		
+		when:
+		def dataset = service.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
+		def vio = service.findViolations(dataset)
+		
+		def after = System.currentTimeMillis()
+		
+		then:
+		dataset != null
+		vio != null
+		
+		println ("number of violations: " + calcVioNum(vio))
+		//		println ("violations2:" + vio)
+		println("Number of records: " + dataset.getRecords().size())
+		println("Number of constraints: " + dataset.getConstraints().size())
+		println("Running time: " + (after - before) + "ms")
+	}
+	
+	//test large dataset and constraint
+	void "test findViolations3"() {
+		def before = System.currentTimeMillis()
+		
+		given:
+		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_20k.csv"
+		String fileName = "imdb_20k.csv"
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_fds.csv";
+		char separator = ','
+		char quoteChar = '"'
+		
+		when:
+		def dataset = service.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
+		def vio = service.findViolations(dataset)
+		
+		def after = System.currentTimeMillis()
+		
+		then:
+		dataset != null
+		vio != null
+		
+		println ("number of violations: " + calcVioNum(vio))
+		//		println ("violations2:" + vio)
+		println("Number of records: " + dataset.getRecords().size())
+		println("Number of constraints: " + dataset.getConstraints().size())
+		println("Running time: " + (after - before) + "ms")
+	}
+	
+	//test large dataset and constraint
+	void "test findViolations3 with single fd"() {
+		def before = System.currentTimeMillis()
+		
+		given:
+		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_20k.csv"
+		String fileName = "imdb_20k.csv"
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_fd.csv";
+		char separator = ','
+		char quoteChar = '"'
+		
+		when:
+		def dataset = service.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
+		def vio = service.findViolations(dataset)
+		
+		def after = System.currentTimeMillis()
+		
+		then:
+		dataset != null
+		vio != null
+		
+		println ("number of violations: " + calcVioNum(vio))
+		//		println ("violations2:" + vio)
+		println("Number of records: " + dataset.getRecords().size())
+		println("Number of constraints: " + dataset.getConstraints().size())
+		println("Running time: " + (after - before) + "ms")
+	}
+	
+	//test large dataset and constraint
+	void "test findViolations4"() {
+		def before = System.currentTimeMillis()
+		
+		given:
+		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_200k.csv"
+		String fileName = "imdb_400k.csv"
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_fds.csv";
+		char separator = ','
+		char quoteChar = '"'
+		
+		when:
+		def dataset = service.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
+		def vio = service.findViolations(dataset)
+		
+		def after = System.currentTimeMillis()
+		
+		then:
+		dataset != null
+		vio != null
+		
+		println ("number of violations: " + calcVioNum(vio))
+		//		println ("violations2:" + vio)
+		println("Number of records: " + dataset.getRecords().size())
+		println("Number of constraints: " + dataset.getConstraints().size())
+		println("Running time: " + (after - before) + "ms")
+	}
+	
+	//test large dataset and constraint
+	void "test findViolations4 with single fd"() {
+		def before = System.currentTimeMillis()
+		
+		given:
+		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_200k.csv"
+		String fileName = "imdb_400k.csv"
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata3/imdb_fd.csv";
 		char separator = ','
 		char quoteChar = '"'
 		
