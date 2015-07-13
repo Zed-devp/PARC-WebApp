@@ -236,7 +236,7 @@ class DataCleanServiceSpec extends Specification {
 		given:
 		String url = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata4/Canada_trials.csv"
 		String fileName = "Canada_trials.csv"
-		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata4/fds.csv";
+		String fdUrl = "/Users/thomas/Documents/Programming/DataPrivacy/resource/data/testdata4/fds1.csv";
 		char separator = ','
 		char quoteChar = '"'
 		
