@@ -36,7 +36,7 @@ class DataCleanServiceSpec extends Specification {
 		then:
 		dataset != null
 		
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
     }
 	
@@ -59,7 +59,7 @@ class DataCleanServiceSpec extends Specification {
 		then:
 		dataset != null
 		
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -82,7 +82,7 @@ class DataCleanServiceSpec extends Specification {
 		then:
 		dataset != null
 		
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -109,7 +109,7 @@ class DataCleanServiceSpec extends Specification {
 		
 		println ("Number of violations: " + calcVioNum(vio))
 		//		println ("violations:" + vio)
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -136,7 +136,7 @@ class DataCleanServiceSpec extends Specification {
 		
 		println ("number of violations: " + calcVioNum(vio))
 		//		println ("violations:" + vio)
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -163,7 +163,7 @@ class DataCleanServiceSpec extends Specification {
 		
 		println ("number of violations: " + calcVioNum(vio))
 		//		println ("violations1:" + vio)
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -190,7 +190,7 @@ class DataCleanServiceSpec extends Specification {
 		
 		println ("number of violations: " + calcVioNum(vio))
 		//		println ("violations1:" + vio)
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -217,7 +217,7 @@ class DataCleanServiceSpec extends Specification {
 		
 		println ("number of violations: " + calcVioNum(vio))
 		//		println ("violations2:" + vio)
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
@@ -244,7 +244,7 @@ class DataCleanServiceSpec extends Specification {
 		
 		println ("number of violations: " + calcVioNum(vio))
 		//		println ("violations2:" + vio)
-		println("Number of records: " + dataset.getRecords.size())
+		println("Number of records: " + dataset.getRecords().size())
 		println("Running time: " + (after - before) + "ms")
 	}
 	
