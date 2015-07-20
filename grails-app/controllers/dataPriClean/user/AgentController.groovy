@@ -177,7 +177,7 @@ class AgentController {
 			println "current user info is invalid! load info failed!"
 		}
 		
-		redirect(action: "index")
+		redirect(action:"index")
 	}
 	
 	//show user's profile
@@ -204,6 +204,16 @@ class AgentController {
 		[dataInfo:dataInfo]
 	}
 	
+	def dataAnalyze () {
+		if (params.func == "Violation Detection") {
+			redirect(controller:"agent",action:"findViolations",params:params)
+		}
+		else if (params.func == "Clean Data") {
+			session.targetDataset = params.dataset
+			redirect(controller:"agent",action:"cleanDataUserInput")
+		}
+	}
+	
 	def findViolations () {
 		def vio = []
 		
@@ -221,10 +231,56 @@ class AgentController {
 			def targetData = dataCleanService.loadTargetDataset(datasetUrl, fileName, conUrl)
 			def violations = dataCleanService.findViolations(targetData)
 			
-			vio = violations.toString()
+			vio = violations//.toString()
+		}
+		else {
+			flash.message = "Target Dataset Not Found!"
+			print("Target Dataset Not Found!")
 		}
 		
 		[vio:vio]
 		
+	}
+	
+	def cleanDataUserInput () {
+	}
+	
+	def getRecommendations () {
+		def recommendations = ""
+		
+		def masterAgent = params.masterAgent
+		def masterDataset = params.masterDataset
+		def simThreshold = params.simThreshold
+		def searchObj = params.searchObj
+		
+		def targetDatasetName = session.targetDataset
+		def targetDataset = Dataset.findByName(targetDatasetName)
+		
+		if (!targetDataset) {
+			flash.message = "Target dataset not found, please upload the dataset!"
+			println("Target dataset not found, please upload the dataset!")
+			return
+		}
+		
+		if (masterAgent && masterDataset && simThreshold && searchObj) {
+			def mAgent = Agent.findByName(masterAgent)
+			if (!mAgent || mAgent.role != "Master") {
+				flash.message = "Agent not found, please enter the right name!"
+				println("Agent not found, please enter the right name!")
+				return
+			}
+			
+			def mDataset = Dataset.findByName(masterDataset)
+			if (!mDataset || !mAgent.datasets.contains(mDataset)) {
+				flash.message = "Master dataset not found, please enter the right dataset name!"
+				println("Master dataset not found, please enter the right dataset name!")
+				return
+			}
+			
+			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj)
+			println(recommendations)
+		}
+		
+		[recs: recommendations]
 	}
 }

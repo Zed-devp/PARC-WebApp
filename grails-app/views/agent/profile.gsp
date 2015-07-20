@@ -17,10 +17,11 @@
     		<g:if test="${dataInfo}">
                 <g:each in="${dataInfo}" var="dataset" >
                     <br>
-                    <form action="findViolations" method="POST">
+                    <form action="dataAnalyze" method="POST">
 	                    <p>Dataset: <input name="dataset" type="text" value="${dataset.dataName}" readonly></p>
 	                    <p>Constraint: <input name="con" type="text" value="${dataset.conName}" readonly></p>
-	                    <input type="submit" value="Violation Detection">
+	                    <input type="submit" name="func" value="Violation Detection">
+	                    <input type="submit" name="func" value="Clean Data">
 	                </form>
                     <br>
                 </g:each>

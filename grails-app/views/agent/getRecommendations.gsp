@@ -5,12 +5,14 @@
   </head>
   <body>
     <div class="body">
-    	<p>Violations:</p>
-    	<br>
-    	<p>${vio}</p>
-    	<g:if test="${flash.message}">
+	    <p>Recommendations:</p>
+	    	<br>
+	    	<textarea>
+	    	${recs}
+			</textarea>
+		</div>
+		<g:if test="${flash.message}">
   		<p>${flash.message}</p>
   	</g:if>
-	</div>
   </body>
 </html>

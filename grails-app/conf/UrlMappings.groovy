@@ -17,6 +17,9 @@ class UrlMappings {
 		"/uploadData"(controller:"agent",action:"uploadData")	
 		
 		"/findViolations"(controller:"agent",action:"findViolations")
+		"/dataAnalyze"(controller:"agent",action:"dataAnalyze")
+		"/cleanDataUserInput"(controller:"agent",action:"cleanDataUserInput")
+		"/getRecommendations"(controller:"agent",action:"getRecommendations")
 			
         "500"(view:'/error')
 	}
