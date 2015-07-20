@@ -44,15 +44,24 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+		
+		// uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
+		mavenRepo "http://download.java.net/maven/2/"
+
+		//repo for spring-security
+		mavenRepo "http://repo.spring.io/milestone/"
     }
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 		compile 'data.cleaning.core:privacycleaning:1.0.0'
+		compile 'data.cleaning.webapp:privacyDataCleaning:0.0.1-SNAPSHOT'
 		
 		runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+		
+		runtime "postgresql:postgresql:9.1-901.jdbc4"
     }
 
     plugins {

@@ -2,6 +2,8 @@ dataSource {
     pooled = true
     jmxExport = true
     driverClassName = "com.mysql.jdbc.Driver"
+//	driverClassName = "org.postgresql.Driver"
+//	dialect = "org.hibernate.dialect.PostgreSQLDialect"
     username = "data_pri_test"
     password = "test"
 }
@@ -31,7 +33,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/data_privacy_test?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:postgresql://localhost/data_privacy_test?useUnicode=yes&characterEncoding=UTF-8"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
