@@ -5,3 +5,4 @@
 target/
 web-app/dataset/
 target-eclipse/
+*.log

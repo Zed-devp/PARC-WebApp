@@ -69,7 +69,26 @@ class DataCleanService {
 		
 			float simThresholdF = Float.parseFloat(simThreshold);
 			
-			SearchType searchType = SearchType.HC_EPS
+			SearchType searchType
+			
+			switch (searchObj) {
+				case "weighted":
+					searchType = SearchType.SA_WEIGHTED
+					break
+				case "constrained":
+					searchType = SearchType.SA_EPS_FLEX
+					break
+				case "dynamic":
+					searchType = SearchType.SA_EPS_DYNAMIC
+					break
+				case "lexical":
+					searchType = SearchType.SA_EPS_LEX
+					break
+				default:
+					searchType = SearchType.SA_EPS
+					break
+			}
+			
 			result = dataCleanUtil.runDataCleaning(target, master, simThresholdF, searchType)
 		}
 		else {
