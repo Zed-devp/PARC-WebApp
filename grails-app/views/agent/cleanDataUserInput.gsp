@@ -12,13 +12,13 @@
         <br>
         <p>Master Dataset: <input type="text" name="masterDataset" /></p>
         <br>
-        <p>Similarity Threshold: <input type="text" name="simThreshold" value="0.8"/></p>
+        <p>Similarity Threshold (0-1.0): <input id="smthRange" type="range" name="simThreshold" min="0.0" max="1.0" value="0.8" step="0.01" oninput="showRangeValue()" /><span id="rangeVal"></span></p>
         <br>
         <p>Searching Objective:</p>
-        <p><input type="radio" name="searchObj" value="weighted" checked>Weighted Simulated Annealing</p>
-        <p><input type="radio" name="searchObj" value="constrained">Constrained Simulated Annealing</p>
-        <p><input type="radio" name="searchObj" value="dynamic">Dynamic Simulated Annealing</p>
-        <p><input type="radio" name="searchObj" value="lexical">Lexical Simulated Annealing</p>
+        <p><input type="checkbox" name="searchObj" value="weighted" checked>Weighted Simulated Annealing      Advanced Setting</p>
+        <p><input type="checkbox" name="searchObj" value="constrained">Constrained Simulated Annealing      Advanced Setting</p>
+        <p><input type="checkbox" name="searchObj" value="dynamic">Dynamic Simulated Annealing      Advanced Setting</p>
+        <p><input type="checkbox" name="searchObj" value="lexical">Lexical Simulated Annealing      Advanced Setting</p>
         <br>
         <p><input type="submit" value="Clean Data"/></p>
     </g:uploadForm>
@@ -27,5 +27,16 @@
   		<p>${flash.message}</p>
   	</g:if>
 	</div>
+	
+	<script>
+		showRangeValue()
+		function showRangeValue() {
+		    var range = document.getElementById("smthRange");
+		    var rangeVal = range.value;
+		    var rangeValBox = document.getElementById("rangeVal");
+		    rangeValBox.innerHTML = rangeVal;
+		}
+	</script>
+
   </body>
 </html>
