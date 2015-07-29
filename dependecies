@@ -293,21 +293,6 @@
     <dependency group='org.hibernate' name='hibernate-entitymanager' version='3.6.0.Final'>
       <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-entitymanager/3.6.0.Final/hibernate-entitymanager-3.6.0.Final.jar</jar>
     </dependency>
-    <dependency group='org.hibernate' name='hibernate-core' version='3.6.0.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-core/3.6.0.Final/hibernate-core-3.6.0.Final.jar</jar>
-    </dependency>
-    <dependency group='antlr' name='antlr' version='2.7.6'>
-      <jar>/Users/thomas/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar</jar>
-    </dependency>
-    <dependency group='commons-collections' name='commons-collections' version='3.1'>
-      <jar>/Users/thomas/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.2.0.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar</jar>
-    </dependency>
-    <dependency group='javax.transaction' name='jta' version='1.1'>
-      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/javax.transaction/jta/jars/jta-1.1.jar</jar>
-    </dependency>
     <dependency group='javassist' name='javassist' version='3.12.0.GA'>
       <jar>/Users/thomas/.m2/repository/javassist/javassist/3.12.0.GA/javassist-3.12.0.GA.jar</jar>
     </dependency>
@@ -325,9 +310,6 @@
     </dependency>
     <dependency group='com.google.guava' name='guava' version='18.0'>
       <jar>/Users/thomas/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar</jar>
-    </dependency>
-    <dependency group='postgresql' name='postgresql' version='9.1-901-1.jdbc4'>
-      <jar>/Users/thomas/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar</jar>
     </dependency>
     <dependency group='org.eclipse.emf' name='org.eclipse.emf.ecore' version='2.9.2-v20131212-0545'>
       <jar>/Users/thomas/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore/2.9.2-v20131212-0545/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar</jar>
@@ -476,6 +458,9 @@
     <dependency group='org.nuiton.thirdparty' name='JRI' version='0.9-6'>
       <jar>/Users/thomas/.m2/repository/org/nuiton/thirdparty/JRI/0.9-6/JRI-0.9-6.jar</jar>
     </dependency>
+    <dependency group='data.cleaning.webapp' name='privacyDataCleaning' version='0.0.1-SNAPSHOT'>
+      <jar>/Users/thomas/.m2/repository/data/cleaning/webapp/privacyDataCleaning/0.0.1-SNAPSHOT/privacyDataCleaning-0.0.1-SNAPSHOT.jar</jar>
+    </dependency>
     <dependency group='org.grails.plugins' name='scaffolding' version='2.1.2'>
       <jar>/Users/thomas/.m2/repository/org/grails/plugins/scaffolding/2.1.2/scaffolding-2.1.2.zip</jar>
     </dependency>
@@ -497,14 +482,23 @@
     <dependency group='org.grails' name='grails-datastore-core' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-core/jars/grails-datastore-core-3.1.3.RELEASE.jar</jar>
     </dependency>
+    <dependency group='javax.transaction' name='jta' version='1.1'>
+      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/javax.transaction/jta/jars/jta-1.1.jar</jar>
+    </dependency>
     <dependency group='org.grails' name='grails-datastore-gorm' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-3.1.3.RELEASE.jar</jar>
     </dependency>
-    <dependency group='dom4j' name='dom4j' version='1.6.1'>
-      <jar>/Users/thomas/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar</jar>
-    </dependency>
     <dependency group='org.grails' name='grails-datastore-simple' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-simple/jars/grails-datastore-simple-3.1.3.RELEASE.jar</jar>
+    </dependency>
+    <dependency group='commons-collections' name='commons-collections' version='3.2.1'>
+      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-core' version='3.6.10.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final/hibernate-core-3.6.10.Final.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.2.0.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar</jar>
     </dependency>
   </compile>
   <test>
@@ -769,21 +763,6 @@
     <dependency group='org.hibernate' name='hibernate-entitymanager' version='3.6.0.Final'>
       <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-entitymanager/3.6.0.Final/hibernate-entitymanager-3.6.0.Final.jar</jar>
     </dependency>
-    <dependency group='org.hibernate' name='hibernate-core' version='3.6.0.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-core/3.6.0.Final/hibernate-core-3.6.0.Final.jar</jar>
-    </dependency>
-    <dependency group='antlr' name='antlr' version='2.7.6'>
-      <jar>/Users/thomas/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar</jar>
-    </dependency>
-    <dependency group='commons-collections' name='commons-collections' version='3.1'>
-      <jar>/Users/thomas/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.2.0.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar</jar>
-    </dependency>
-    <dependency group='javax.transaction' name='jta' version='1.1'>
-      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/javax.transaction/jta/jars/jta-1.1.jar</jar>
-    </dependency>
     <dependency group='javassist' name='javassist' version='3.12.0.GA'>
       <jar>/Users/thomas/.m2/repository/javassist/javassist/3.12.0.GA/javassist-3.12.0.GA.jar</jar>
     </dependency>
@@ -801,9 +780,6 @@
     </dependency>
     <dependency group='com.google.guava' name='guava' version='18.0'>
       <jar>/Users/thomas/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar</jar>
-    </dependency>
-    <dependency group='postgresql' name='postgresql' version='9.1-901-1.jdbc4'>
-      <jar>/Users/thomas/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar</jar>
     </dependency>
     <dependency group='org.eclipse.emf' name='org.eclipse.emf.ecore' version='2.9.2-v20131212-0545'>
       <jar>/Users/thomas/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore/2.9.2-v20131212-0545/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar</jar>
@@ -952,11 +928,17 @@
     <dependency group='org.nuiton.thirdparty' name='JRI' version='0.9-6'>
       <jar>/Users/thomas/.m2/repository/org/nuiton/thirdparty/JRI/0.9-6/JRI-0.9-6.jar</jar>
     </dependency>
+    <dependency group='data.cleaning.webapp' name='privacyDataCleaning' version='0.0.1-SNAPSHOT'>
+      <jar>/Users/thomas/.m2/repository/data/cleaning/webapp/privacyDataCleaning/0.0.1-SNAPSHOT/privacyDataCleaning-0.0.1-SNAPSHOT.jar</jar>
+    </dependency>
     <dependency group='mysql' name='mysql-connector-java' version='5.1.29'>
       <jar>/Users/thomas/.m2/repository/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar</jar>
     </dependency>
     <dependency group='org.grails' name='grails-datastore-test-support' version='1.0.2-grails-2.4'>
       <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-test-support/1.0.2-grails-2.4/grails-datastore-test-support-1.0.2-grails-2.4.jar</jar>
+    </dependency>
+    <dependency group='postgresql' name='postgresql' version='9.1-901.jdbc4'>
+      <jar>/Users/thomas/.m2/repository/postgresql/postgresql/9.1-901.jdbc4/postgresql-9.1-901.jdbc4.jar</jar>
     </dependency>
     <dependency group='org.grails.plugins' name='scaffolding' version='2.1.2'>
       <jar>/Users/thomas/.m2/repository/org/grails/plugins/scaffolding/2.1.2/scaffolding-2.1.2.zip</jar>
@@ -979,53 +961,56 @@
     <dependency group='commons-io' name='commons-io' version='2.2'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/commons-io/commons-io/jars/commons-io-2.2.jar</jar>
     </dependency>
-    <dependency group='org.grails.plugins' name='hibernate4' version='4.3.6.1'>
-      <jar>/Users/thomas/.m2/repository/org/grails/plugins/hibernate4/4.3.6.1/hibernate4-4.3.6.1.zip</jar>
+    <dependency group='org.grails.plugins' name='hibernate' version='3.6.10.18'>
+      <jar>/Users/thomas/.m2/repository/org/grails/plugins/hibernate/3.6.10.18/hibernate-3.6.10.18.zip</jar>
     </dependency>
-    <dependency group='org.hibernate' name='hibernate-validator' version='5.1.1.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-validator/5.1.1.Final/hibernate-validator-5.1.1.Final.jar</jar>
-    </dependency>
-    <dependency group='javax.validation' name='validation-api' version='1.1.0.Final'>
-      <jar>/Users/thomas/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar</jar>
-    </dependency>
-    <dependency group='com.fasterxml' name='classmate' version='1.0.0'>
-      <jar>/Users/thomas/.m2/repository/com/fasterxml/classmate/1.0.0/classmate-1.0.0.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate' name='hibernate-ehcache' version='4.3.6.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-ehcache/4.3.6.Final/hibernate-ehcache-4.3.6.Final.jar</jar>
+    <dependency group='org.hibernate' name='hibernate-ehcache' version='3.6.10.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-ehcache/3.6.10.Final/hibernate-ehcache-3.6.10.Final.jar</jar>
     </dependency>
     <dependency group='net.sf.ehcache' name='ehcache-core' version='2.4.8'>
       <jar>/Users/thomas/.m2/repository/net/sf/ehcache/ehcache-core/2.4.8/ehcache-core-2.4.8.jar</jar>
     </dependency>
-    <dependency group='org.jboss.logging' name='jboss-logging' version='3.1.0.GA'>
-      <jar>/Users/thomas/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar</jar>
-    </dependency>
     <dependency group='org.grails' name='grails-datastore-core' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-core/jars/grails-datastore-core-3.1.3.RELEASE.jar</jar>
+    </dependency>
+    <dependency group='javax.transaction' name='jta' version='1.1'>
+      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/javax.transaction/jta/jars/jta-1.1.jar</jar>
     </dependency>
     <dependency group='org.grails' name='grails-datastore-gorm' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-3.1.3.RELEASE.jar</jar>
     </dependency>
-    <dependency group='org.grails' name='grails-datastore-gorm-hibernate4' version='3.1.3.RELEASE'>
-      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-hibernate4/3.1.3.RELEASE/grails-datastore-gorm-hibernate4-3.1.3.RELEASE.jar</jar>
+    <dependency group='org.grails' name='grails-datastore-gorm-hibernate' version='3.1.3.RELEASE'>
+      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-hibernate/3.1.3.RELEASE/grails-datastore-gorm-hibernate-3.1.3.RELEASE.jar</jar>
     </dependency>
     <dependency group='org.grails' name='grails-datastore-gorm-hibernate-core' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-hibernate-core/3.1.3.RELEASE/grails-datastore-gorm-hibernate-core-3.1.3.RELEASE.jar</jar>
     </dependency>
-    <dependency group='org.grails' name='grails-datastore-gorm-plugin-support' version='3.1.3.RELEASE'>
-      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-plugin-support/3.1.3.RELEASE/grails-datastore-gorm-plugin-support-3.1.3.RELEASE.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate.common' name='hibernate-commons-annotations' version='4.0.4.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.4.Final/hibernate-commons-annotations-4.0.4.Final.jar</jar>
-    </dependency>
-    <dependency group='org.jboss.logging' name='jboss-logging-annotations' version='1.2.0.Beta1'>
-      <jar>/Users/thomas/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar</jar>
+    <dependency group='antlr' name='antlr' version='2.7.7'>
+      <jar>/Users/thomas/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar</jar>
     </dependency>
     <dependency group='dom4j' name='dom4j' version='1.6.1'>
       <jar>/Users/thomas/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar</jar>
     </dependency>
+    <dependency group='org.grails' name='grails-datastore-gorm-plugin-support' version='3.1.3.RELEASE'>
+      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-plugin-support/3.1.3.RELEASE/grails-datastore-gorm-plugin-support-3.1.3.RELEASE.jar</jar>
+    </dependency>
     <dependency group='org.grails' name='grails-datastore-simple' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-simple/jars/grails-datastore-simple-3.1.3.RELEASE.jar</jar>
+    </dependency>
+    <dependency group='commons-collections' name='commons-collections' version='3.2.1'>
+      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-core' version='3.6.10.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final/hibernate-core-3.6.10.Final.jar</jar>
+    </dependency>
+    <dependency group='javax.validation' name='validation-api' version='1.0.0.GA'>
+      <jar>/Users/thomas/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-validator' version='4.1.0.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.2.0.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar</jar>
     </dependency>
     <dependency group='org.grails.plugins' name='database-migration' version='1.4.0'>
       <jar>/Users/thomas/.m2/repository/org/grails/plugins/database-migration/1.4.0/database-migration-1.4.0.zip</jar>
@@ -1254,21 +1239,6 @@
     <dependency group='org.hibernate' name='hibernate-entitymanager' version='3.6.0.Final'>
       <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-entitymanager/3.6.0.Final/hibernate-entitymanager-3.6.0.Final.jar</jar>
     </dependency>
-    <dependency group='org.hibernate' name='hibernate-core' version='3.6.0.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-core/3.6.0.Final/hibernate-core-3.6.0.Final.jar</jar>
-    </dependency>
-    <dependency group='antlr' name='antlr' version='2.7.6'>
-      <jar>/Users/thomas/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar</jar>
-    </dependency>
-    <dependency group='commons-collections' name='commons-collections' version='3.1'>
-      <jar>/Users/thomas/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.2.0.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar</jar>
-    </dependency>
-    <dependency group='javax.transaction' name='jta' version='1.1'>
-      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/javax.transaction/jta/jars/jta-1.1.jar</jar>
-    </dependency>
     <dependency group='javassist' name='javassist' version='3.12.0.GA'>
       <jar>/Users/thomas/.m2/repository/javassist/javassist/3.12.0.GA/javassist-3.12.0.GA.jar</jar>
     </dependency>
@@ -1286,9 +1256,6 @@
     </dependency>
     <dependency group='com.google.guava' name='guava' version='18.0'>
       <jar>/Users/thomas/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar</jar>
-    </dependency>
-    <dependency group='postgresql' name='postgresql' version='9.1-901-1.jdbc4'>
-      <jar>/Users/thomas/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar</jar>
     </dependency>
     <dependency group='org.eclipse.emf' name='org.eclipse.emf.ecore' version='2.9.2-v20131212-0545'>
       <jar>/Users/thomas/.m2/repository/org/eclipse/emf/org.eclipse.emf.ecore/2.9.2-v20131212-0545/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar</jar>
@@ -1437,8 +1404,14 @@
     <dependency group='org.nuiton.thirdparty' name='JRI' version='0.9-6'>
       <jar>/Users/thomas/.m2/repository/org/nuiton/thirdparty/JRI/0.9-6/JRI-0.9-6.jar</jar>
     </dependency>
+    <dependency group='data.cleaning.webapp' name='privacyDataCleaning' version='0.0.1-SNAPSHOT'>
+      <jar>/Users/thomas/.m2/repository/data/cleaning/webapp/privacyDataCleaning/0.0.1-SNAPSHOT/privacyDataCleaning-0.0.1-SNAPSHOT.jar</jar>
+    </dependency>
     <dependency group='mysql' name='mysql-connector-java' version='5.1.29'>
       <jar>/Users/thomas/.m2/repository/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar</jar>
+    </dependency>
+    <dependency group='postgresql' name='postgresql' version='9.1-901.jdbc4'>
+      <jar>/Users/thomas/.m2/repository/postgresql/postgresql/9.1-901.jdbc4/postgresql-9.1-901.jdbc4.jar</jar>
     </dependency>
     <dependency group='org.grails.plugins' name='scaffolding' version='2.1.2'>
       <jar>/Users/thomas/.m2/repository/org/grails/plugins/scaffolding/2.1.2/scaffolding-2.1.2.zip</jar>
@@ -1461,53 +1434,56 @@
     <dependency group='commons-io' name='commons-io' version='2.2'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/commons-io/commons-io/jars/commons-io-2.2.jar</jar>
     </dependency>
-    <dependency group='org.grails.plugins' name='hibernate4' version='4.3.6.1'>
-      <jar>/Users/thomas/.m2/repository/org/grails/plugins/hibernate4/4.3.6.1/hibernate4-4.3.6.1.zip</jar>
+    <dependency group='org.grails.plugins' name='hibernate' version='3.6.10.18'>
+      <jar>/Users/thomas/.m2/repository/org/grails/plugins/hibernate/3.6.10.18/hibernate-3.6.10.18.zip</jar>
     </dependency>
-    <dependency group='org.hibernate' name='hibernate-validator' version='5.1.1.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-validator/5.1.1.Final/hibernate-validator-5.1.1.Final.jar</jar>
-    </dependency>
-    <dependency group='javax.validation' name='validation-api' version='1.1.0.Final'>
-      <jar>/Users/thomas/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar</jar>
-    </dependency>
-    <dependency group='com.fasterxml' name='classmate' version='1.0.0'>
-      <jar>/Users/thomas/.m2/repository/com/fasterxml/classmate/1.0.0/classmate-1.0.0.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate' name='hibernate-ehcache' version='4.3.6.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-ehcache/4.3.6.Final/hibernate-ehcache-4.3.6.Final.jar</jar>
+    <dependency group='org.hibernate' name='hibernate-ehcache' version='3.6.10.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-ehcache/3.6.10.Final/hibernate-ehcache-3.6.10.Final.jar</jar>
     </dependency>
     <dependency group='net.sf.ehcache' name='ehcache-core' version='2.4.8'>
       <jar>/Users/thomas/.m2/repository/net/sf/ehcache/ehcache-core/2.4.8/ehcache-core-2.4.8.jar</jar>
     </dependency>
-    <dependency group='org.jboss.logging' name='jboss-logging' version='3.1.0.GA'>
-      <jar>/Users/thomas/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar</jar>
-    </dependency>
     <dependency group='org.grails' name='grails-datastore-core' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-core/jars/grails-datastore-core-3.1.3.RELEASE.jar</jar>
+    </dependency>
+    <dependency group='javax.transaction' name='jta' version='1.1'>
+      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/javax.transaction/jta/jars/jta-1.1.jar</jar>
     </dependency>
     <dependency group='org.grails' name='grails-datastore-gorm' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-3.1.3.RELEASE.jar</jar>
     </dependency>
-    <dependency group='org.grails' name='grails-datastore-gorm-hibernate4' version='3.1.3.RELEASE'>
-      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-hibernate4/3.1.3.RELEASE/grails-datastore-gorm-hibernate4-3.1.3.RELEASE.jar</jar>
+    <dependency group='org.grails' name='grails-datastore-gorm-hibernate' version='3.1.3.RELEASE'>
+      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-hibernate/3.1.3.RELEASE/grails-datastore-gorm-hibernate-3.1.3.RELEASE.jar</jar>
     </dependency>
     <dependency group='org.grails' name='grails-datastore-gorm-hibernate-core' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-hibernate-core/3.1.3.RELEASE/grails-datastore-gorm-hibernate-core-3.1.3.RELEASE.jar</jar>
     </dependency>
-    <dependency group='org.grails' name='grails-datastore-gorm-plugin-support' version='3.1.3.RELEASE'>
-      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-plugin-support/3.1.3.RELEASE/grails-datastore-gorm-plugin-support-3.1.3.RELEASE.jar</jar>
-    </dependency>
-    <dependency group='org.hibernate.common' name='hibernate-commons-annotations' version='4.0.4.Final'>
-      <jar>/Users/thomas/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.4.Final/hibernate-commons-annotations-4.0.4.Final.jar</jar>
-    </dependency>
-    <dependency group='org.jboss.logging' name='jboss-logging-annotations' version='1.2.0.Beta1'>
-      <jar>/Users/thomas/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar</jar>
+    <dependency group='antlr' name='antlr' version='2.7.7'>
+      <jar>/Users/thomas/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar</jar>
     </dependency>
     <dependency group='dom4j' name='dom4j' version='1.6.1'>
       <jar>/Users/thomas/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar</jar>
     </dependency>
+    <dependency group='org.grails' name='grails-datastore-gorm-plugin-support' version='3.1.3.RELEASE'>
+      <jar>/Users/thomas/.m2/repository/org/grails/grails-datastore-gorm-plugin-support/3.1.3.RELEASE/grails-datastore-gorm-plugin-support-3.1.3.RELEASE.jar</jar>
+    </dependency>
     <dependency group='org.grails' name='grails-datastore-simple' version='3.1.3.RELEASE'>
       <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/org.grails/grails-datastore-simple/jars/grails-datastore-simple-3.1.3.RELEASE.jar</jar>
+    </dependency>
+    <dependency group='commons-collections' name='commons-collections' version='3.2.1'>
+      <jar>/Users/thomas/Documents/ProgrammingTools/ggts-bundle/grails-2.4.4/lib/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-core' version='3.6.10.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final/hibernate-core-3.6.10.Final.jar</jar>
+    </dependency>
+    <dependency group='javax.validation' name='validation-api' version='1.0.0.GA'>
+      <jar>/Users/thomas/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-validator' version='4.1.0.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final.jar</jar>
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.2.0.Final'>
+      <jar>/Users/thomas/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar</jar>
     </dependency>
     <dependency group='org.grails.plugins' name='database-migration' version='1.4.0'>
       <jar>/Users/thomas/.m2/repository/org/grails/plugins/database-migration/1.4.0/database-migration-1.4.0.zip</jar>
