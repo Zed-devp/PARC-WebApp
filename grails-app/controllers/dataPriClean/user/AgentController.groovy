@@ -260,48 +260,58 @@ class AgentController {
 		def targetDatasetName = session.targetDataset
 		def targetDataset = Dataset.findByName(targetDatasetName)
 		
+		def mAgent
+		def mDataset
+		
 		if (!targetDataset) {
 			flash.message = "Target dataset not found, please upload the dataset!"
 			println("Target dataset not found, please upload the dataset!")
 			return
 		}
 		
-		if (masterAgent && masterDataset && simThreshold && searchObj && config) {
-			def mAgent = Agent.findByName(masterAgent)
+		if (masterAgent) {
+			mAgent = Agent.findByName(masterAgent)
 			if (!mAgent || mAgent.role != "Master") {
 				flash.message = "Agent not found, please enter the right name!"
 				println("Agent not found, please enter the right name!")
 				return
 			}
-			
-			def mDataset = Dataset.findByName(masterDataset)
+		}
+		else {
+			flash.message = "Please input master agent information!"
+			println("Please input master agent information!")
+			return
+		}
+		
+		if (masterDataset) {
+			mDataset = Dataset.findByName(masterDataset)
 			if (!mDataset || !mAgent.datasets.contains(mDataset)) {
 				flash.message = "Master dataset not found, please enter the right dataset name!"
 				println("Master dataset not found, please enter the right dataset name!")
 				return
 			}
-			
-			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
-			println(recommendations)
 		}
-		else if (masterAgent && masterDataset && simThreshold && searchObj) {
-			def mAgent = Agent.findByName(masterAgent)
-			if (!mAgent || mAgent.role != "Master") {
-				flash.message = "Agent not found, please enter the right name!"
-				println("Agent not found, please enter the right name!")
-				return
-			}
-			
-			def mDataset = Dataset.findByName(masterDataset)
-			if (!mDataset || !mAgent.datasets.contains(mDataset)) {
-				flash.message = "Master dataset not found, please enter the right dataset name!"
-				println("Master dataset not found, please enter the right dataset name!")
-				return
-			}
-			
-			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj)
-			println(recommendations)
+		else {
+			flash.message = "Please input master dataset information!"
+			println("Please input master dataset information!")
+			return
 		}
+		
+		if (searchObj) {
+			if (config) {
+				recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
+			}
+			else {
+				recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj)
+			}
+		}
+		else {
+			flash.message = "Please indicate searching algorithms!"
+			println("Please indicate searching algorithms!")
+			return
+		}
+		
+		println(recommendations)
 		
 		[recs: recommendations]
 	}
