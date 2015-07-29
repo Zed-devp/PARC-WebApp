@@ -101,7 +101,7 @@ class DataCleanService {
 		return result
 	}
 	
-	String getRecommendations(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {
+	String getRecommendationsInd(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {
 		DataCleaningUtils dataCleanUtil = new DataCleaningUtils()
 		
 		String result = ""
@@ -140,6 +140,67 @@ class DataCleanService {
 		}
 		
 		return result
+	}
+	
+	String getRecommendations(def targetDataset, def masterDataset, def simThreshold, def searchObj, def config) {
+		StringBuilder sb = new StringBuilder()
+		
+		if (searchObj) {
+			searchObj.each {
+				switch (it) {
+					case "weighted":
+						def s
+						if (config["weighted"]) {
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["weighted"])
+						}
+						else {
+							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+						}
+						sb.append("====================================== \n")
+						sb.append("For weighted algorithm: \n")
+						sb.append(s + "\n")
+						break
+					case "dynamic":
+						def s
+						if (config["dynamic"]) {
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["dynamic"])
+						}
+						else {
+							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+						}
+						sb.append("====================================== \n")
+						sb.append("For dynamic algorithm: \n")
+						sb.append(s + "\n")
+						break
+					case "lexical":
+						def s
+						if (config["lexical"]) {
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["lexical"])
+						}
+						else {
+							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+						}
+						sb.append("====================================== \n")
+						sb.append("For lexical algorithm: \n")
+						sb.append(s + "\n")
+						break
+					case "constrained":
+						def s
+						if (config["constrained"]) {
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["constrained"])
+						}
+						else {
+							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+						}
+						sb.append("====================================== \n")
+						sb.append("For constrained algorithm: \n")
+						sb.append(s + "\n")
+						break
+				}
+			}
+		}
+		
+		return sb.toString()
 	}
 	
 	Map<String, Double> mapConvert (def map) {

@@ -388,6 +388,180 @@ class AgentController {
 		redirect(controller:"agent",action:"cleanDataUserInput")
 	}
 	
+	def saveConfigWeighted () {
+		def configAll
+		if (session.config) {
+			configAll = session.config
+		}
+		else {
+			configAll = [:]
+		}
+		
+		def config = [:]
+		
+		//searching config
+		if (params.stTemp) {
+			config["stTemp"] = Double.parseDouble(params.stTemp)
+		}
+		if (params.endTemp) {
+			config["endTemp"] = Double.parseDouble(params.endTemp)
+		}
+		if (params.alpTemp) {
+			config["alpTemp"] = Double.parseDouble(params.alpTemp)
+		}
+		if (params.stepTemp) {
+			config["stepTemp"] = Double.parseDouble(params.stepTemp)
+		}
+		if (params.bestEn) {
+			config["bestEn"] = Double.parseDouble(params.bestEn)
+		}
+		
+		//weighted config
+		if (params.alphaPvt) {
+			config["alphaPvt"] = Double.parseDouble(params.alphaPvt)
+		}
+		if (params.betaInd) {
+			config["betaInd"] = Double.parseDouble(params.betaInd)
+		}
+		if (params.gamaSize) {
+			config["gamaSize"] = Double.parseDouble(params.gamaSize)
+		}
+		
+		configAll["weighted"] = config
+		
+		session.config = configAll
+		redirect(controller:"agent",action:"cleanDataUserInput")
+	}
+	
+	def saveConfigConstrained () {
+		def configAll
+		if (session.config) {
+			configAll = session.config
+		}
+		else {
+			configAll = [:]
+		}
+		
+		def config = [:]
+		
+		//searching config
+		if (params.stTemp) {
+			config["stTemp"] = Double.parseDouble(params.stTemp)
+		}
+		if (params.endTemp) {
+			config["endTemp"] = Double.parseDouble(params.endTemp)
+		}
+		if (params.alpTemp) {
+			config["alpTemp"] = Double.parseDouble(params.alpTemp)
+		}
+		if (params.stepTemp) {
+			config["stepTemp"] = Double.parseDouble(params.stepTemp)
+		}
+		if (params.bestEn) {
+			config["bestEn"] = Double.parseDouble(params.bestEn)
+		}
+		
+		//constrained config
+		if (params.cleaning) {
+			config["cleaning"] = Double.parseDouble(params.cleaning)
+		}
+		if (params.size) {
+			config["size"] = Double.parseDouble(params.size)
+		}
+		
+		configAll["constrained"] = config
+		
+		session.config = configAll
+		redirect(controller:"agent",action:"cleanDataUserInput")
+	}
+	
+	def saveConfigDynamic () {
+		def configAll
+		if (session.config) {
+			configAll = session.config
+		}
+		else {
+			configAll = [:]
+		}
+		
+		def config = [:]
+		
+		//searching config
+		if (params.stTemp) {
+			config["stTemp"] = Double.parseDouble(params.stTemp)
+		}
+		if (params.endTemp) {
+			config["endTemp"] = Double.parseDouble(params.endTemp)
+		}
+		if (params.alpTemp) {
+			config["alpTemp"] = Double.parseDouble(params.alpTemp)
+		}
+		if (params.stepTemp) {
+			config["stepTemp"] = Double.parseDouble(params.stepTemp)
+		}
+		if (params.bestEn) {
+			config["bestEn"] = Double.parseDouble(params.bestEn)
+		}
+		
+		//constrained config
+		if (params.privacy) {
+			config["privacy"] = Double.parseDouble(params.privacy)
+		}
+		if (params.cleaning) {
+			config["cleaning"] = Double.parseDouble(params.cleaning)
+		}
+		if (params.size) {
+			config["size"] = Double.parseDouble(params.size)
+		}
+		
+		configAll["dynamic"] = config
+		
+		session.config = configAll
+		redirect(controller:"agent",action:"cleanDataUserInput")
+	}
+	
+	def saveConfigLexical () {
+		def configAll
+		if (session.config) {
+			configAll = session.config
+		}
+		else {
+			configAll = [:]
+		}
+		
+		def config = [:]
+		
+		//searching config
+		if (params.stTemp) {
+			config["stTemp"] = Double.parseDouble(params.stTemp)
+		}
+		if (params.endTemp) {
+			config["endTemp"] = Double.parseDouble(params.endTemp)
+		}
+		if (params.alpTemp) {
+			config["alpTemp"] = Double.parseDouble(params.alpTemp)
+		}
+		if (params.stepTemp) {
+			config["stepTemp"] = Double.parseDouble(params.stepTemp)
+		}
+		if (params.bestEn) {
+			config["bestEn"] = Double.parseDouble(params.bestEn)
+		}
+		
+		//constrained config
+		if (params.privacy) {
+			config["privacy"] = Double.parseDouble(params.privacy)
+		}
+		if (params.cleaning) {
+			config["cleaning"] = Double.parseDouble(params.cleaning)
+		}
+		
+		configAll["lexical"] = config
+		
+		session.config = configAll
+		redirect(controller:"agent",action:"cleanDataUserInput")
+	}
+	
 	def weightedSASetting () {
 	
 	}

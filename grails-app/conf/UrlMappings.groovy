@@ -25,7 +25,12 @@ class UrlMappings {
 		"/constrainedSASetting"(controller:"agent",action:"constrainedSASetting")
 		"/dynamicSASetting"(controller:"agent",action:"dynamicSASetting")
 		"/lexicalSASetting"(controller:"agent",action:"lexicalSASetting")
+		
 		"/saveConfig"(controller:"agent",action:"saveConfig")
+		"/saveConfigWeighted"(controller:"agent",action:"saveConfigWeighted")
+		"/saveConfigConstrained"(controller:"agent",action:"saveConfigConstrained")
+		"/saveConfigDynamic"(controller:"agent",action:"saveConfigDynamic")
+		"/saveConfigLexical"(controller:"agent",action:"saveConfigLexical")
 			
         "500"(view:'/error')
 	}

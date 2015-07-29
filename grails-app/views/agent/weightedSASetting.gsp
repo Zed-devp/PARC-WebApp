@@ -6,7 +6,7 @@
   <body>
     <div class="body">
     	<h>Please fill in the forms!</h>
-		<g:uploadForm controller="agent" action="saveConfig" method="POST">
+		<g:uploadForm controller="agent" action="saveConfigWeighted" method="POST">
 			<p>Searching Configuration:</p>
 	        <p>Start Temperature: <input id="stTemp" type="range" name="stTemp" min="0.0" max="1.0" value="0.0009" step="0.00001" oninput="showRangeValue(id)" /><span id="stTempText"></span></p>
 	        <p>Final Temperature: <input id="endTemp" type="range" name="endTemp" min="0.0" max="1.0" value="0.00005" step="0.00001" oninput="showRangeValue(id)" /><span id="endTempText"></span></p>
