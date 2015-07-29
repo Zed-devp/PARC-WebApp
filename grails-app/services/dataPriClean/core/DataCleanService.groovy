@@ -45,16 +45,19 @@ class DataCleanService {
     String findViolations (TargetDataset dataset) {
 		RepairService repairService = new RepairServiceImpl()
 		
+		List<Constraint> constraints = dataset.getConstraints()
+		
 		StringBuilder sb = new StringBuilder()
 
-		List<Violations> violationsList = new ArrayList<Violations>()
-
 		for (Constraint constraint : constraints) {
+			sb.append("========================================\n")
+			sb.append("Constraint: ")
+			sb.append(constraint.toString() + "\n")
 			Violations v = repairService.calcViolations(dataset.records, constraint)
-			violationsList.add(v)
+			sb.append(v.toString() + "\n")
 		}
 
-		return violationsList
+		return sb.toString()
 	}
 	
 	String getRecommendations(def targetDataset, def masterDataset, def simThreshold, def searchObj) {
