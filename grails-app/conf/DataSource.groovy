@@ -33,7 +33,7 @@ environments {
     production {
         dataSource {
             dbCreate = "create-drop"
-            url = "jdbc:postgresql://localhost/data_privacy_test?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/data_privacy_test?useUnicode=yes&characterEncoding=UTF-8"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
