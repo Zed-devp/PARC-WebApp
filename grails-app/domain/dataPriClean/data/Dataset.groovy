@@ -8,4 +8,8 @@ class Dataset {
     static constraints = {
 		dbConstraint(nullable: true)
     }
+	
+	static mapping = {
+		dbConstraint cascade: 'all-delete-orphan'
+	}
 }

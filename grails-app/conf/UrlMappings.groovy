@@ -20,6 +20,12 @@ class UrlMappings {
 		"/dataAnalyze"(controller:"agent",action:"dataAnalyze")
 		"/cleanDataUserInput"(controller:"agent",action:"cleanDataUserInput")
 		"/getRecommendations"(controller:"agent",action:"getRecommendations")
+		
+		"/weightedSASetting"(controller:"agent",action:"weightedSASetting")
+		"/constrainedSASetting"(controller:"agent",action:"constrainedSASetting")
+		"/dynamicSASetting"(controller:"agent",action:"dynamicSASetting")
+		"/lexicalSASetting"(controller:"agent",action:"lexicalSASetting")
+		"/saveConfig"(controller:"agent",action:"saveConfig")
 			
         "500"(view:'/error')
 	}

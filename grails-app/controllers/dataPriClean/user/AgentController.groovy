@@ -212,6 +212,9 @@ class AgentController {
 			session.targetDataset = params.dataset
 			redirect(controller:"agent",action:"cleanDataUserInput")
 		}
+		else if (params.func == "Delete Data") {
+			deleteDataset(params)
+		}
 	}
 	
 	def findViolations () {
@@ -252,6 +255,7 @@ class AgentController {
 		def masterDataset = params.masterDataset
 		def simThreshold = params.simThreshold
 		def searchObj = params.searchObj
+		def config = session.config
 		
 		def targetDatasetName = session.targetDataset
 		def targetDataset = Dataset.findByName(targetDatasetName)
@@ -262,7 +266,25 @@ class AgentController {
 			return
 		}
 		
-		if (masterAgent && masterDataset && simThreshold && searchObj) {
+		if (masterAgent && masterDataset && simThreshold && searchObj && config) {
+			def mAgent = Agent.findByName(masterAgent)
+			if (!mAgent || mAgent.role != "Master") {
+				flash.message = "Agent not found, please enter the right name!"
+				println("Agent not found, please enter the right name!")
+				return
+			}
+			
+			def mDataset = Dataset.findByName(masterDataset)
+			if (!mDataset || !mAgent.datasets.contains(mDataset)) {
+				flash.message = "Master dataset not found, please enter the right dataset name!"
+				println("Master dataset not found, please enter the right dataset name!")
+				return
+			}
+			
+			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
+			println(recommendations)
+		}
+		else if (masterAgent && masterDataset && simThreshold && searchObj) {
 			def mAgent = Agent.findByName(masterAgent)
 			if (!mAgent || mAgent.role != "Master") {
 				flash.message = "Agent not found, please enter the right name!"
@@ -282,5 +304,93 @@ class AgentController {
 		}
 		
 		[recs: recommendations]
+	}
+	
+	def deleteDataset (def params) {
+		def user = Agent.findByName(session.user.name)
+		def fileName = params.dataset
+		def conName = params.con
+		
+		def dataset = Dataset.findByName(fileName)
+		def con = DbConstraint.findByName(conName)
+		
+		if (dataset && con && user) {
+			user.removeFromDatasets(dataset)
+			dataset.delete(flush: true)
+			println("Delete dataset: " + dataset.name + " successfully!")
+			redirect(controller:"agent",action:"index")
+		}
+		else {
+			flash.message = "Target Dataset Not Found!"
+			print("Target Dataset Not Found!")
+			redirect(controller:"agent",action:"index")
+		}
+	}
+	
+	def saveConfig () {
+		def config = [:]
+		
+		//searching config
+		if (params.stTemp) {
+			config["stTemp"] = Double.parseDouble(params.stTemp)
+		}
+		if (params.endTemp) {
+			config["endTemp"] = Double.parseDouble(params.endTemp)
+		}
+		if (params.alpTemp) {
+			config["alpTemp"] = Double.parseDouble(params.alpTemp)
+		}
+		if (params.stepTemp) {
+			config["stepTemp"] = Double.parseDouble(params.stepTemp)
+		}
+		if (params.bestEn) {
+			config["bestEn"] = Double.parseDouble(params.bestEn)
+		}
+		
+		//weighted config
+		if (params.alphaPvt) {
+			config["alphaPvt"] = Double.parseDouble(params.alphaPvt)
+		}
+		if (params.betaInd) {
+			config["betaInd"] = Double.parseDouble(params.betaInd)
+		}
+		if (params.gamaSize) {
+			config["gamaSize"] = Double.parseDouble(params.gamaSize)
+		}
+		
+		//constrained config
+		if (params.cleaning) {
+			config["cleaning"] = Double.parseDouble(params.cleaning)
+		}
+		if (params.size) {
+			config["size"] = Double.parseDouble(params.size)
+		}
+		
+		//dynamic config
+		if (params.privacy) {
+			config["privacy"] = Double.parseDouble(params.privacy)
+		}
+		
+		print ("Searching Config: " + config)
+		
+		session.config = config
+		
+		redirect(controller:"agent",action:"cleanDataUserInput")
+	}
+	
+	def weightedSASetting () {
+	
+	}
+	
+	def constrainedSASetting () {
+		
+	}
+	
+	def dynamicSASetting () {
+		
+	}
+	
+	def lexicalSASetting () {
+		
 	}
 }

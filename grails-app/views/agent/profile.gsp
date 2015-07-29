@@ -22,6 +22,7 @@
 	                    <p>Constraint: <input name="con" type="text" value="${dataset.conName}" readonly></p>
 	                    <input type="submit" name="func" value="Violation Detection">
 	                    <input type="submit" name="func" value="Clean Data">
+	                    <input type="submit" name="func" value="Delete Data">
 	                </form>
                     <br>
                 </g:each>

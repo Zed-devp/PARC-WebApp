@@ -22,6 +22,10 @@ class Agent {
 		role(inList: ["Target", "Master"])
     }
 	
+	static mapping = {
+		datasets(cascade: 'all-delete-orphan')
+	}
+	
 	String toString () {
 		name
 	}

@@ -42,10 +42,10 @@ class DataCleanService {
 		return datasetService.loadMasterDataset(url, fileName, fdUrl, tid, separator, quoteChar)
 	}
 
-    List<Violations> findViolations (TargetDataset dataset) {
+    String findViolations (TargetDataset dataset) {
 		RepairService repairService = new RepairServiceImpl()
 		
-		List<Constraint> constraints = dataset.getConstraints()
+		StringBuilder sb = new StringBuilder()
 
 		List<Violations> violationsList = new ArrayList<Violations>()
 
@@ -96,5 +96,56 @@ class DataCleanService {
 		}
 		
 		return result
+	}
+	
+	String getRecommendations(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {
+		DataCleaningUtils dataCleanUtil = new DataCleaningUtils()
+		
+		String result = ""
+		
+		TargetDataset target = loadTargetDataset(targetDataset.url, targetDataset.name, targetDataset.dbConstraint.url)
+		MasterDataset master = loadMasterDataset(masterDataset.url, masterDataset.name, masterDataset.dbConstraint.url, targetDataset.id)
+		
+		if (target && master) {
+		
+			float simThresholdF = Float.parseFloat(simThreshold);
+			
+			SearchType searchType
+			
+			switch (searchObj) {
+				case "weighted":
+					searchType = SearchType.SA_WEIGHTED
+					break
+				case "constrained":
+					searchType = SearchType.SA_EPS_FLEX
+					break
+				case "dynamic":
+					searchType = SearchType.SA_EPS_DYNAMIC
+					break
+				case "lexical":
+					searchType = SearchType.SA_EPS_LEX
+					break
+				default:
+					searchType = SearchType.SA_EPS
+					break
+			}
+			
+			result = dataCleanUtil.runDataCleaning(target, master, simThresholdF, searchType, config)
+		}
+		else {
+			println("Target & Master Dataset Not Found!")
+		}
+		
+		return result
+	}
+	
+	Map<String, Double> mapConvert (def map) {
+		Map<String, Double> mapJava = new HashMap<String, Double>();
+		
+		map.each { key, value ->
+			mapJava.put(key, value)
+		}
+		
+		return mapJava
 	}
 }
