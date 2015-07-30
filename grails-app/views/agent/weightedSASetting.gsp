@@ -5,6 +5,7 @@
   </head>
   <body>
     <div class="body">
+    	<h>Weighted Simulated Annealing Advanced Setting</h>
     	<h>Please fill in the forms!</h>
 		<g:uploadForm controller="agent" action="saveConfigWeighted" method="POST">
 			<p>Searching Configuration:</p>

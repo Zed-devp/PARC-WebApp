@@ -8,9 +8,9 @@
     	<h>Upload your dataset and constraint file!</h>
 		<g:uploadForm action="uploadData">
 		<br>
-        <p>Dataset File: <input type="file" name="dataFile" /></p>
+        <p>Dataset File: (Dataset file name should be unique)<input type="file" name="dataFile" /></p>
         <br>
-        <p>Constraint File: <input type="file" name="conFile" /></p>
+        <p>Constraint File: (Constraint file name should be unique)<input type="file" name="conFile" /></p>
         <br>
         <p><input type="submit" value="Upload"/></p>
     </g:uploadForm>
