@@ -42,7 +42,7 @@ class DataCleanService {
 		return datasetService.loadMasterDataset(url, fileName, fdUrl, tid, separator, quoteChar)
 	}
 
-    String findViolations (TargetDataset dataset) {
+   String findViolations (TargetDataset dataset) {
 		RepairService repairService = new RepairServiceImpl()
 		
 		List<Constraint> constraints = dataset.getConstraints()
@@ -60,47 +60,7 @@ class DataCleanService {
 		return sb.toString()
 	}
 	
-	String getRecommendations(def targetDataset, def masterDataset, def simThreshold, def searchObj) {
-		DataCleaningUtils dataCleanUtil = new DataCleaningUtils()
-		
-		String result = ""
-		
-		TargetDataset target = loadTargetDataset(targetDataset.url, targetDataset.name, targetDataset.dbConstraint.url)
-		MasterDataset master = loadMasterDataset(masterDataset.url, masterDataset.name, masterDataset.dbConstraint.url, targetDataset.id)
-		
-		if (target && master) {
-		
-			float simThresholdF = Float.parseFloat(simThreshold);
-			
-			SearchType searchType
-			
-			switch (searchObj) {
-				case "weighted":
-					searchType = SearchType.SA_WEIGHTED
-					break
-				case "constrained":
-					searchType = SearchType.SA_EPS_FLEX
-					break
-				case "dynamic":
-					searchType = SearchType.SA_EPS_DYNAMIC
-					break
-				case "lexical":
-					searchType = SearchType.SA_EPS_LEX
-					break
-				default:
-					searchType = SearchType.SA_EPS
-					break
-			}
-			
-			result = dataCleanUtil.runDataCleaning(target, master, simThresholdF, searchType)
-		}
-		else {
-			println("Target & Master Dataset Not Found!")
-		}
-		
-		return result
-	}
-	
+	//get recommendation result for individual searching type and config
 	String getRecommendationsInd(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {
 		DataCleaningUtils dataCleanUtil = new DataCleaningUtils()
 		
@@ -142,6 +102,7 @@ class DataCleanService {
 		return result
 	}
 	
+	//get recommendation result for multiple searching type and config
 	String getRecommendations(def targetDataset, def masterDataset, def simThreshold, def searchObj, def config) {
 		StringBuilder sb = new StringBuilder()
 		
@@ -154,7 +115,7 @@ class DataCleanService {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["weighted"])
 						}
 						else {
-							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, null)
 						}
 						sb.append("====================================== \n")
 						sb.append("For weighted algorithm: \n")
@@ -166,7 +127,7 @@ class DataCleanService {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["dynamic"])
 						}
 						else {
-							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, null)
 						}
 						sb.append("====================================== \n")
 						sb.append("For dynamic algorithm: \n")
@@ -178,7 +139,7 @@ class DataCleanService {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["lexical"])
 						}
 						else {
-							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, null)
 						}
 						sb.append("====================================== \n")
 						sb.append("For lexical algorithm: \n")
@@ -190,7 +151,7 @@ class DataCleanService {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["constrained"])
 						}
 						else {
-							s = getRecommendations(targetDataset, masterDataset, simThreshold, it)
+							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, null)
 						}
 						sb.append("====================================== \n")
 						sb.append("For constrained algorithm: \n")
