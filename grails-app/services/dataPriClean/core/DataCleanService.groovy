@@ -150,7 +150,7 @@ class DataCleanService {
 				switch (it) {
 					case "weighted":
 						def s
-						if (config["weighted"]) {
+						if (config && config["weighted"]) {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["weighted"])
 						}
 						else {
@@ -162,7 +162,7 @@ class DataCleanService {
 						break
 					case "dynamic":
 						def s
-						if (config["dynamic"]) {
+						if (config && config["dynamic"]) {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["dynamic"])
 						}
 						else {
@@ -174,7 +174,7 @@ class DataCleanService {
 						break
 					case "lexical":
 						def s
-						if (config["lexical"]) {
+						if (config && config["lexical"]) {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["lexical"])
 						}
 						else {
@@ -186,7 +186,7 @@ class DataCleanService {
 						break
 					case "constrained":
 						def s
-						if (config["constrained"]) {
+						if (config && config["constrained"]) {
 							s = getRecommendationsInd(targetDataset, masterDataset, simThreshold, it, config["constrained"])
 						}
 						else {

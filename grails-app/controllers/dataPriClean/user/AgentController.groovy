@@ -298,12 +298,9 @@ class AgentController {
 		}
 		
 		if (searchObj) {
-			if (config) {
-				recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
-			}
-			else {
-				recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj)
-			}
+			println("getRec()::searchObj: " + searchObj)
+			println("getRec()::config: " + config)
+			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
 		}
 		else {
 			flash.message = "Please indicate searching algorithms!"
@@ -325,6 +322,7 @@ class AgentController {
 		def con = DbConstraint.findByName(conName)
 		
 		if (dataset && con && user) {
+			//TODO: handle error when deleting fails
 			user.removeFromDatasets(dataset)
 			dataset.delete(flush: true)
 			println("Delete dataset: " + dataset.name + " successfully!")
