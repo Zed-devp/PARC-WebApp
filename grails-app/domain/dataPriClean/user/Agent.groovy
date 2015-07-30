@@ -23,7 +23,7 @@ class Agent {
     }
 	
 	static mapping = {
-		datasets(cascade: 'all-delete-orphan')
+		datasets(cascade: 'delete, all-delete-orphan')
 	}
 	
 	String toString () {
