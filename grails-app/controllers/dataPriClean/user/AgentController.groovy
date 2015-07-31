@@ -323,8 +323,16 @@ class AgentController {
 		
 		if (dataset && con && user) {
 			//TODO: handle error when deleting fails
+			String datasetUrl = dataset.url
+			String conUrl = con.url
+			
+			//delete the records in the database
 			user.removeFromDatasets(dataset)
 			dataset.delete(flush: true)
+			
+			//delete the dataset & constraint & parent dir files
+			dataCleanService.deleteDatasetFile(datasetUrl, conUrl)
+			
 			println("Delete dataset: " + dataset.name + " successfully!")
 			redirect(controller:"agent",action:"index")
 		}

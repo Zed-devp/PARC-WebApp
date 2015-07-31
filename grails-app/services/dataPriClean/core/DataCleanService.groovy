@@ -173,4 +173,37 @@ class DataCleanService {
 		
 		return mapJava
 	}
+	
+	//delete individual file
+	void deleteFileByUrl (String url) {
+		File file = new File(url)
+		
+		if (!file.exists()) {
+			println ("File does not exist, cannot delete the file!")
+		}
+		else {
+			file.delete()
+			println ("The file " + file.toString() + " was deleted succesfully!")
+		}
+	}
+	
+	//delete the dataset file, its constraint file and parent directory 
+	void deleteDatasetFile (String datasetUrl, String conUrl) {
+		File datasetFile = new File(datasetUrl)
+		File parentDir
+		if (!datasetFile.exists()) {
+			println ("File does not exist, cannot delete the file!")
+			return
+		}
+		else {
+		 parentDir = datasetFile.getParentFile()
+		}
+		
+		deleteFileByUrl(datasetUrl)
+		deleteFileByUrl(conUrl)
+		parentDir.delete()
+		
+		println ("Delete dataset: " + datasetFile.toString() + 
+			" and its constraint file successfully!")
+	}
 }
