@@ -298,6 +298,10 @@ class AgentController {
 		}
 		
 		if (searchObj) {
+			if (searchObj.getClass().equals("".getClass())) {
+				searchObj = [searchObj]
+			}
+			
 			println("getRec()::searchObj: " + searchObj)
 			println("getRec()::config: " + config)
 			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
