@@ -7,7 +7,7 @@
     <div class="body">
 	    <p>Recommendations:</p>
 	    	<br>
-	    	<textarea>${recs}</textarea>
+	    	<textarea style="width: 600px; height: 300px;">${recs}</textarea>
 		</div>
 		<g:if test="${flash.message}">
   		<p>${flash.message}</p>

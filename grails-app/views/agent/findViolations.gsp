@@ -7,7 +7,7 @@
     <div class="body">
     	<p>Violations:</p>
     	<br>
-    	<textarea>${vio}</textarea>
+    	<textarea style="width: 600px; height: 300px;">${vio}</textarea>
     	<g:if test="${flash.message}">
   		<p>${flash.message}</p>
   	</g:if>
