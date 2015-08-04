@@ -15,7 +15,7 @@ import data.cleaning.core.service.repair.impl.RepairServiceImpl
 import data.cleaning.core.utils.search.SearchType
 
 import data.cleaning.webapp.core.DataCleaningUtils
-import data.cleaning.webapp.core.DataCleaningUtilsImpl
+import data.cleaning.webapp.core.implementation.DataCleaningUtilsImpl
 
 import dataPriClean.data.DbConstraint
 import dataPriClean.data.Dataset
