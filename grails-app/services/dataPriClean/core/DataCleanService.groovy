@@ -15,6 +15,7 @@ import data.cleaning.core.service.repair.impl.RepairServiceImpl
 import data.cleaning.core.utils.search.SearchType
 
 import data.cleaning.webapp.core.DataCleaningUtils
+import data.cleaning.webapp.core.DataCleaningUtilsImpl
 
 import dataPriClean.data.DbConstraint
 import dataPriClean.data.Dataset
@@ -62,7 +63,7 @@ class DataCleanService {
 	
 	//get recommendation result for individual searching type and config
 	String getRecommendationsInd(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {
-		DataCleaningUtils dataCleanUtil = new DataCleaningUtils()
+		DataCleaningUtils dataCleanUtil = new DataCleaningUtilsImpl()
 		
 		String result = ""
 		
