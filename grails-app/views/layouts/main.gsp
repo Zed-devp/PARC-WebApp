@@ -36,7 +36,8 @@
 	        <div id="navbar">
 	          <ul class="nav navbar-nav">
 	            <li class="active"><a href="#">Home</a></li>
-	            <li><a href="#">Violation Detection</a></li>
+	            <li><a href="#">Datasets</a></li>
+	            <li><a href="#">Data Quality</a></li>
 	            <li><a href="#">Data Cleaning</a></li>
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">

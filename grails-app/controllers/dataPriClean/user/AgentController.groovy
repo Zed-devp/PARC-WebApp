@@ -11,7 +11,6 @@ class AgentController {
 
 	//index page
     def index () {
-		redirect(controller:"agent",action:"profile")
 	}
 	
 	//login page
@@ -102,6 +101,8 @@ class AgentController {
 		def user = session.user
 		def dataFile = params.dataFile
 		def conFile = params.conFile
+		def masterAgent = params.masterAgent
+		def masterDataset = params.masterDataset
 		
 		if (!user) {
 			flash.message = "Please login first!"
@@ -117,6 +118,18 @@ class AgentController {
 		
 		if (conFile.isEmpty()) {
 			flash.message = "Constraint file cannot be empty!"
+			redirect(action: "upload")
+			return
+		}
+		
+		if (!masterAgent) {
+			flash.message = "Master Agent cannot be empty!"
+			redirect(action: "upload")
+			return
+		}
+		
+		if (!masterDataset) {
+			flash.message = "Master Agent cannot be empty!"
 			redirect(action: "upload")
 			return
 		}
@@ -586,5 +599,31 @@ class AgentController {
 	
 	def lexicalSASetting () {
 		
+	}
+	
+	def datasetMan () {
+		def user = session.user
+		
+		def datasets
+		def dataInfo = []
+		
+		if (user) {
+			def curUser = Agent.findByUsernameAndPassword(user.username, user.password)
+			
+			if (curUser) {
+				datasets = curUser.datasets
+				if (datasets) {
+					for (Dataset dataset in datasets) {
+						def dataInfoTemp = [dataName: dataset.name, conName: dataset.dbConstraint.name]
+						dataInfo.add(dataInfoTemp)
+					}
+				}
+			}
+		}
+		else {
+			render("Please login first!")
+		}
+		
+		[dataInfo:dataInfo]
 	}
 }

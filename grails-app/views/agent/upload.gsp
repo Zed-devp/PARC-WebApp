@@ -4,14 +4,51 @@
     <title>Upload Data</title>         
   </head>
   <body>
-    	<h>Upload your dataset and constraint file!</h>
-		<g:uploadForm action="uploadData">
-		<br>
-        <p>Dataset File: (Dataset file name should be unique)<input type="file" name="dataFile" /></p>
+   	<h1>Upload your dataset and constraint file:</h1>
+   	
+   	<br>
+   	<br>
+   	
+	<g:uploadForm action="uploadData">
+        <div class="form-group">
+		    <label>Dataset File</label>
+		    <input type="file" name="dataFile" />
+		    <p class="help-block">Dataset file name should be unique and of .csv file. </p>
+	    </div>
         <br>
-        <p>Constraint File: (Constraint file name should be unique)<input type="file" name="conFile" /></p>
+        
+        <div class="form-group">
+		    <label>Constraint File</label>
+		    <input type="file" name="conFile" />
+		    <p class="help-block">Constraint file name should be unique and of .csv file. </p>
+	    </div>
         <br>
-        <p><input type="submit" value="Upload"/></p>
+        
+        <div class="form-group">
+        	<div>
+	        	<label>Master Agent</label>
+	        </div>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" name="masterAgent" placeholder="Master Agent Name" required>
+		    </div>
+		    <br>
+	    </div>
+	    <br>
+	    
+	    <div class="form-group">
+	    	<div>
+		    	<label>Master Dataset</label>
+	    	</div>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" name="masterDataset" placeholder="Master Dataset File Name" required>
+		    </div>
+		    <br>
+	    </div>
+	    <br>
+	    
+	    <div class="form-group">
+        	<p><input type="submit" class="btn btn-success" value="Upload"/></p>
+       	</div>
     </g:uploadForm>
     <br>
     <g:if test="${flash.message}">

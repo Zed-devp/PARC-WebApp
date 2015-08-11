@@ -10,6 +10,7 @@ class UrlMappings {
         "/"(controller:"agent",action:"index")
 		"/login"(controller:"agent",action:"login")
 		"/logout"(controller:"agent",action:"logout")
+		"/datasets"(controller:"agent",action:"datasetMan")
 		"/profile"(controller:"agent",action:"profile")
 		"/register"(controller:"agent",action:"register")
 		"/auth"(controller:"agent",action:"authenticate")
