@@ -4,7 +4,6 @@
     <title>Login</title>         
   </head>
   <body>
-    <div class="container">
       <h1>Login</h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
@@ -35,11 +34,10 @@
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
 		      <button type="submit" class="btn btn-success">Login</button>
-		      <button type="button" class="btn btn-danger"><g:link action="register">Register here</g:link></button>
+		      <g:link action="register" class="btn btn-danger">Register here</g:link>
 		    </div>
 		  </div>
 		</g:form>
       
-    </div>
   </body>
 </html>

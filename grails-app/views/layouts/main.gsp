@@ -36,8 +36,8 @@
 	        <div id="navbar">
 	          <ul class="nav navbar-nav">
 	            <li class="active"><a href="#">Home</a></li>
-	            <li><a href="#about">Violation Detection</a></li>
-	            <li><a href="#contact">Data Cleaning</a></li>
+	            <li><a href="#">Violation Detection</a></li>
+	            <li><a href="#">Data Cleaning</a></li>
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
 	          	<g:if test="${session.user}">
@@ -60,8 +60,13 @@
 	            <p>A data cleaning tool</p>
           	</div>
         </div>
+        
+        <g:img dir="images" file="mcmaster-logo-web-280.png" width="40" height="40"/>
+		<g:img dir="images" file="1.jpg"/>
 	
-		<g:layoutBody/>
+		<div class="container">
+			<g:layoutBody/>
+		</div>
 		
 	</body>
 </html>

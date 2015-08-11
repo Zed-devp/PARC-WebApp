@@ -4,7 +4,6 @@
     <title>Profile</title>         
   </head>
   <body>
-    <div class="container">
     	<g:if test="${session.user}">
     		<p>Hello ${session.user.name}!</p>
     		<br>
@@ -33,6 +32,5 @@
     	<g:else>
     		<h>Please login first!</h>
     	</g:else>
-	</div>
   </body>
 </html>

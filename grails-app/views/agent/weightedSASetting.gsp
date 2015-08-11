@@ -4,7 +4,6 @@
     <title>Weighted Simulated Annealing Advanced Setting</title>         
   </head>
   <body>
-    <div class="container">
     	<h>Weighted Simulated Annealing Advanced Setting</h>
     	<h>Please fill in the forms!</h>
 		<g:uploadForm controller="agent" action="saveConfigWeighted" method="POST">
@@ -26,7 +25,6 @@
 	    <g:if test="${flash.message}">
 	  		<p>${flash.message}</p>
 	  	</g:if>
-		</div>
 	
 		<script>
 			showRangeValue("stTemp");

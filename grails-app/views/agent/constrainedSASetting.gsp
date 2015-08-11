@@ -4,7 +4,6 @@
     <title>Constrained Simulated Annealing Advanced Setting</title>         
   </head>
   <body>
-    <div class="container">
     	<h>Constrained Simulated Annealing Advanced Setting</h>
     	<h>Please fill in the forms!</h>
 		<g:uploadForm controller="agent" action="saveConfigConstrained" method="POST">
@@ -25,7 +24,6 @@
 	    <g:if test="${flash.message}">
 	  		<p>${flash.message}</p>
 	  	</g:if>
-		</div>
 	
 		<script>
 			showRangeValue("stTemp");

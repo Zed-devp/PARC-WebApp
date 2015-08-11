@@ -4,7 +4,6 @@
     <title>Upload Data</title>         
   </head>
   <body>
-    <div class="container">
     	<h>Upload your dataset and constraint file!</h>
 		<g:uploadForm action="uploadData">
 		<br>
@@ -18,6 +17,5 @@
     <g:if test="${flash.message}">
   		<p>${flash.message}</p>
   	</g:if>
-	</div>
   </body>
 </html>

@@ -4,7 +4,6 @@
     <title>Cleaning Parameter Setting</title>         
   </head>
   <body>
-    <div class="container">
     	<h>Please fill in the forms!</h>
 		<g:uploadForm action="getRecommendations" method="POST">
 		<br>
@@ -26,7 +25,6 @@
     <g:if test="${flash.message}">
   		<p>${flash.message}</p>
   	</g:if>
-	</div>
 	
 	<script>
 		showRangeValue();
