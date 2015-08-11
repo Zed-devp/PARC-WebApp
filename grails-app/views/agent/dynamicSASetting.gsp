@@ -4,7 +4,7 @@
     <title>Dynamic Simulated Annealing Advanced Setting</title>         
   </head>
   <body>
-    <div class="body">
+    <div class="container">
     	<h>Dynamic Simulated Annealing Advanced Setting</h>
     	<h>Please fill in the forms!</h>
 		<g:uploadForm controller="agent" action="saveConfigDynamic" method="POST">

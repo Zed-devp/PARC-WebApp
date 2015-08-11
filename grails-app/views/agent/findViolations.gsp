@@ -4,7 +4,7 @@
     <title>Profile</title>         
   </head>
   <body>
-    <div class="body">
+    <div class="container">
     	<p>Violations:</p>
     	<br>
     	<textarea style="width: 600px; height: 300px;">${vio}</textarea>

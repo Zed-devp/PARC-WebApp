@@ -4,7 +4,7 @@
     <title>Upload Data</title>         
   </head>
   <body>
-    <div class="body">
+    <div class="container">
     	<h>Upload your dataset and constraint file!</h>
 		<g:uploadForm action="uploadData">
 		<br>

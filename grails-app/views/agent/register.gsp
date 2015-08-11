@@ -4,7 +4,7 @@
     <title>Register</title>         
   </head>
   <body>
-    <div class="body">
+    <div class="container">
       <h1>Register</h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>

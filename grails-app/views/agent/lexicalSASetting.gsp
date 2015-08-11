@@ -4,7 +4,7 @@
     <title>Lexical Simulated Annealing Advanced Setting</title>         
   </head>
   <body>
-    <div class="body">
+    <div class="container">
     	<h>Lexical Simulated Annealing Advanced Setting</h>
     	<h>Please fill in the forms!</h>
 		<g:uploadForm controller="agent" action="saveConfigLexical" method="POST">
