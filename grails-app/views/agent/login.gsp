@@ -13,13 +13,13 @@
       <g:form class="form-horizontal" controller="agent" action="authenticate" method="post">
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
-		    <div class="col-sm-10">
+		    <div class="col-sm-4">
 		      <input type="text" class="form-control" id="login" name="login" placeholder="Username">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-		    <div class="col-sm-10">
+		    <div class="col-sm-4">
 		      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		    </div>
 		  </div>

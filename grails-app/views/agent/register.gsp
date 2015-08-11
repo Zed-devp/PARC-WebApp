@@ -9,57 +9,42 @@
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
-      <g:form controller="agent" action="register" method="post" >
-        <div class="dialog">
-          <table>
-            <tbody>            
-              <tr class="prop">
-                <td class="name">
-                  <label for="login">Username*:</label>
-                </td>
-                <td>
-                  <input type="text" id="username" name="username" required/>
-                </td>
-              </tr> 
-          
-              <tr class="prop">
-                <td class="name">
-                  <label for="password">Password*:</label>
-                </td>
-                <td>
-                  <input type="password" id="password" name="password" required/>
-                </td>
-              </tr> 
-              
-              <tr class="prop">
-                <td class="name">
-                  <label for="name">Name*:</label>
-                </td>
-                <td>
-                  <input type="text" id="name" name="name" required/>
-                </td>
-              </tr> 
-              
-              <tr class="prop">
-                <td class="name">
-                  <label for="role">Role*:</label>
-                </td>
-                <td>
-                  <select name="role" required>
-	                  <option value="Target">Target</option>
-					  <option value="Master">Master</option>
-				  </select>
-                </td>
-              </tr> 
-            </tbody>
-          </table>
-        </div>
-        <div class="buttons">
-          <span class="button">
-            <input class="save" type="submit" value="Register" />
-          </span>
-        </div>
-      </g:form>
+      
+      <g:form class="form-horizontal" controller="agent" action="register" method="post">
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Username*</label>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Password*</label>
+		    <div class="col-sm-4">
+		      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Name*</label>
+		    <div class="col-sm-4">
+		      <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Role*</label>
+		    <div class="col-sm-4">
+			    <select class="form-control" name="role" required>
+			        <option value="Target">Target</option>
+				    <option value="Master">Master</option>
+			    </select>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-success">Register</button>
+		    </div>
+		  </div>
+		</g:form>
+      
     </div>
   </body>
 </html>
