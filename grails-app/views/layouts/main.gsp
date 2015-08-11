@@ -61,8 +61,8 @@
           	</div>
         </div>
         
-        <g:img dir="images" file="mcmaster-logo-web-280.png" width="40" height="40"/>
-		<g:img dir="images" file="1.jpg"/>
+		<!-- <g:img dir="assets/images" file="mcmaster-logo-web-280.png" alt="Grails"/>
+		<g:resource dir="assets/images" file="mcmaster-logo-web-280.png" /> -->
 	
 		<div class="container">
 			<g:layoutBody/>
