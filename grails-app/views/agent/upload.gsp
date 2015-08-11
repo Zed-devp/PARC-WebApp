@@ -29,7 +29,7 @@
 	        	<label>Master Agent</label>
 	        </div>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" name="masterAgent" placeholder="Master Agent Name" required>
+		      <input type="text" class="form-control" name="masterAgent" placeholder="Master Agent Name">
 		    </div>
 		    <br>
 	    </div>
@@ -40,7 +40,7 @@
 		    	<label>Master Dataset</label>
 	    	</div>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" name="masterDataset" placeholder="Master Dataset File Name" required>
+		      <input type="text" class="form-control" name="masterDataset" placeholder="Master Dataset File Name">
 		    </div>
 		    <br>
 	    </div>
