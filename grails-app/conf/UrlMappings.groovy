@@ -18,6 +18,7 @@ class UrlMappings {
 		
 		//dataset pages
 		"/dataset"(controller:"dataset",action:"index")
+		"/datasetManagement"(controller:"dataset",action:"datasetManagement")
 		"/uploadData"(controller:"dataset",action:"uploadData")
 		"/uploadTargetDataset"(controller:"dataset",action:"uploadTargetDataset")
 		"/uploadMasterDataset"(controller:"dataset",action:"uploadMasterDataset")

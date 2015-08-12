@@ -5,6 +5,7 @@ import dataPriClean.data.TargetDataset
 import dataPriClean.data.MasterDataset
 
 class DatasetController {
+	def dataCleanService
 	
 	def index () {
 		def user = session.user
@@ -191,5 +192,51 @@ class DatasetController {
 		}
 		
 		redirect(controller:"dataset", action:"index")
+	}
+	
+	//manage dataset for data quality & deletion
+	def datasetManagement () {
+		//inspect data quality
+		if (params.func == "Violation Detection") {
+			redirect(controller:"agent",action:"findViolations",params:params)
+		}
+		//data cleaning
+		else if (params.func == "Clean Data") {
+			session.targetDataset = params.dataset
+			redirect(controller:"agent",action:"cleanDataUserInput")
+		}
+		//delete data
+		else if (params.func == "Delete Data") {
+			deleteDataset(params)
+		}
+	}
+	
+	def deleteDataset (def params) {
+		def user = Agent.findByName(session.user.name)
+		def fileName = params.dataset
+		def conName = params.con
+		
+		def dataset = Dataset.findByName(fileName)
+		def con = DbConstraint.findByName(conName)
+		
+		if (dataset && con && user) {
+			//TODO: handle error when deleting fails
+			String datasetUrl = dataset.url
+			String conUrl = con.url
+			
+			//delete the dataset records in the database
+			dataset.delete(flush: true)
+			
+			//delete the dataset & constraint & parent dir files
+			dataCleanService.deleteDatasetFile(datasetUrl, conUrl)
+			
+			println("Delete dataset: " + dataset.name + " successfully!")
+			redirect(controller:"dataset", action:"index")
+		}
+		else {
+			flash.message = "Dataset Not Found!"
+			println ("Dataset Not Found!")
+			redirect (controller:"dataset", action:"index")
+		}
 	}
 }

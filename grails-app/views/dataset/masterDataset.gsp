@@ -20,13 +20,13 @@
 	                    <td><p>${dataset.datasetName}</p></td>
 	                    <td><p>${dataset.conName}</p></td>
 	                    <td>
-		                    <form action="dataAnalyze" method="POST">
+		                    <g:form controller="dataset" action="datasetManagement" method="POST">
 		                    	<input name="dataset" type="text" value="${dataset.datasetName}" hidden>
 		                    	<input name="con" type="text" value="${dataset.conName}" hidden>
 		                    	
 		                    	<input type="submit" class="btn btn-primary" name="func" value="Violation Detection">
 			                    <input type="submit" class="btn btn-danger" name="func" value="Delete Data">
-		                    </form>
+		                    </g:form>
 	                    </td>
                 	</tr>
                </g:each>

@@ -24,7 +24,7 @@ w<html>
 	                    <td><p>${dataset.masterAgent}</p></td>
 	                    <td><p>${dataset.masterDataset}</p></td>
 	                    <td>
-		                    <form action="dataAnalyze" method="POST">
+		                    <g:form controller="dataset" action="datasetManagement" method="POST">
 		                    	<input name="dataset" type="text" value="${dataset.datasetName}" hidden>
 		                    	<input name="con" type="text" value="${dataset.conName}" hidden>
 		                    	<input name="masterAgent" type="text" value="${dataset.masterAgent}" hidden>
@@ -33,7 +33,7 @@ w<html>
 		                    	<input type="submit" class="btn btn-primary" name="func" value="Violation Detection">
 			                    <input type="submit" class="btn btn-success" name="func" value="Clean Data">
 			                    <input type="submit" class="btn btn-danger" name="func" value="Delete Data">
-		                    </form>
+		                    </g:form>
 	                    </td>
                 	</tr>
                </g:each>
