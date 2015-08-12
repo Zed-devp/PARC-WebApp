@@ -15,7 +15,7 @@
         <p><input type="checkbox" name="searchObj" value="dynamic">Dynamic Simulated Annealing      <g:link controller="agent" action="dynamicSASetting">[Advanced Setting]</g:link></p>
         <p><input type="checkbox" name="searchObj" value="lexical">Lexical Simulated Annealing      <g:link controller="agent" action="lexicalSASetting">[Advanced Setting]</g:link></p>
         <br>
-        <p><input type="submit" value="Clean Data"/></p>
+        <p><input type="submit" class="btn btn-success" value="Clean Data"/></p>
     </g:uploadForm>
     <br>
     <g:if test="${flash.message}">
