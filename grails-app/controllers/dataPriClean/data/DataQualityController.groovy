@@ -4,7 +4,7 @@ class DataQualityController {
 	def dataCleanService
 	
 	//select dataset for data quality
-	def datasetSelection () {
+	def datasetSelectionQua () {
 		def user = session.user
 		
 		//user login
@@ -42,7 +42,7 @@ class DataQualityController {
 		else {
 			println ("Cannot find target dataset. ")
 			flash.message = "Cannot find target dataset. "
-			redirect(controller:"dataQuality", action:"datasetSelection")
+			redirect(controller:"dataQuality", action:"datasetSelectionQua")
 		}
 	}
 

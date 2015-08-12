@@ -26,11 +26,15 @@ class UrlMappings {
 		"/masterDataset"(controller:"dataset",action:"masterDataset")
 		
 		//data quality pages
-		"/datasetSelectionQua"(controller:"dataQuality",action:"datasetSelection")
+		"/datasetSelectionQua"(controller:"dataQuality",action:"datasetSelectionQua")
 		"/selectDataQua"(controller:"dataQuality",action:"selectData")
+		
 		"/findViolations"(controller:"dataQuality",action:"findViolations")
 		
 		//data cleaning pages
+		"/datasetSelectionClean"(controller:"dataCleaning",action:"datasetSelectionClean")
+		"/selectDataClean"(controller:"dataCleaning",action:"selectData")
+		
 		"/dataCleaningConfig"(controller:"dataCleaning",action:"dataCleaningConfig")
 		"/getRecommendations"(controller:"dataCleaning",action:"getRecommendations")
 		

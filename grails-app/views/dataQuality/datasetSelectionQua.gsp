@@ -21,7 +21,7 @@
 				  <g:each in="${datasets}" var="dataset" >
 				  		<tr>
 				  			<td>
-		                    	<input type="radio" name="dataset" value="${dataset.datasetName}">
+		                    	<input type="radio" name="dataset" value="${dataset.datasetName}" checked>
 		                    </td>
 		                    <td><p>${dataset.datasetName}</p></td>
 		                    <td><p>${dataset.conName}</p></td>

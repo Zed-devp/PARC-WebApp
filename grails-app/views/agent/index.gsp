@@ -29,7 +29,7 @@
 				  	Inspect your data quality.
 				  	<br>
 				  	<br>
-				  	<button type="button" onclick="location.href='datasets'" class="btn btn-success">Try it</button>
+				  	<button type="button" onclick="location.href='datasetSelectionQua'" class="btn btn-success">Try it</button>
 				  </div>
 				</div>
 	       </div>
@@ -42,7 +42,7 @@
 				  	Clean the dataset while protecting your privacy.
 				  	<br>
 				  	<br>
-				  	<button type="button" class="btn btn-info">Try it</button>
+				  	<button type="button" onclick="location.href='datasetSelectionClean'" class="btn btn-info">Try it</button>
 				  </div>
 				</div>
 	        </div>

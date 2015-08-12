@@ -37,8 +37,8 @@
 	          <ul class="nav navbar-nav">
 	            <li><g:link controller="agent" action="index">Home</g:link></li>
 	            <li><g:link controller="dataset" action="index">Dataset</g:link></li>
-	            <li><a href="#">Data Quality</a></li>
-	            <li><a href="#">Data Cleaning</a></li>
+	            <li><g:link controller="dataQuality" action="datasetSelectionQua">Data Quality</g:link></li>
+	            <li><g:link controller="dataCleaning" action="datasetSelectionClean">Data Cleaning</g:link></li>
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
 	          	<g:if test="${session.user}">
