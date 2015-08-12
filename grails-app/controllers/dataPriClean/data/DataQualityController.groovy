@@ -2,6 +2,49 @@ package dataPriClean.data
 
 class DataQualityController {
 	def dataCleanService
+	
+	//select dataset for data quality
+	def datasetSelection () {
+		def user = session.user
+		
+		//user login
+		if (user) {
+			def datasets = TargetDataset.findAllByTargetAgent(user)
+			def datasetsList = []
+			
+			datasets.each {
+				def dataset = [:]
+				dataset["datasetName"] = it.name
+				dataset["conName"] = it.dbConstraint.name
+				dataset["masterAgent"] = it.masterAgent
+				dataset["masterDataset"] = it.masterDataset
+				datasetsList.add(dataset)
+			}
+			
+			[datasets: datasetsList]
+		}
+		//user does not login
+		else {
+			println ("Please login first.")
+			flash.message = "Please login first."
+		}
+	}
+	
+	//get the selected data and execute vio detection
+	def selectData () {
+		def datasetName = params.dataset
+		def dataset = TargetDataset.findByName(datasetName)
+		
+		if (dataset) {
+			redirect(controller:"dataQuality", action:"findViolations")
+		}
+		//cannot find target dataset
+		else {
+			println ("Cannot find target dataset. ")
+			flash.message = "Cannot find target dataset. "
+			redirect(controller:"dataQuality", action:"datasetSelection")
+		}
+	}
 
 	def findViolations () {
 		def vio = []

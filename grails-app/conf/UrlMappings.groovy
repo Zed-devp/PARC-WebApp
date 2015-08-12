@@ -26,6 +26,8 @@ class UrlMappings {
 		"/masterDataset"(controller:"dataset",action:"masterDataset")
 		
 		//data quality pages
+		"/datasetSelectionQua"(controller:"dataQuality",action:"datasetSelection")
+		"/selectDataQua"(controller:"dataQuality",action:"selectData")
 		"/findViolations"(controller:"dataQuality",action:"findViolations")
 		
 		//data cleaning pages
