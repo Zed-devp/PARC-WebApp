@@ -203,7 +203,7 @@ class DatasetController {
 		//data cleaning
 		else if (params.func == "Clean Data") {
 			session.targetDataset = params.dataset
-			redirect(controller:"agent", action:"cleanDataUserInput")
+			redirect(controller:"dataCleaning", action:"dataCleaningConfig")
 		}
 		//delete data
 		else if (params.func == "Delete Data") {

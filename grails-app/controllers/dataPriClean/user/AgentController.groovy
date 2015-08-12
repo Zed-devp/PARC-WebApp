@@ -123,6 +123,7 @@ class AgentController {
 		}
 	}
 	
+	/*
 	//upload data and constraint page
 	def upload() {
 	}
@@ -657,4 +658,5 @@ class AgentController {
 		
 		[dataInfo:dataInfo]
 	}
+	*/
 }
