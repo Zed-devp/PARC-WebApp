@@ -25,12 +25,15 @@ class UrlMappings {
 		"/targetDataset"(controller:"dataset",action:"targetDataset")
 		"/masterDataset"(controller:"dataset",action:"masterDataset")
 		
+		//data quality pages
+		"/findViolations"(controller:"dataQuality",action:"findViolations")
+		
 		"/datasets"(controller:"agent",action:"datasetMan")
 		"/upload"(controller:"agent",action:"upload")
 //		"/uploadData"(controller:"agent",action:"uploadData")	
 		
-		"/findViolations"(controller:"agent",action:"findViolations")
-		"/dataAnalyze"(controller:"agent",action:"dataAnalyze")
+//		"/findViolations"(controller:"agent",action:"findViolations")
+//		"/dataAnalyze"(controller:"agent",action:"dataAnalyze")
 		"/cleanDataUserInput"(controller:"agent",action:"cleanDataUserInput")
 		"/getRecommendations"(controller:"agent",action:"getRecommendations")
 		

@@ -198,12 +198,12 @@ class DatasetController {
 	def datasetManagement () {
 		//inspect data quality
 		if (params.func == "Violation Detection") {
-			redirect(controller:"agent",action:"findViolations",params:params)
+			redirect(controller:"dataQuality",action:"findViolations", params:params)
 		}
 		//data cleaning
 		else if (params.func == "Clean Data") {
 			session.targetDataset = params.dataset
-			redirect(controller:"agent",action:"cleanDataUserInput")
+			redirect(controller:"agent", action:"cleanDataUserInput")
 		}
 		//delete data
 		else if (params.func == "Delete Data") {
