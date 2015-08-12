@@ -97,19 +97,19 @@ class DatasetController {
 		
 		if (!user) {
 			flash.message = "Please login first!"
-			redirect(action: "uploadMasterDataset")
+			redirect(controller:"dataset", action: "index")
 			return
 		}
 		
 	    if (dataFile.isEmpty()) {
 	        flash.message = "Dataset file cannot be empty!"
-	        redirect(action: "uploadMasterDataset")
+	        redirect(controller:"dataset", action: "index")
 	        return
 	    }
 		
 		if (conFile.isEmpty()) {
 			flash.message = "Constraint file cannot be empty!"
-			redirect(action: "uploadMasterDataset")
+			redirect(controller:"dataset", action: "index")
 			return
 		}
 		
@@ -168,13 +168,13 @@ class DatasetController {
 			
 			if (!masterAgent) {
 				flash.message = "Master Agent cannot be empty!"
-				redirect(action: "uploadMasterDataset")
+				redirect(controller:"dataset", action: "uploadTargetDataset")
 				return
 			}
 			
 			if (!masterDataset) {
 				flash.message = "Master Agent cannot be empty!"
-				redirect(action: "uploadMasterDataset")
+				redirect(controller:"dataset", action: "uploadTargetDataset")
 				return
 			}
 			
@@ -198,7 +198,8 @@ class DatasetController {
 	def datasetManagement () {
 		//inspect data quality
 		if (params.func == "Violation Detection") {
-			redirect(controller:"dataQuality",action:"findViolations", params:params)
+			session.targetDataset = params.dataset
+			redirect(controller:"dataQuality",action:"findViolations")
 		}
 		//data cleaning
 		else if (params.func == "Clean Data") {
@@ -212,15 +213,14 @@ class DatasetController {
 	}
 	
 	def deleteDataset (def params) {
-		def user = Agent.findByName(session.user.name)
 		def fileName = params.dataset
-		def conName = params.con
 		
 		def dataset = Dataset.findByName(fileName)
-		def con = DbConstraint.findByName(conName)
 		
-		if (dataset && con && user) {
+		if (dataset) {
 			//TODO: handle error when deleting fails
+			def con = dataset.dbConstraint
+			
 			String datasetUrl = dataset.url
 			String conUrl = con.url
 			

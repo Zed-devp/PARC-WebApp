@@ -24,7 +24,6 @@
 		                    	<input name="dataset" type="text" value="${dataset.datasetName}" hidden>
 		                    	<input name="con" type="text" value="${dataset.conName}" hidden>
 		                    	
-		                    	<input type="submit" class="btn btn-primary" name="func" value="Violation Detection">
 			                    <input type="submit" class="btn btn-danger" name="func" value="Delete Data">
 		                    </g:form>
 	                    </td>
@@ -38,5 +37,10 @@
     	<g:else>
     		<h1>Please login first!</h1>
     	</g:else>
+    	
+    	<g:if test="${flash.message}">
+        	<div class="message">${flash.message}</div>
+      	</g:if>
+      
   </body>
 </html>

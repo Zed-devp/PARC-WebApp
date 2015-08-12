@@ -6,25 +6,31 @@ class DataQualityController {
 	def findViolations () {
 		def vio = []
 		
-		def fileName = params.dataset  //"address"
-		def conName = params.con
+		def fileName = session.targetDataset
 		
-		def dataset = Dataset.findByName(fileName)
-		def con = DbConstraint.findByName(conName)
+		def dataset = TargetDataset.findByName(fileName)
 		
-		if (dataset && con) {
+		if (dataset) {
+			def con = dataset.dbConstraint
 		
-			def datasetUrl = dataset.url
-			def conUrl = con.url
-			
-			def targetData = dataCleanService.loadTargetDataset(datasetUrl, fileName, conUrl)
-			def violations = dataCleanService.findViolations(targetData)
-			
-			vio = violations//.toString()
+			if (con) {
+				def datasetUrl = dataset.url
+				def conUrl = con.url
+				
+				def targetData = dataCleanService.loadTargetDataset(datasetUrl, fileName, conUrl)
+				def violations = dataCleanService.findViolations(targetData)
+				
+				vio = violations//.toString()
+			}
+			//this dataset does not have constraint
+			else {
+				println ("this dataset does not have constraint. ")
+				flash.message = "this dataset does not have constraint. "
+			}
 		}
 		else {
 			flash.message = "Target Dataset Not Found!"
-			print("Target Dataset Not Found!")
+			println("Target Dataset Not Found!")
 		}
 		
 		[vio:vio]
