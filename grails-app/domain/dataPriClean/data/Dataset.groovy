@@ -13,4 +13,8 @@ class Dataset {
 	static mapping = {
 		dbConstraint(cascade: 'all-delete-orphan')
 	}
+	
+	String toString () {
+		name
+	}
 }

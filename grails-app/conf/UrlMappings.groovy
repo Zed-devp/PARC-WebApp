@@ -7,15 +7,26 @@ class UrlMappings {
 //            }
 //        }
 
+		//agent pages
         "/"(controller:"agent",action:"index")
 		"/login"(controller:"agent",action:"login")
 		"/logout"(controller:"agent",action:"logout")
-		"/datasets"(controller:"agent",action:"datasetMan")
 		"/profile"(controller:"agent",action:"profile")
 		"/register"(controller:"agent",action:"register")
+		
 		"/auth"(controller:"agent",action:"authenticate")
+		
+		//dataset pages
+		"/dataset"(controller:"dataset",action:"index")
+		"/uploadData"(controller:"dataset",action:"uploadData")
+		"/uploadTargetDataset"(controller:"dataset",action:"uploadTargetDataset")
+		"/uploadMasterDataset"(controller:"dataset",action:"uploadMasterDataset")
+		"/targetDataset"(controller:"dataset",action:"targetDataset")
+		"/masterDataset"(controller:"dataset",action:"masterDataset")
+		
+		"/datasets"(controller:"agent",action:"datasetMan")
 		"/upload"(controller:"agent",action:"upload")
-		"/uploadData"(controller:"agent",action:"uploadData")	
+//		"/uploadData"(controller:"agent",action:"uploadData")	
 		
 		"/findViolations"(controller:"agent",action:"findViolations")
 		"/dataAnalyze"(controller:"agent",action:"dataAnalyze")

@@ -4,33 +4,30 @@
     <title>Profile</title>         
   </head>
   <body>
-    	<g:if test="${session.user}">
-    		<p>Hello ${session.user.name}!</p>
+    	<g:if test="${user}">
+    		<h1>Profile:</h1>
     		<br>
-    		<p>Profile:</p>
+    		<label>Name</label>
+    		<p>${user.name}</p>
     		<br>
-    		<p>Name: ${session.user.name}</p>
-    		<p>Role: ${session.user.role}</p>
+    		<label>Username</label>
+    		<p>${user.username}</p>
     		<br>
-    		<p>Datasets:</p>
-    		<g:if test="${dataInfo}">
-                <g:each in="${dataInfo}" var="dataset" >
-                    <br>
-                    <form action="dataAnalyze" method="POST">
-	                    <p>Dataset: <input name="dataset" type="text" value="${dataset.dataName}" readonly></p>
-	                    <p>Constraint: <input name="con" type="text" value="${dataset.conName}" readonly></p>
-	                    <input type="submit" name="func" value="Violation Detection">
-	                    <input type="submit" name="func" value="Clean Data">
-	                    <input type="submit" name="func" value="Delete Data">
-	                </form>
-                    <br>
-                </g:each>
-    		</g:if>
-            <br>
-    		<p><g:link controller="agent" action="upload">Upload your dataset and constraint files!</g:link></p>
+    		<label>Password</label>
+    		<p>${user.password}</p>
+    		<br>
+    		<label>Role</label>
+    		<p>${user.role}</p>
+    		<br>
     	</g:if>
+    	
     	<g:else>
-    		<h>Please login first!</h>
+    		<h1>Please login first!</h1>
     	</g:else>
+    	
+    	 <g:if test="${flash.message}">
+		 	<div class="message">${flash.message}</div>
+		 </g:if>
+    	
   </body>
 </html>

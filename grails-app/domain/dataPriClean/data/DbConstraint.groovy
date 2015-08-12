@@ -6,4 +6,8 @@ class DbConstraint {
 
     static constraints = {
     }
+	
+	String toString () {
+		name
+	}
 }

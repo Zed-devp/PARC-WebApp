@@ -35,14 +35,15 @@
 	        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
 	        <div id="navbar">
 	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#">Home</a></li>
-	            <li><a href="#">Datasets</a></li>
+	            <li><g:link controller="agent" action="index">Home</g:link></li>
+	            <li><g:link controller="dataset" action="index">Dataset</g:link></li>
 	            <li><a href="#">Data Quality</a></li>
 	            <li><a href="#">Data Cleaning</a></li>
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
 	          	<g:if test="${session.user}">
 		            <li><a href="#">Welcome ${session.user.name}!</a></li>
+		            <li><g:link controller="agent" action="profile">Profile</g:link></li>
 		            <li><g:link controller="agent" action="logout">Logout</g:link></li>
 	            </g:if>
 	            <g:else>
@@ -57,7 +58,9 @@
 	    
 	    <div class="container">
 		    <div class="jumbotron">
-	            <h2><g:link controller="agent" action="index">Privacy Preserving Data Cleaning</g:link></h2>
+		    	<br>
+		    	<br>
+	            <h2>Privacy Preserving Data Cleaning</h2>
 	            <p>A data cleaning tool</p>
           	</div>
         </div>

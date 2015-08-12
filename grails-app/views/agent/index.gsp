@@ -16,7 +16,7 @@
 			  	Manage your dataset.
 			  	<br>
 			  	<br>
-			  	<button type="button" onclick="location.href='datasets'" class="btn btn-primary">Try it</button>
+			  	<button type="button" onclick="location.href='dataset'" class="btn btn-primary">Try it</button>
 			  </div>
 			</div>
 	        </div>
