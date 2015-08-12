@@ -27,6 +27,7 @@ class DataQualityController {
 		else {
 			println ("Please login first.")
 			flash.message = "Please login first."
+			render(view: "/loginWarning.gsp")
 		}
 	}
 	
