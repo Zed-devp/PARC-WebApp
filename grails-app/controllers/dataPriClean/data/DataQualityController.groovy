@@ -37,6 +37,7 @@ class DataQualityController {
 		def dataset = TargetDataset.findByName(datasetName)
 		
 		if (dataset) {
+			session.targetDataset = dataset.name
 			redirect(controller:"dataQuality", action:"findViolations")
 		}
 		//cannot find target dataset

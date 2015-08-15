@@ -44,6 +44,7 @@ class DataCleaningController {
 		def dataset = TargetDataset.findByName(datasetName)
 		
 		if (dataset) {
+			session.targetDataset = dataset.name
 			redirect(controller:"dataCleaning", action:"dataCleaningConfig")
 		}
 		//cannot find target dataset
