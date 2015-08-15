@@ -17,39 +17,48 @@
 	        <div class="col-md-4">
 	         <div class="panel panel-primary">
 			  <div class="panel-heading">
-			    <h1>Data Management</h1>
+			    <h1>
+			    1. Manage Dataset
+			    </h1>
 			  </div>
 			  <div class="panel-body">
-			  	Manage your dataset.
+			  	Manage Master&Target dataset.
+			  	Upload and delete dataset. 
+			  	Define your own FD (Function Dependency).
 			  	<br>
 			  	<br>
-			  	<button type="button" onclick="location.href='dataset'" class="btn btn-primary">Try it</button>
+			  	<button type="button" onclick="location.href='dataset'" class="btn btn-primary">Go</button>
 			  </div>
 			</div>
 	        </div>
 	        <div class="col-md-4">
 	        	<div class="panel panel-success">
 				  <div class="panel-heading">
-				    <h1>Data Quality</h1>
+				    <h1>
+				    2. Identify Errors
+				    </h1>
 				  </div>
 				  <div class="panel-body">
 				  	Inspect your data quality.
+				  	Automatically detect errors w.r.t the customized FDs.
 				  	<br>
 				  	<br>
-				  	<button type="button" onclick="location.href='datasetSelectionQua'" class="btn btn-success">Try it</button>
+				  	<button type="button" onclick="location.href='datasetSelectionQua'" class="btn btn-success">Go</button>
 				  </div>
 				</div>
 	       </div>
 	        <div class="col-md-4">
 	        	<div class="panel panel-info">
 				  <div class="panel-heading">
-				    <h1>Data Cleaning</h1>
+				    <h1>
+				    3. Clean Dataset
+				    </h1>
 				  </div>
 				  <div class="panel-body">
 				  	Clean the dataset while protecting your privacy.
 				  	<br>
 				  	<br>
-				  	<button type="button" onclick="location.href='datasetSelectionClean'" class="btn btn-info">Try it</button>
+				  	<button type="button" onclick="location.href='datasetSelectionClean'" class="btn btn-info">Go</button>
 				  </div>
 				</div>
 	        </div>

@@ -5,14 +5,14 @@
   </head>
   <body>
     	<g:if test="${session.user}">
-    		<h1>Datasets:</h1>
+    		<h1>Master Datasets:</h1>
     		
     		<br>
     		
     		<table class="table table-hover">
 			  <tr class="active">
-			    <td>Dataset</td> 
-			    <td>Constraint</td>
+			    <td>Master Dataset</td> 
+			    <td>FDs</td>
 			    <td>Operations</td>
 			  </tr>
 			  <g:each in="${datasets}" var="dataset" >
