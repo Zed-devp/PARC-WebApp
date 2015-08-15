@@ -4,6 +4,13 @@
     <title>Privacy Preserving Data Cleaning</title>         
   </head>
   <body>
+  		<div class="container">
+		    <div class="jumbotron">
+	            <h2>Privacy Preserving Data Cleaning</h2>
+	            <p>A data cleaning tool</p>
+          	</div>
+        </div>
+  
     	<div class="container">
 	      <!-- Example row of columns -->
 	      <div class="row">

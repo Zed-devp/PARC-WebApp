@@ -54,17 +54,12 @@
 	        </div><!--/.nav-collapse -->
 	      </div>
 	    </nav>
-
 	    
-	    <div class="container">
-		    <div class="jumbotron">
-		    	<br>
-		    	<br>
-	            <h2>Privacy Preserving Data Cleaning</h2>
-	            <p>A data cleaning tool</p>
-          	</div>
-        </div>
-        
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	    
 		<!-- <g:img dir="assets/images" file="mcmaster-logo-web-280.png" alt="Grails"/>
 		<g:resource dir="assets/images" file="mcmaster-logo-web-280.png" /> -->
 	
