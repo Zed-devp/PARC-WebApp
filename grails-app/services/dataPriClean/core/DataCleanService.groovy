@@ -45,6 +45,7 @@ class DataCleanService {
 
    String findViolations (TargetDataset dataset) {
 		RepairService repairService = new RepairServiceImpl()
+		DataCleaningUtils dataCleanUtil = new DataCleaningUtilsImpl()
 		
 		List<Constraint> constraints = dataset.getConstraints()
 		
@@ -55,11 +56,34 @@ class DataCleanService {
 			sb.append("Constraint: ")
 			sb.append(constraint.toString() + "\n")
 			Violations v = repairService.calcViolations(dataset.records, constraint)
+//			def s = dataCleanUtil.outputViolations(v, constraint)
+//			sb.append(s + "\n")
 			sb.append(v.toString() + "\n")
 		}
 
 		return sb.toString()
 	}
+   
+   def findViolationsList (TargetDataset dataset) {
+	   RepairService repairService = new RepairServiceImpl()
+	   DataCleaningUtils dataCleanUtil = new DataCleaningUtilsImpl()
+	   
+	   List<Constraint> constraints = dataset.getConstraints()
+	   
+	   def result = []
+
+	   for (Constraint constraint : constraints) {
+		   def subResult = [:]
+		   subResult["constraint"] = constraint.toString()
+		   subResult["constraintAttrs"] = constraint.getColsInConstraint()
+		   Violations v = repairService.calcViolations(dataset.records, constraint)
+		   List<List<String>> s = dataCleanUtil.outputViolationsList(v, constraint)
+		   subResult["violatons"] = s
+		   result.add(subResult)
+	   }
+
+	   return result
+   }
 	
 	//get recommendation result for individual searching type and config
 	String getRecommendationsInd(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {

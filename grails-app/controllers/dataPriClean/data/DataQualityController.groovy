@@ -63,9 +63,10 @@ class DataQualityController {
 				def conUrl = con.url
 				
 				def targetData = dataCleanService.loadTargetDataset(datasetUrl, fileName, conUrl)
-				def violations = dataCleanService.findViolations(targetData)
+//				def violations = dataCleanService.findViolations(targetData)
+				def violations = dataCleanService.findViolationsList(targetData)
 				
-				vio = violations//.toString()
+				vio = violations
 			}
 			//this dataset does not have constraint
 			else {
