@@ -7,6 +7,7 @@ import dataPriClean.data.MasterDataset
 class DatasetController {
 	def dataCleanService
 	
+	//redirect to mastetDataset or targetDataset homepage according to login user
 	def index () {
 		def user = session.user
 		
@@ -24,7 +25,6 @@ class DatasetController {
 		//user does not login
 		else {
 			println ("Please login first.")
-			flash.message = "Please login first."
 			render(view: "/loginWarning.gsp")
 		}
 	}
@@ -52,7 +52,6 @@ class DatasetController {
 		//user does not login
 		else {
 			println ("Please login first.")
-			flash.message = "Please login first."
 			render(view: "/loginWarning.gsp")
 		}
 	}
@@ -78,19 +77,15 @@ class DatasetController {
 		//user does not login
 		else {
 			println ("Please login first.")
-			flash.message = "Please login first."
 			render(view: "/loginWarning.gsp")
 		}
 	}
 
     //upload master data and constraint page
-	def uploadMasterDataset () {
-	}
+	def uploadMasterDataset () {}
 	
 	//upload target data and constraint page
-	def uploadTargetDataset () {
-		
-	}
+	def uploadTargetDataset () {}
 	
 	//save uploaded data and constraint info to the database
 	def uploadData() {
@@ -99,8 +94,8 @@ class DatasetController {
 		def conFile = params.conFile
 		
 		if (!user) {
-			flash.message = "Please login first!"
-			redirect(controller:"dataset", action: "index")
+			println ("Please login first.")
+			render(view: "/loginWarning.gsp")
 			return
 		}
 		
@@ -127,6 +122,8 @@ class DatasetController {
 		def dataFileName = fileDir + dataFile.getOriginalFilename()
 		def conFileName = fileDir + conFile.getOriginalFilename()
 		
+		//TODO: this part of function should be put into service (save file)
+		//save dataset file to the server
 		File file = new File(dataFileName)
 		if (!file.exists()) {
 			if (!file.mkdirs()) {
@@ -138,6 +135,7 @@ class DatasetController {
 		}
 		dataFile.transferTo(file)
 		
+		//save constraint file to the server
 		file = new File(conFileName)
 		if (!file.exists()) {
 			if (!file.mkdirs()) {
@@ -176,7 +174,7 @@ class DatasetController {
 			}
 			
 			if (!masterDataset) {
-				flash.message = "Master Agent cannot be empty!"
+				flash.message = "Master Dataset cannot be empty!"
 				redirect(controller:"dataset", action: "uploadTargetDataset")
 				return
 			}
@@ -239,13 +237,13 @@ class DatasetController {
 			dataCleanService.deleteDatasetFile(datasetUrl, conUrl)
 			
 			println("Delete dataset: " + dataset.name + " successfully!")
-			redirect(controller:"dataset", action:"index")
 		}
 		else {
-			flash.message = "Dataset Not Found!"
-			println ("Dataset Not Found!")
-			redirect (controller:"dataset", action:"index")
+			flash.message = "Deleteing Dataset Not Found!"
+			println ("Deleteing Dataset Not Found!")
 		}
+		
+		redirect(controller:"dataset", action:"index")
 	}
 	
 	def showDataset () {
@@ -259,12 +257,16 @@ class DatasetController {
 				showDataset["datasetName"] = dataset.name
 				showDataset["conName"] = dataset.dbConstraint.name
 				
-				
 				def tDataset = dataCleanService.loadTargetDataset(dataset.url, dataset.name, dataset.dbConstraint.url)
 				def recordsList = tDataset.getRecords()
+				
+				//TODO: this part of function should be put into the service (get datset info)
+				//the dataset is not empty
 				if (recordsList.size() > 0) {
 					def counter = 1
+					//attributes of the dataset
 					def attrs = recordsList.get(0).getColsToVal().keySet()
+					//retrieve the dataset content by row and attribute
 					def data = []
 					for (def record: recordsList) {
 						def recordRow = []

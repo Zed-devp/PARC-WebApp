@@ -122,7 +122,7 @@ class AgentController {
 		//user does not login
 		else {
 			println ("Please login first.")
-			flash.message = "Please login first."
+			render(view: "/loginWarning.gsp")
 		}
 	}
 }
