@@ -66,7 +66,6 @@
 	        <p>Beta Ind: <input id="betaInd" type="range" name="betaInd" min="0.0" max="1.0" value="0.895" step="0.001" oninput="showRangeValue(id)" /><span id="betaIndText"></span></p>
 	        <p>Gamma Size: <input id="gamaSize" type="range" name="gamaSize" min="0.0" max="1.0" value="0.005" step="0.001" oninput="showRangeValue(id)" /><span id="gamaSizeText"></span></p>
 	        -->
-	        <br>
 	        <input class="btn btn-primary" type="submit" value="Save"/>
 	    </g:uploadForm>
 	    <br>
@@ -74,6 +73,7 @@
 	  		<p>${flash.message}</p>
 	  	</g:if>
 	
+		<!-- 
 		<script>
 			showRangeValue("stTemp");
 			showRangeValue("endTemp");
@@ -92,5 +92,6 @@
 			    rangeValBox.innerHTML = rangeVal;
 			}
 		</script>
+		 -->
   </body>
 </html>
