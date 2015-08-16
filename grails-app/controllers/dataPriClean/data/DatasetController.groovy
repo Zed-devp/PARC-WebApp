@@ -199,11 +199,13 @@ class DatasetController {
 	def datasetManagement () {
 		//inspect data quality
 		if (params.func == "Violation Detection") {
+			//select the target dataset for data quality
 			session.targetDataset = params.dataset
 			redirect(controller:"dataQuality",action:"findViolations")
 		}
 		//data cleaning
 		else if (params.func == "Clean Data") {
+			//select the target dataset for data quality
 			session.targetDataset = params.dataset
 			redirect(controller:"dataCleaning", action:"dataCleaningConfig")
 		}
@@ -213,6 +215,7 @@ class DatasetController {
 		}
 		//show dataset details
 		else if (params.func == "Show Dataset") {
+			//select the dataset for showing
 			session.showDatasetName = params.dataset
 			redirect(controller:"dataset", action:"showDataset")
 		}
@@ -247,6 +250,7 @@ class DatasetController {
 	}
 	
 	def showDataset () {
+		//get the dataset for showing
 		def datasetName = session.showDatasetName
 		
 		def showDataset = [:]

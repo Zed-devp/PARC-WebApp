@@ -26,7 +26,6 @@ class DataQualityController {
 		//user does not login
 		else {
 			println ("Please login first.")
-			flash.message = "Please login first."
 			render(view: "/loginWarning.gsp")
 		}
 	}
@@ -37,6 +36,7 @@ class DataQualityController {
 		def dataset = TargetDataset.findByName(datasetName)
 		
 		if (dataset) {
+			//select the target dataset for data quality
 			session.targetDataset = dataset.name
 			redirect(controller:"dataQuality", action:"findViolations")
 		}
@@ -48,11 +48,12 @@ class DataQualityController {
 		}
 	}
 
+	//find the violations w.r.t the constraints
 	def findViolations () {
 		def vio = []
 		
+		//get the dataset for data quality
 		def fileName = session.targetDataset
-		
 		def dataset = TargetDataset.findByName(fileName)
 		
 		if (dataset) {
@@ -62,6 +63,7 @@ class DataQualityController {
 				def datasetUrl = dataset.url
 				def conUrl = con.url
 				
+				//load dataset & find violations
 				def targetData = dataCleanService.loadTargetDataset(datasetUrl, fileName, conUrl)
 //				def violations = dataCleanService.findViolations(targetData)
 				def violations = dataCleanService.findViolationsList(targetData)
