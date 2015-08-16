@@ -19,12 +19,9 @@
    	<!--  <textarea style="width: 600px; height: 300px;">${vio}</textarea>  -->
    	
    	<g:each in="${vio}" var="subVio" >
-   		<div class="panel panel-default">
+   		<div class="panel panel-danger">
+   			<div class="panel-heading">Constraint: ${subVio["constraint"] }</div>
   			<div class="panel-body">
-		   		<h4>Constraint: ${subVio["constraint"] }</h4>
-		   		
-		   		<br>
-		   		
 		   		<table class="table table-hover">
 		   			<tr class="active">
 		   				<td><p>Record #</p></td>
@@ -42,8 +39,6 @@
 			   	</table>
 		   	</div>
 	   	</div>
-   		
-   		<br>
    	</g:each>
    	
    	<br>
