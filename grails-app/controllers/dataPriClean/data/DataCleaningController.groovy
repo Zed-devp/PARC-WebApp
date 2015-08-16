@@ -7,8 +7,8 @@ import dataPriClean.data.MasterDataset
 class DataCleaningController {
 	def dataCleanService
 
-    def dataCleaningConfig () {
-	}
+    //data cleaning config homepage
+	def dataCleaningConfig () {}
 	
 	//select dataset for data quality
 	def datasetSelectionClean () {
@@ -33,7 +33,6 @@ class DataCleaningController {
 		//user does not login
 		else {
 			println ("Please login first.")
-			flash.message = "Please login first."
 			render(view: "/loginWarning.gsp")
 		}
 	}
@@ -44,6 +43,7 @@ class DataCleaningController {
 		def dataset = TargetDataset.findByName(datasetName)
 		
 		if (dataset) {
+			//select the dataset for data cleaning
 			session.targetDataset = dataset.name
 			redirect(controller:"dataCleaning", action:"dataCleaningConfig")
 		}
@@ -55,27 +55,32 @@ class DataCleaningController {
 		}
 	}
 	
+	
+	//get the result for data cleaning
 	def getRecommendations () {
 		def recommendations = []
 		
+		//get the settings & config for data cleaning
 		def simThreshold = params.simThreshold
 		def searchObj = params.searchObj
 		def config = session.config
 		
+		//get the target dataset for data cleaning
 		def targetDatasetName = session.targetDataset
 		def targetDataset = TargetDataset.findByName(targetDatasetName)
-		
-		def masterAgent = targetDataset.masterAgent
-		def masterDataset = targetDataset.masterDataset
-		
-		def mAgent
-		def mDataset
 		
 		if (!targetDataset) {
 			flash.message = "Target dataset not found, please upload the dataset!"
 			println("Target dataset not found, please upload the dataset!")
 			return
 		}
+		
+		//get the master dataset info for data cleaning
+		def masterAgent = targetDataset.masterAgent
+		def masterDataset = targetDataset.masterDataset
+		
+		def mAgent
+		def mDataset
 		
 		if (masterAgent) {
 			mAgent = Agent.findByName(masterAgent)
@@ -105,38 +110,51 @@ class DataCleaningController {
 			return
 		}
 		
+		//execute the data cleaning process
 		if (searchObj) {
+			//only one searchObj as string, convert the string to the list
 			if (searchObj.getClass().equals("".getClass())) {
 				searchObj = [searchObj]
 			}
 			
-			println("getRec()::searchObj: " + searchObj)
-			println("getRec()::config: " + config)
+//			println("getRec()::searchObj: " + searchObj)
+//			println("getRec()::config: " + config)
 //			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
+			
+			//get the result of the data cleaning
 			def recommendationsMap = dataCleanService.getRecommendationsList(targetDataset, mDataset, simThreshold, searchObj, config)
 			
 			//transfer the result format to the specific one
+			//result for each search
 			for (def rec: recommendationsMap) {
 				def newRec = [:]
+				
 				newRec["search"] = rec["search"]
+				
 				def recommendation = []
+				//result for each constraint under the search result
 				for (def con: rec["recommendation"].keySet()) {
+					//the recommendation result for each constraint for every search
 					def map = [:]
+					
+					//constraint info
 					map["constraint"] = con.toString()
 					map["constraintAttrs"] = con.getColsInConstraint()
 					
+					//recommendation info
 					def recContentList = []
-					
+					//convert the Set<Candidat> data type to List<List<String>> 
 					def setCandidate = rec["recommendation"].get(con)
 					def i = setCandidate.iterator()
 					while (i.hasNext()) {
+						//convert the Candidate data type to List<String>
 						def candidate = i.next()
 						for (def recmmendationTemp:candidate.getRecommendations()) {
-							def recmmendationTempList = []
-							recmmendationTempList.add(recmmendationTemp.gettRid())
-							recmmendationTempList.add(recmmendationTemp.getCol())
-							recmmendationTempList.add(recmmendationTemp.getVal())
-							recContentList.add(recmmendationTempList)
+							def recmmendationRecord = []
+							recmmendationRecord.add(recmmendationTemp.gettRid())
+							recmmendationRecord.add(recmmendationTemp.getCol())
+							recmmendationRecord.add(recmmendationTemp.getVal())
+							recContentList.add(recmmendationRecord)
 						}
 					}
 					
@@ -147,7 +165,6 @@ class DataCleaningController {
 				newRec["recommendation"] = recommendation
 				recommendations.add(newRec)
 			}
-			
 		}
 		else {
 			flash.message = "Please indicate searching algorithms!"
@@ -155,60 +172,9 @@ class DataCleaningController {
 			return
 		}
 		
-		println(recommendations)
+//		println(recommendations)
 		
 		[recs: recommendations]
-	}
-	
-	def saveConfig () {
-		def config = [:]
-		
-		//searching config
-		if (params.stTemp) {
-			config["stTemp"] = Double.parseDouble(params.stTemp)
-		}
-		if (params.endTemp) {
-			config["endTemp"] = Double.parseDouble(params.endTemp)
-		}
-		if (params.alpTemp) {
-			config["alpTemp"] = Double.parseDouble(params.alpTemp)
-		}
-		if (params.stepTemp) {
-			config["stepTemp"] = Double.parseDouble(params.stepTemp)
-		}
-		if (params.bestEn) {
-			config["bestEn"] = Double.parseDouble(params.bestEn)
-		}
-		
-		//weighted config
-		if (params.alphaPvt) {
-			config["alphaPvt"] = Double.parseDouble(params.alphaPvt)
-		}
-		if (params.betaInd) {
-			config["betaInd"] = Double.parseDouble(params.betaInd)
-		}
-		if (params.gamaSize) {
-			config["gamaSize"] = Double.parseDouble(params.gamaSize)
-		}
-		
-		//constrained config
-		if (params.cleaning) {
-			config["cleaning"] = Double.parseDouble(params.cleaning)
-		}
-		if (params.size) {
-			config["size"] = Double.parseDouble(params.size)
-		}
-		
-		//dynamic config
-		if (params.privacy) {
-			config["privacy"] = Double.parseDouble(params.privacy)
-		}
-		
-		print ("Searching Config: " + config)
-		
-		session.config = config
-		
-		redirect(controller:"agent",action:"cleanDataUserInput")
 	}
 	
 	def saveConfigWeighted () {
@@ -385,19 +351,68 @@ class DataCleaningController {
 		redirect(controller:"agent",action:"cleanDataUserInput")
 	}
 	
-	def weightedSASetting () {
+	//show weightedSA config setting page
+	def weightedSASetting () {}
 	
-	}
+	//show constrainedSA config setting page
+	def constrainedSASetting () {}
 	
-	def constrainedSASetting () {
-		
-	}
+	//show dynamicSA config setting page
+	def dynamicSASetting () {}
 	
-	def dynamicSASetting () {
-		
-	}
+	//show lexicalSA config setting page
+	def lexicalSASetting () {}
 	
-	def lexicalSASetting () {
-		
-	}
+//	//save the config for data cleaning
+//	def saveConfig () {
+//		def config = [:]
+//		
+//		//searching config
+//		if (params.stTemp) {
+//			config["stTemp"] = Double.parseDouble(params.stTemp)
+//		}
+//		if (params.endTemp) {
+//			config["endTemp"] = Double.parseDouble(params.endTemp)
+//		}
+//		if (params.alpTemp) {
+//			config["alpTemp"] = Double.parseDouble(params.alpTemp)
+//		}
+//		if (params.stepTemp) {
+//			config["stepTemp"] = Double.parseDouble(params.stepTemp)
+//		}
+//		if (params.bestEn) {
+//			config["bestEn"] = Double.parseDouble(params.bestEn)
+//		}
+//		
+//		//weighted config
+//		if (params.alphaPvt) {
+//			config["alphaPvt"] = Double.parseDouble(params.alphaPvt)
+//		}
+//		if (params.betaInd) {
+//			config["betaInd"] = Double.parseDouble(params.betaInd)
+//		}
+//		if (params.gamaSize) {
+//			config["gamaSize"] = Double.parseDouble(params.gamaSize)
+//		}
+//		
+//		//constrained config
+//		if (params.cleaning) {
+//			config["cleaning"] = Double.parseDouble(params.cleaning)
+//		}
+//		if (params.size) {
+//			config["size"] = Double.parseDouble(params.size)
+//		}
+//		
+//		//dynamic config
+//		if (params.privacy) {
+//			config["privacy"] = Double.parseDouble(params.privacy)
+//		}
+//		
+////		print ("Searching Config: " + config)
+//		
+//		//save the config
+//		session.config = config
+//		
+//		redirect(controller:"agent",action:"cleanDataUserInput")
+//	}
 }

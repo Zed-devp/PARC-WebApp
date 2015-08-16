@@ -20,7 +20,7 @@
    	
    	<g:each in="${recs}" var="recBySearch" >
    		<div class="panel panel-primary">
-   			<div class="panel-heading">Search Type: ${recBySearch["search"] }</div>
+   			<div class="panel-heading">Search Algorithm: ${recBySearch["search"] }</div>
   			<div class="panel-body">
   				<g:each in="${recBySearch["recommendation"] }" var="rec">
   					<div class="panel panel-success">
