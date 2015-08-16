@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta name="layout" content="main" />
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'range.css')}" type="text/css">
     <title>Weighted Simulated Annealing Advanced Setting</title>         
   </head>
   <body>
@@ -14,10 +15,46 @@
 		  </ul>
 		</nav>
   	
-    	<h>Weighted Simulated Annealing Advanced Setting</h>
-    	<h>Please fill in the forms!</h>
+    	<h3>Weighted Simulated Annealing Advanced Setting</h3>
+    	<br>
+    	
 		<g:uploadForm controller="agent" action="saveConfigWeighted" method="POST">
-			<p>Searching Configuration:</p>
+		  <g:render template="/dataCleaning/searchConfigSetting" />
+		        
+		  <div class="panel panel-success">
+				<div class="panel-heading">Privacy & Cleaning Utility Objective Configuration:</div>
+				<div class="panel-body">
+					<div class="row">
+      					<div class="col-xs-6">
+					        <label>Alpha of Privacy:</label> 
+					        <div class="range range-success">
+					        	<input id="alphaPvt" type="range" name="alphaPvt" min="0.0" max="1.0" value="0.10" step="0.001" onchange="alphaPvtText.value=value" />
+					        	<output id="alphaPvtText">0.010</output>
+					        </div>
+				        </div>
+			        
+			        	<div class="col-xs-6">
+					        <label>Beta Ind:</label> 
+					        <div class="range range-success">
+					        	<input id="betaInd" type="range" name="betaInd" min="0.0" max="1.0" value="0.895" step="0.001" onchange="betaIndText.value=value" />
+					        	<output id="betaIndText">0.895</output>
+					        </div>
+				        </div>
+			        </div>
+			        
+			        <div class="row">
+      					<div class="col-xs-6">
+					        <label>Gamma Size:</label> 
+					        <div class="range range-success">
+					        	<input id="gamaSize" type="range" name="gamaSize" min="0.0" max="1.0" value="0.005" step="0.001" onchange="gamaSizeText.value=value" />
+					        	<output id="gamaSizeText">0.005</output>
+					        </div>
+				        </div>
+			        </div>
+		        </div>
+	        </div>
+	        
+			<!-- 
 	        <p>Start Temperature: <input id="stTemp" type="range" name="stTemp" min="0.0" max="1.0" value="0.0009" step="0.00001" oninput="showRangeValue(id)" /><span id="stTempText"></span></p>
 	        <p>Final Temperature: <input id="endTemp" type="range" name="endTemp" min="0.0" max="1.0" value="0.00005" step="0.00001" oninput="showRangeValue(id)" /><span id="endTempText"></span></p>
 	        <p>Alpha Temperature: <input id="alpTemp" type="range" name="alpTemp" min="0.0" max="1.0" value="0.99" step="0.001" oninput="showRangeValue(id)" /><span id="alpTempText"></span></p>
@@ -28,8 +65,9 @@
 	        <p>Alpha of Privacy: <input id="alphaPvt" type="range" name="alphaPvt" min="0.0" max="1.0" value="0.10" step="0.001" oninput="showRangeValue(id)" /><span id="alphaPvtText"></span></p>
 	        <p>Beta Ind: <input id="betaInd" type="range" name="betaInd" min="0.0" max="1.0" value="0.895" step="0.001" oninput="showRangeValue(id)" /><span id="betaIndText"></span></p>
 	        <p>Gamma Size: <input id="gamaSize" type="range" name="gamaSize" min="0.0" max="1.0" value="0.005" step="0.001" oninput="showRangeValue(id)" /><span id="gamaSizeText"></span></p>
+	        -->
 	        <br>
-	        <p><input type="submit" value="Submit"/></p>
+	        <input class="btn btn-primary" type="submit" value="Save"/>
 	    </g:uploadForm>
 	    <br>
 	    <g:if test="${flash.message}">
