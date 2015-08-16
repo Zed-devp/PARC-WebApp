@@ -56,7 +56,7 @@ class DataCleaningController {
 	}
 	
 	def getRecommendations () {
-		def recommendations = ""
+		def recommendations = []
 		
 		def simThreshold = params.simThreshold
 		def searchObj = params.searchObj
@@ -112,7 +112,42 @@ class DataCleaningController {
 			
 			println("getRec()::searchObj: " + searchObj)
 			println("getRec()::config: " + config)
-			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
+//			recommendations = dataCleanService.getRecommendations(targetDataset, mDataset, simThreshold, searchObj, config)
+			def recommendationsMap = dataCleanService.getRecommendationsList(targetDataset, mDataset, simThreshold, searchObj, config)
+			
+			//transfer the result format to the specific one
+			for (def rec: recommendationsMap) {
+				def newRec = [:]
+				newRec["search"] = rec["search"]
+				def recommendation = []
+				for (def con: rec["recommendation"].keySet()) {
+					def map = [:]
+					map["constraint"] = con.toString()
+					map["constraintAttrs"] = con.getColsInConstraint()
+					
+					def recContentList = []
+					
+					def setCandidate = rec["recommendation"].get(con)
+					def i = setCandidate.iterator()
+					while (i.hasNext()) {
+						def candidate = i.next()
+						for (def recmmendationTemp:candidate.getRecommendations()) {
+							def recmmendationTempList = []
+							recmmendationTempList.add(recmmendationTemp.gettRid())
+							recmmendationTempList.add(recmmendationTemp.getCol())
+							recmmendationTempList.add(recmmendationTemp.getVal())
+							recContentList.add(recmmendationTempList)
+						}
+					}
+					
+					map["recContent"] = recContentList
+					
+					recommendation.add(map)
+				}
+				newRec["recommendation"] = recommendation
+				recommendations.add(newRec)
+			}
+			
 		}
 		else {
 			flash.message = "Please indicate searching algorithms!"

@@ -189,6 +189,105 @@ class DataCleanService {
 		return sb.toString()
 	}
 	
+	//get recommendation result for individual searching type and config
+	def getRecommendationsIndList(def targetDataset, def masterDataset, def simThreshold, def searchObj, Map<String, Double> config) {
+		DataCleaningUtils dataCleanUtil = new DataCleaningUtilsImpl()
+		
+		def result = [:]
+		
+		result["search"] = searchObj
+		
+		TargetDataset target = loadTargetDataset(targetDataset.url, targetDataset.name, targetDataset.dbConstraint.url)
+		MasterDataset master = loadMasterDataset(masterDataset.url, masterDataset.name, masterDataset.dbConstraint.url, targetDataset.id)
+		
+		if (target && master) {
+		
+			float simThresholdF = Float.parseFloat(simThreshold);
+			
+			SearchType searchType
+			
+			switch (searchObj) {
+				case "weighted":
+					searchType = SearchType.SA_WEIGHTED
+					break
+				case "constrained":
+					searchType = SearchType.SA_EPS_FLEX
+					break
+				case "dynamic":
+					searchType = SearchType.SA_EPS_DYNAMIC
+					break
+				case "lexical":
+					searchType = SearchType.SA_EPS_LEX
+					break
+				default:
+					searchType = SearchType.SA_EPS
+					break
+			}
+			
+			def recommendation = dataCleanUtil.runDataCleaningMap(target, master, simThresholdF, searchType, config)
+			result["recommendation"] = recommendation
+		}
+		else {
+			println("Target & Master Dataset Not Found!")
+		}
+		
+		return result
+	}
+	
+	//get recommendation result for multiple searching type and config
+	def getRecommendationsList(def targetDataset, def masterDataset, def simThreshold, def searchObj, def config) {
+		def result = []
+		
+		if (searchObj) {
+			searchObj.each {
+				switch (it) {
+					case "weighted":
+						def s
+						if (config && config["weighted"]) {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, config["weighted"])
+						}
+						else {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, null)
+						}
+						result.add(s)
+						break
+					case "dynamic":
+						def s
+						if (config && config["dynamic"]) {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, config["dynamic"])
+						}
+						else {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, null)
+						}
+						result.add(s)
+						break
+					case "lexical":
+						def s
+						if (config && config["lexical"]) {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, config["lexical"])
+						}
+						else {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, null)
+						}
+						result.add(s)
+						break
+					case "constrained":
+						def s
+						if (config && config["constrained"]) {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, config["constrained"])
+						}
+						else {
+							s = getRecommendationsIndList(targetDataset, masterDataset, simThreshold, it, null)
+						}
+						result.add(s)
+						break
+				}
+			}
+		}
+		
+		return result
+	}
+	
 	Map<String, Double> mapConvert (def map) {
 		Map<String, Double> mapJava = new HashMap<String, Double>();
 		
