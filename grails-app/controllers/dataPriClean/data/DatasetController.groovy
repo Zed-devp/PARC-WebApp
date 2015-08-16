@@ -242,4 +242,47 @@ class DatasetController {
 			redirect (controller:"dataset", action:"index")
 		}
 	}
+	
+	def showTargetDataset () {
+		def targetDataset = session.targetDataset
+		
+		def showDataset = [:]
+		
+		if (targetDataset) {
+			def dataset = TargetDataset.findByName(targetDataset)
+			if (dataset) {
+				showDataset["datasetName"] = dataset.name
+				showDataset["conName"] = dataset.dbConstraint.name
+				
+				
+				def tDataset = dataCleanService.loadTargetDataset(dataset.url, dataset.name, dataset.dbConstraint.url)
+				def recordsList = tDataset.getRecords()
+				if (recordsList.size() > 0) {
+					def counter = 1
+					def attrs = recordsList.get(0).getColsToVal().keySet()
+					def data = []
+					for (def record: recordsList) {
+						def recordRow = []
+						recordRow.add(counter)
+						for (def attr: attrs) {
+							recordRow.add(record.getColsToVal().get(attr))
+						}
+						counter ++
+						data.add(recordRow)
+					}
+					
+					showDataset["attrs"] = attrs
+					showDataset["data"] = data
+				}
+			}
+			else {
+				println ("Cannot find target dataset")
+			}
+		}
+		else {
+			println ("Target Dataset is not indicated")
+		}
+		
+		[dataset: showDataset]
+	}
 }
