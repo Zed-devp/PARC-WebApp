@@ -15,10 +15,10 @@
 			  </ul>
 			</nav>
 			
-    		<h1>Target Datasets:</h1>
+    		<h1>Dataset:</h1>
     		
     		<br>
-    		<p>Target Dataset Name: ${dataset["datasetName"] }</p>
+    		<p>Dataset Name: ${dataset["datasetName"] }</p>
     		<p>Constraint Name: ${dataset["conName"] }</p>
     		<br>
     		

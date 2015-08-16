@@ -213,6 +213,11 @@ class DatasetController {
 		else if (params.func == "Delete Data") {
 			deleteDataset(params)
 		}
+		//show dataset details
+		else if (params.func == "Show Dataset") {
+			session.showDatasetName = params.dataset
+			redirect(controller:"dataset", action:"showDataset")
+		}
 	}
 	
 	def deleteDataset (def params) {
@@ -243,13 +248,13 @@ class DatasetController {
 		}
 	}
 	
-	def showTargetDataset () {
-		def targetDataset = session.targetDataset
+	def showDataset () {
+		def datasetName = session.showDatasetName
 		
 		def showDataset = [:]
 		
-		if (targetDataset) {
-			def dataset = TargetDataset.findByName(targetDataset)
+		if (datasetName) {
+			def dataset = Dataset.findByName(datasetName)
 			if (dataset) {
 				showDataset["datasetName"] = dataset.name
 				showDataset["conName"] = dataset.dbConstraint.name

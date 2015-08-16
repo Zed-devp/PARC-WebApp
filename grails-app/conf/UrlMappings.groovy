@@ -24,7 +24,7 @@ class UrlMappings {
 		"/uploadMasterDataset"(controller:"dataset",action:"uploadMasterDataset")
 		"/targetDataset"(controller:"dataset",action:"targetDataset")
 		"/masterDataset"(controller:"dataset",action:"masterDataset")
-		"/showTargetDataset"(controller:"dataset",action:"showTargetDataset")
+		"/showDataset"(controller:"dataset",action:"showDataset")
 		
 		//data quality pages
 		"/datasetSelectionQua"(controller:"dataQuality",action:"datasetSelectionQua")

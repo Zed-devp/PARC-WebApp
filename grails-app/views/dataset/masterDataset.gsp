@@ -35,6 +35,7 @@
 		                    	<input name="con" type="text" value="${dataset.conName}" hidden>
 		                    	
 			                    <input type="submit" class="btn btn-danger" name="func" value="Delete Data">
+			                    <input type="submit" class="btn btn-success" name="func" value="Show Dataset">
 		                    </g:form>
 	                    </td>
                 	</tr>
