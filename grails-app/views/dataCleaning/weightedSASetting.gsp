@@ -18,7 +18,7 @@
     	<h3>Weighted Simulated Annealing Advanced Setting</h3>
     	<br>
     	
-		<g:uploadForm controller="dataCleaning" action="saveConfigWeighted" method="POST">
+		<g:uploadForm controller="dataCleaning" action="weightedSASetting" method="POST">
 		  <g:render template="/dataCleaning/searchConfigSetting" />
 		        
 		  <div class="panel panel-success">
@@ -28,16 +28,16 @@
       					<div class="col-xs-6">
 					        <label>Alpha of Privacy:</label> 
 					        <div class="range range-success">
-					        	<input id="alphaPvt" type="range" name="alphaPvt" min="0.0" max="1.0" value="0.10" step="0.001" onchange="alphaPvtText.value=value" />
-					        	<output id="alphaPvtText">0.010</output>
+					        	<input id="alphaPvt" type="range" name="alphaPvt" min="0.0" max="1.0" value="${config["alphaPvt"] }" step="0.001" onchange="alphaPvtText.value=value" />
+					        	<output id="alphaPvtText">${config["alphaPvt"] }</output>
 					        </div>
 				        </div>
 			        
 			        	<div class="col-xs-6">
 					        <label>Beta Ind:</label> 
 					        <div class="range range-success">
-					        	<input id="betaInd" type="range" name="betaInd" min="0.0" max="1.0" value="0.895" step="0.001" onchange="betaIndText.value=value" />
-					        	<output id="betaIndText">0.895</output>
+					        	<input id="betaInd" type="range" name="betaInd" min="0.0" max="1.0" value="${config["betaInd"] }" step="0.001" onchange="betaIndText.value=value" />
+					        	<output id="betaIndText">${config["betaInd"] }</output>
 					        </div>
 				        </div>
 			        </div>
@@ -46,52 +46,21 @@
       					<div class="col-xs-6">
 					        <label>Gamma Size:</label> 
 					        <div class="range range-success">
-					        	<input id="gamaSize" type="range" name="gamaSize" min="0.0" max="1.0" value="0.005" step="0.001" onchange="gamaSizeText.value=value" />
-					        	<output id="gamaSizeText">0.005</output>
+					        	<input id="gamaSize" type="range" name="gamaSize" min="0.0" max="1.0" value="${config["gamaSize"] }" step="0.001" onchange="gamaSizeText.value=value" />
+					        	<output id="gamaSizeText">${config["gamaSize"] }</output>
 					        </div>
 				        </div>
 			        </div>
 		        </div>
 	        </div>
 	        
-			<!-- 
-	        <p>Start Temperature: <input id="stTemp" type="range" name="stTemp" min="0.0" max="1.0" value="0.0009" step="0.00001" oninput="showRangeValue(id)" /><span id="stTempText"></span></p>
-	        <p>Final Temperature: <input id="endTemp" type="range" name="endTemp" min="0.0" max="1.0" value="0.00005" step="0.00001" oninput="showRangeValue(id)" /><span id="endTempText"></span></p>
-	        <p>Alpha Temperature: <input id="alpTemp" type="range" name="alpTemp" min="0.0" max="1.0" value="0.99" step="0.001" oninput="showRangeValue(id)" /><span id="alpTempText"></span></p>
-	        <p>Step per Temperature: <input id="stepTemp" type="range" name="stepTemp" min="0.0" max="10" value="1" step="1" oninput="showRangeValue(id)" /><span id="stepTempText"></span></p>
-	        <p>Best Energy: <input id="bestEn" type="range" name="bestEn" min="0.0" max="1.0" value="0.00001" step="0.00001" oninput="showRangeValue(id)" /><span id="bestEnText"></span></p>
-	        <br>
-	        <p>Privacy & Cleaning Utility Objective Configuration:</p>
-	        <p>Alpha of Privacy: <input id="alphaPvt" type="range" name="alphaPvt" min="0.0" max="1.0" value="0.10" step="0.001" oninput="showRangeValue(id)" /><span id="alphaPvtText"></span></p>
-	        <p>Beta Ind: <input id="betaInd" type="range" name="betaInd" min="0.0" max="1.0" value="0.895" step="0.001" oninput="showRangeValue(id)" /><span id="betaIndText"></span></p>
-	        <p>Gamma Size: <input id="gamaSize" type="range" name="gamaSize" min="0.0" max="1.0" value="0.005" step="0.001" oninput="showRangeValue(id)" /><span id="gamaSizeText"></span></p>
-	        -->
-	        <input class="btn btn-primary" type="submit" value="Save"/>
+	        <input class="btn btn-success" name="func" type="submit" value="Save"/>
+	        <input class="btn btn-primary" name="func" type="submit" value="Reset to default"/>
 	    </g:uploadForm>
 	    <br>
 	    <g:if test="${flash.message}">
 	  		<p>${flash.message}</p>
 	  	</g:if>
 	
-		<!-- 
-		<script>
-			showRangeValue("stTemp");
-			showRangeValue("endTemp");
-			showRangeValue("alpTemp");
-			showRangeValue("stepTemp");
-			showRangeValue("bestEn");
-
-			showRangeValue("alphaPvt");
-			showRangeValue("betaInd");
-			showRangeValue("gamaSize");
-		
-			function showRangeValue(id) {
-			    var range = document.getElementById(id);
-			    var rangeVal = range.value;
-			    var rangeValBox = document.getElementById(id + "Text");
-			    rangeValBox.innerHTML = rangeVal;
-			}
-		</script>
-		 -->
   </body>
 </html>

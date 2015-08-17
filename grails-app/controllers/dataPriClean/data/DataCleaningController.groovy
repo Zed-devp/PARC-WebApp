@@ -177,6 +177,146 @@ class DataCleaningController {
 		[recs: recommendations]
 	}
 	
+	//show weightedSA config setting page
+	def weightedSASetting () {
+		//current setting
+		def config
+		//user defined setting
+		def configAll = session.config
+		
+		//user has defined this setting
+		if (configAll["weighted"]) {
+			config = configAll["weighted"]
+		}
+		//user has not defined this setting
+		else {
+			config = resetWeightedSASetting()
+		}
+		
+		//reset the setting
+		if (params.func == "Reset to default")
+		{
+			//clear the session config setting saved by the user
+			if (configAll["weighted"]) {
+				configAll["weighted"] = null
+			}
+			
+			//reset the settings
+			config = resetWeightedSASetting()
+		}
+		//save the setting
+		else if (params.func == "Save"){
+			redirect(controller:"dataCleaning", action:"saveConfigWeighted", params:params)
+		}
+		
+		[config:config]
+	}
+	
+	//show constrainedSA config setting page
+	def constrainedSASetting () {
+		//current setting
+		def config
+		//user defined setting
+		def configAll = session.config
+		
+		//user has defined this setting
+		if (configAll["constrained"]) {
+			config = configAll["constrained"]
+		}
+		//user has not defined this setting
+		else {
+			config = resetConstrainedSASetting()
+		}
+		
+		//reset the setting
+		if (params.func == "Reset to default")
+		{
+			//clear the session config setting saved by the user
+			if (configAll["constrained"]) {
+				configAll["constrained"] = null
+			}
+			
+			//reset the settings
+			config = resetConstrainedSASetting()
+		}
+		//save the setting
+		else if (params.func == "Save"){
+			redirect(controller:"dataCleaning", action:"saveConfigConstrained", params:params)
+		}
+		
+		[config:config]
+	}
+	
+	//show dynamicSA config setting page
+	def dynamicSASetting () {
+		//current setting
+		def config
+		//user defined setting
+		def configAll = session.config
+		
+		//user has defined this setting
+		if (configAll["dynamic"]) {
+			config = configAll["dynamic"]
+		}
+		//user has not defined this setting
+		else {
+			config = resetDynamicSASetting()
+		}
+		
+		//reset the setting
+		if (params.func == "Reset to default")
+		{
+			//clear the session config setting saved by the user
+			if (configAll["dynamic"]) {
+				configAll["dynamic"] = null
+			}
+			
+			//reset the settings
+			config = resetDynamicSASetting()
+		}
+		//save the setting
+		else if (params.func == "Save"){
+			redirect(controller:"dataCleaning", action:"saveConfigDynamic", params:params)
+		}
+		
+		[config:config]
+	}
+	
+	//show lexicalSA config setting page
+	def lexicalSASetting () {
+		//current setting
+		def config
+		//user defined setting
+		def configAll = session.config
+		
+		//user has defined this setting
+		if (configAll["lexical"]) {
+			config = configAll["lexical"]
+		}
+		//user has not defined this setting
+		else {
+			config = resetLexicalSASetting()
+		}
+		
+		//reset the setting
+		if (params.func == "Reset to default")
+		{
+			//clear the session config setting saved by the user
+			if (configAll["lexical"]) {
+				configAll["lexical"] = null
+			}
+			
+			//reset the settings
+			config = resetLexicalSASetting()
+		}
+		//save the setting
+		else if (params.func == "Save"){
+			redirect(controller:"dataCleaning", action:"saveConfigLexical", params:params)
+		}
+		
+		[config:config]
+	}
+	
 	def saveConfigWeighted () {
 		def configAll
 		if (session.config) {
@@ -351,68 +491,78 @@ class DataCleaningController {
 		redirect(controller:"dataCleaning",action:"dataCleaningConfig")
 	}
 	
-	//show weightedSA config setting page
-	def weightedSASetting () {}
+	//reset weightedSA config setting
+	def resetWeightedSASetting () {
+		def config = [:]
+		
+		//searching parameter config
+		config["stTemp"] = 0.0009
+		config["endTemp"] = 0.00005
+		config["alpTemp"] = 0.99
+		config["stepTemp"] = 1
+		config["bestEn"] = 0.00001
+		
+		//weighted SA Setting
+		config["alphaPvt"] = 0.10
+		config["betaInd"] = 0.895
+		config["gamaSize"] = 0.005
+		
+		return config
+	}
 	
-	//show constrainedSA config setting page
-	def constrainedSASetting () {}
+	//reset constrainedSA config setting
+	def resetConstrainedSASetting () {
+		def config = [:]
+		
+		//searching parameter config
+		config["stTemp"] = 0.0009
+		config["endTemp"] = 0.00005
+		config["alpTemp"] = 0.99
+		config["stepTemp"] = 1
+		config["bestEn"] = 0.00001
+		
+		//weighted SA Setting
+		config["cleaning"] = 1
+		config["size"] = 1
+		
+		return config
+	}
 	
-	//show dynamicSA config setting page
-	def dynamicSASetting () {}
+	//reset dynamicSA config setting
+	def resetDynamicSASetting () {
+		def config = [:]
+		
+		//searching parameter config
+		config["stTemp"] = 0.0009
+		config["endTemp"] = 0.00005
+		config["alpTemp"] = 0.99
+		config["stepTemp"] = 1
+		config["bestEn"] = 0.00001
+		
+		//weighted SA Setting
+		config["privacy"] = 1
+		config["cleaning"] = 1
+		config["size"] = 1
+		
+		return config
+	}
 	
-	//show lexicalSA config setting page
-	def lexicalSASetting () {}
+	//reset lexicalSA config setting
+	def resetLexicalSASetting () {
+		def config = [:]
+		
+		//searching parameter config
+		config["stTemp"] = 0.0009
+		config["endTemp"] = 0.00005
+		config["alpTemp"] = 0.99
+		config["stepTemp"] = 1
+		config["bestEn"] = 0.00001
+		
+		//weighted SA Setting
+		config["privacy"] = 1
+		config["cleaning"] = 1
+		
+		return config
+	}
 	
-//	//save the config for data cleaning
-//	def saveConfig () {
-//		def config = [:]
-//		
-//		//searching config
-//		if (params.stTemp) {
-//			config["stTemp"] = Double.parseDouble(params.stTemp)
-//		}
-//		if (params.endTemp) {
-//			config["endTemp"] = Double.parseDouble(params.endTemp)
-//		}
-//		if (params.alpTemp) {
-//			config["alpTemp"] = Double.parseDouble(params.alpTemp)
-//		}
-//		if (params.stepTemp) {
-//			config["stepTemp"] = Double.parseDouble(params.stepTemp)
-//		}
-//		if (params.bestEn) {
-//			config["bestEn"] = Double.parseDouble(params.bestEn)
-//		}
-//		
-//		//weighted config
-//		if (params.alphaPvt) {
-//			config["alphaPvt"] = Double.parseDouble(params.alphaPvt)
-//		}
-//		if (params.betaInd) {
-//			config["betaInd"] = Double.parseDouble(params.betaInd)
-//		}
-//		if (params.gamaSize) {
-//			config["gamaSize"] = Double.parseDouble(params.gamaSize)
-//		}
-//		
-//		//constrained config
-//		if (params.cleaning) {
-//			config["cleaning"] = Double.parseDouble(params.cleaning)
-//		}
-//		if (params.size) {
-//			config["size"] = Double.parseDouble(params.size)
-//		}
-//		
-//		//dynamic config
-//		if (params.privacy) {
-//			config["privacy"] = Double.parseDouble(params.privacy)
-//		}
-//		
-////		print ("Searching Config: " + config)
-//		
-//		//save the config
-//		session.config = config
-//		
-//		redirect(controller:"dataCleaning",action:"cleanDataUserInput")
-//	}
 }
