@@ -99,6 +99,11 @@ class AgentController {
 		  flash.message = "${user.name} logout!"
 		  //logout
 		  session.user = null
+		  //clear other session info
+		  session.targetDataset = null
+		  session.showDatasetName = null
+		  session.config = null
+		  
 		  redirect(controller:"agent", action:"login")
 	  }
 	}
