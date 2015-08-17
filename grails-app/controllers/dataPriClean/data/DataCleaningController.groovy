@@ -185,7 +185,7 @@ class DataCleaningController {
 		def configAll = session.config
 		
 		//user has defined this setting
-		if (configAll["weighted"]) {
+		if (configAll && configAll["weighted"]) {
 			config = configAll["weighted"]
 		}
 		//user has not defined this setting
@@ -197,7 +197,7 @@ class DataCleaningController {
 		if (params.func == "Reset to default")
 		{
 			//clear the session config setting saved by the user
-			if (configAll["weighted"]) {
+			if (configAll && configAll["weighted"]) {
 				configAll["weighted"] = null
 			}
 			
@@ -220,7 +220,7 @@ class DataCleaningController {
 		def configAll = session.config
 		
 		//user has defined this setting
-		if (configAll["constrained"]) {
+		if (configAll && configAll["constrained"]) {
 			config = configAll["constrained"]
 		}
 		//user has not defined this setting
@@ -232,7 +232,7 @@ class DataCleaningController {
 		if (params.func == "Reset to default")
 		{
 			//clear the session config setting saved by the user
-			if (configAll["constrained"]) {
+			if (configAll && configAll["constrained"]) {
 				configAll["constrained"] = null
 			}
 			
@@ -255,7 +255,7 @@ class DataCleaningController {
 		def configAll = session.config
 		
 		//user has defined this setting
-		if (configAll["dynamic"]) {
+		if (configAll && configAll["dynamic"]) {
 			config = configAll["dynamic"]
 		}
 		//user has not defined this setting
@@ -267,7 +267,7 @@ class DataCleaningController {
 		if (params.func == "Reset to default")
 		{
 			//clear the session config setting saved by the user
-			if (configAll["dynamic"]) {
+			if (configAll && configAll["dynamic"]) {
 				configAll["dynamic"] = null
 			}
 			
@@ -290,7 +290,7 @@ class DataCleaningController {
 		def configAll = session.config
 		
 		//user has defined this setting
-		if (configAll["lexical"]) {
+		if (configAll && configAll["lexical"]) {
 			config = configAll["lexical"]
 		}
 		//user has not defined this setting
@@ -302,7 +302,7 @@ class DataCleaningController {
 		if (params.func == "Reset to default")
 		{
 			//clear the session config setting saved by the user
-			if (configAll["lexical"]) {
+			if (configAll && configAll["lexical"]) {
 				configAll["lexical"] = null
 			}
 			

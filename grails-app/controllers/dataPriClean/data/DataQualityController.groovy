@@ -1,7 +1,8 @@
 package dataPriClean.data
 
 class DataQualityController {
-	def dataCleanService
+	def dataQualityService
+	def dataService
 	
 	//select dataset for data quality
 	def datasetSelectionQua () {
@@ -64,9 +65,9 @@ class DataQualityController {
 				def conUrl = con.url
 				
 				//load dataset & find violations
-				def targetData = dataCleanService.loadTargetDataset(datasetUrl, fileName, conUrl)
-//				def violations = dataCleanService.findViolations(targetData)
-				def violations = dataCleanService.findViolationsList(targetData)
+				def targetData = dataService.loadTargetDataset(datasetUrl, fileName, conUrl)
+//				def violations = dataQualityService.findViolations(targetData)
+				def violations = dataQualityService.findViolationsList(targetData)
 				
 				vio = violations
 			}

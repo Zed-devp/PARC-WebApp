@@ -46,8 +46,8 @@
 				        	<div class="col-xs-6">
 					        <label>Size:</label> 
 					        <div class="range range-success">
-					        	<input id="size" type="range" name="size" min="0.0" max="1.0" value="1" step="0.1" onchange="sizeText.value=value" />
-					        	<output id="sizeText">1</output>
+					        	<input id="size" type="range" name="size" min="0.0" max="1.0" value="${config["size"] }" step="0.1" onchange="sizeText.value=value" />
+					        	<output id="sizeText">${config["size"] }</output>
 					        </div>
 				        </div>
 			        </div>

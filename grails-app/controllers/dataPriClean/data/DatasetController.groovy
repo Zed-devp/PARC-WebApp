@@ -5,7 +5,7 @@ import dataPriClean.data.TargetDataset
 import dataPriClean.data.MasterDataset
 
 class DatasetController {
-	def dataCleanService
+	def dataService
 	
 	//redirect to mastetDataset or targetDataset homepage according to login user
 	def index () {
@@ -237,7 +237,7 @@ class DatasetController {
 			dataset.delete(flush: true)
 			
 			//delete the dataset & constraint & parent dir files
-			dataCleanService.deleteDatasetFile(datasetUrl, conUrl)
+			dataService.deleteDatasetFile(datasetUrl, conUrl)
 			
 			println("Delete dataset: " + dataset.name + " successfully!")
 		}
@@ -261,7 +261,7 @@ class DatasetController {
 				showDataset["datasetName"] = dataset.name
 				showDataset["conName"] = dataset.dbConstraint.name
 				
-				def tDataset = dataCleanService.loadTargetDataset(dataset.url, dataset.name, dataset.dbConstraint.url)
+				def tDataset = dataService.loadTargetDataset(dataset.url, dataset.name, dataset.dbConstraint.url)
 				def recordsList = tDataset.getRecords()
 				
 				//TODO: this part of function should be put into the service (get datset info)
