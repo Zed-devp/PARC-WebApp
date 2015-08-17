@@ -18,7 +18,7 @@
     	<h3>Lexical Simulated Annealing Advanced Setting</h3>
     	<br>
     	
-		<g:uploadForm controller="agent" action="saveConfigLexical" method="POST">
+		<g:uploadForm controller="dataCleaning" action="saveConfigLexical" method="POST">
 			<g:render template="/dataCleaning/searchConfigSetting" />
 		
 			<div class="panel panel-success">

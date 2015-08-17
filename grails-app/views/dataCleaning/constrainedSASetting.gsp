@@ -18,7 +18,7 @@
 		<h3>ConstrainedSimulated Annealing Advanced Setting</h3>
     	<br>
     	
-		<g:uploadForm controller="agent" action="saveConfigConstrained" method="POST">
+		<g:uploadForm controller="dataCleaning" action="saveConfigConstrained" method="POST">
 			<g:render template="/dataCleaning/searchConfigSetting" />
 		
 			<div class="panel panel-success">

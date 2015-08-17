@@ -18,7 +18,7 @@
     	<h3>Weighted Simulated Annealing Advanced Setting</h3>
     	<br>
     	
-		<g:uploadForm controller="agent" action="saveConfigWeighted" method="POST">
+		<g:uploadForm controller="dataCleaning" action="saveConfigWeighted" method="POST">
 		  <g:render template="/dataCleaning/searchConfigSetting" />
 		        
 		  <div class="panel panel-success">

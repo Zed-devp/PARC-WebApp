@@ -219,7 +219,7 @@ class DataCleaningController {
 		configAll["weighted"] = config
 		
 		session.config = configAll
-		redirect(controller:"agent",action:"cleanDataUserInput")
+		redirect(controller:"dataCleaning",action:"dataCleaningConfig")
 	}
 	
 	def saveConfigConstrained () {
@@ -261,7 +261,7 @@ class DataCleaningController {
 		configAll["constrained"] = config
 		
 		session.config = configAll
-		redirect(controller:"agent",action:"cleanDataUserInput")
+		redirect(controller:"dataCleaning",action:"dataCleaningConfig")
 	}
 	
 	def saveConfigDynamic () {
@@ -306,7 +306,7 @@ class DataCleaningController {
 		configAll["dynamic"] = config
 		
 		session.config = configAll
-		redirect(controller:"agent",action:"cleanDataUserInput")
+		redirect(controller:"dataCleaning",action:"dataCleaningConfig")
 	}
 	
 	def saveConfigLexical () {
@@ -348,7 +348,7 @@ class DataCleaningController {
 		configAll["lexical"] = config
 		
 		session.config = configAll
-		redirect(controller:"agent",action:"cleanDataUserInput")
+		redirect(controller:"dataCleaning",action:"dataCleaningConfig")
 	}
 	
 	//show weightedSA config setting page
@@ -413,6 +413,6 @@ class DataCleaningController {
 //		//save the config
 //		session.config = config
 //		
-//		redirect(controller:"agent",action:"cleanDataUserInput")
+//		redirect(controller:"dataCleaning",action:"cleanDataUserInput")
 //	}
 }

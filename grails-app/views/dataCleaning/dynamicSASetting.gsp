@@ -18,7 +18,7 @@
     	<h3>Dynamic Simulated Annealing Advanced Setting</h3>
     	<br>
     	
-		<g:uploadForm controller="agent" action="saveConfigDynamic" method="POST">
+		<g:uploadForm controller="dataCleaning" action="saveConfigDynamic" method="POST">
 			<g:render template="/dataCleaning/searchConfigSetting" />
 			
 			<div class="panel panel-success">
