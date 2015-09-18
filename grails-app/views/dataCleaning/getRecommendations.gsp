@@ -70,20 +70,27 @@
 				  					<div class="panel panel-success">
 				  						<div class="panel-heading">Constraint: ${rec["constraint"] }</div>
 				  						<div class="panel-body">
-									   		<table class="table table-hover">
-									   			<tr class="active">
-									   				<td><p>Record #</p></td>
-												    <td><p>Attribute</p></td>
-												    <td><p>Change to</p></td>
-												  </tr>
-										   		<g:each in="${rec["recContent"] }" var="record" >
-										   			<tr>
-										   				<g:each in="${record }" var="recordCol" >
-										   					<td><p>${recordCol }</p></td>
-									   					</g:each>
-										   			</tr>
-										   		</g:each>
-										   	</table>
+				  							<div class="panel panel-success">
+				  								<div class="panel-heading">Candidates</div>
+				  								<div class="panel-body">
+				  									<g:each in="${rec["recContent"] }" var="candidate" >
+												   		<table class="table table-hover">
+												   			<tr class="active">
+												   				<td><p>Record #</p></td>
+															    <td><p>Attribute</p></td>
+															    <td><p>Change to</p></td>
+															  </tr>
+													   		<g:each in="${candidate }" var="record" >
+													   			<tr>
+													   				<g:each in="${record }" var="recordCol" >
+													   					<td><p>${recordCol }</p></td>
+												   					</g:each>
+													   			</tr>
+													   		</g:each>
+													   	</table>
+												   	</g:each>
+											   	</div>
+										   	</div>
 									   	</div>
 								   	</div>
 							   	</g:each>

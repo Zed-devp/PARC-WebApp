@@ -169,12 +169,16 @@ class DataCleaningController {
 					map["constraint"] = con.toString()
 					map["constraintAttrs"] = con.getColsInConstraint()
 					
-					//recommendation info
-					def recContentList = []
+					// candidates
+					def candidates = []
+					
 					//convert the Set<Candidat> data type to List<List<String>> 
 					def setCandidate = rec["recommendation"].get(con)
 					def i = setCandidate.iterator()
 					while (i.hasNext()) {
+						//recommendation info
+						def recContentList = []
+						
 						//convert the Candidate data type to List<String>
 						def candidate = i.next()
 						for (def recmmendationTemp:candidate.getRecommendations()) {
@@ -184,9 +188,11 @@ class DataCleaningController {
 							recmmendationRecord.add(recmmendationTemp.getVal())
 							recContentList.add(recmmendationRecord)
 						}
+						
+						candidates.add(recContentList)
 					}
 					
-					map["recContent"] = recContentList
+					map["recContent"] = candidates
 					
 					recommendation.add(map)
 				}
