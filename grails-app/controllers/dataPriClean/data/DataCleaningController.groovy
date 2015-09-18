@@ -129,6 +129,13 @@ class DataCleaningController {
 			for (def rec: recommendationsMap) {
 				def newRec = [:]
 				
+				// the target & master dataset name
+				newRec["targetDataset"] = targetDatasetName
+				newRec["masterDataset"] = mDataset.name
+				
+				// simThreshold
+				newRec["simThreshold"] = simThreshold
+				
 				newRec["search"] = rec["search"]
 				
 				// get the search setting

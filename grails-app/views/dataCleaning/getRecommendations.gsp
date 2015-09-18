@@ -47,8 +47,16 @@
 			   	<g:each in="${recs}" var="recBySearch" >
 			   		<div id="${recBySearch["search"] }" class="tab-pane fade">
 			   		
-				   		<div class="panel">
+				   		<div class="panel panel-default">
 				  			<div class="panel-body">
+				  				<div class="panel panel-default">
+								  <div class="panel-body">
+								    Master Dataset: ${recBySearch["masterDataset"] } <br>
+					   				Target Dataset: ${recBySearch["targetDataset"] } <br>
+					   				Similarity Threshold: ${recBySearch["simThreshold"] }
+								  </div>
+								</div>
+				  			
 					  			<div class="panel panel-success">
 						   			<div class="panel-heading">
 						   				Search Algorithm Setting:
