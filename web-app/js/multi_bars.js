@@ -4,11 +4,11 @@ var data = {
   ],
   series: [
     {
-      label: 'privacy loss',
+      label: 'pvt',
       values: [4]
     },
     {
-      label: 'data cleaning utility',
+      label: 'ind',
       values: [12]
     },
     {
@@ -17,12 +17,12 @@ var data = {
     },]
 };
 
-var chartWidth       = 300,
+var chartWidth       = 100,
     barHeight        = 20,
     groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = 10,
-    spaceForLabels   = 150,
-    spaceForLegend   = 150;
+    spaceForLabels   = 100,
+    spaceForLegend   = 100;
 
 // Zip the series data together (first values, second values, etc.)
 var zippedData = [];
