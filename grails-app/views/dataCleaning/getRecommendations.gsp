@@ -1,7 +1,12 @@
 <html>
   <head>
     <meta name="layout" content="main" />
-    <title>Data Cleaning</title>         
+    
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'multi_bars.css')}" type="text/css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    
+    <title>Data Cleaning</title>   
+    
   </head>
   <body>
   	<nav>
@@ -50,6 +55,11 @@
 	<g:if test="${flash.message}">
   		<p>${flash.message}</p>
   	</g:if>
+  	
+  	<!-- 
+	  	<svg class="chart"></svg>
+	  	<script src="${resource(dir: 'js', file: 'multi_bars.js')}"></script>
+  	 -->
   	
   </body>
 </html>
