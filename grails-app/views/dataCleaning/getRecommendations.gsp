@@ -34,8 +34,6 @@
     <h1>Data Cleaning Recommendations:</h1>
    	<br>
    	
-   	<div class="row">
-   		<div class="col-md-8">
 		   	<ul class="nav nav-tabs" id="myTab">
 		      <li class="active"><a href="#weighted">Weighted Search</a></li>
 			  <li><a href="#constrained">Constrained Search</a></li>
@@ -74,20 +72,49 @@
 				  								<div class="panel-heading">Candidates</div>
 				  								<div class="panel-body">
 				  									<g:each in="${rec["recContent"] }" var="candidate" >
-												   		<table class="table table-hover">
-												   			<tr class="active">
-												   				<td><p>Record #</p></td>
-															    <td><p>Attribute</p></td>
-															    <td><p>Change to</p></td>
-															  </tr>
-													   		<g:each in="${candidate }" var="record" >
-													   			<tr>
-													   				<g:each in="${record }" var="recordCol" >
-													   					<td><p>${recordCol }</p></td>
-												   					</g:each>
-													   			</tr>
-													   		</g:each>
-													   	</table>
+					  									<div class="row">
+   															<div class="col-md-8">
+														   		<table class="table table-hover">
+														   			<tr class="active">
+														   				<td><p>Record #</p></td>
+																	    <td><p>Attribute</p></td>
+																	    <td><p>Change to</p></td>
+																	  </tr>
+															   		<g:each in="${candidate["recommendationList"] }" var="record" >
+															   			<tr>
+															   				<g:each in="${record }" var="recordCol" >
+															   					<td><p>${recordCol }</p></td>
+														   					</g:each>
+															   			</tr>
+															   		</g:each>
+															   	</table>
+   														   	</div>
+											   				<div class="col-md-4">
+														   		<div class="panel panel-default">
+																  <div class="panel-heading">Objective Scores</div>
+																  <div class="panel-body">
+															    	<svg class="chart"></svg>
+															    	<script>
+															    	var data = {labels: ['Candidate'],
+														    			         series: [
+														    			           {
+														    			             label: 'Pvt',
+														    			             values: ["${candidate["pvt"]}"]
+														    			           },
+														    			           {
+														    			             label: 'InD',
+														    			             values: ["${candidate["ind"]}"]
+														    			           },
+														    			           {
+														    			             label: 'Changes',
+														    			             values: ["${candidate["changes"]}"]
+														    			           },]};
+															    	</script>
+														  			<script src="${resource(dir: 'js', file: 'multi_bars.js')}"></script>
+																  </div>
+																</div>
+														   	</div>
+											   			</div>
 												   	</g:each>
 											   	</div>
 										   	</div>
@@ -98,18 +125,6 @@
 					   	</div>
 				   	</div>
 			   	</g:each>
-		   	</div>
-	   	</div>
-	   	
-	   	<div class="col-md-4">
-	   		<div class="panel panel-default">
-			  <div class="panel-heading">Objective Scores</div>
-			  <div class="panel-body">
-		    	<svg class="chart"></svg>
-	  			<script src="${resource(dir: 'js', file: 'multi_bars.js')}"></script>
-			  </div>
-			</div>
-	   	</div>
    	</div>
    	
 	<g:if test="${flash.message}">

@@ -176,8 +176,11 @@ class DataCleaningController {
 					def setCandidate = rec["recommendation"].get(con)
 					def i = setCandidate.iterator()
 					while (i.hasNext()) {
-						//recommendation info
+						//recommendation content info
 						def recContentList = []
+						
+						// candidate info
+						def candidateMap = [:]
 						
 						//convert the Candidate data type to List<String>
 						def candidate = i.next()
@@ -186,10 +189,16 @@ class DataCleaningController {
 							recmmendationRecord.add(recmmendationTemp.gettRid())
 							recmmendationRecord.add(recmmendationTemp.getCol())
 							recmmendationRecord.add(recmmendationTemp.getVal())
+							// list of recommendation
 							recContentList.add(recmmendationRecord)
 						}
 						
-						candidates.add(recContentList)
+						candidateMap["recommendationList"] = recContentList
+						candidateMap["pvt"] = candidate.getPvtOut()
+						candidateMap["ind"] = candidate.getIndOut()
+						candidateMap["changes"] = candidate.getChangesOut()
+						
+						candidates.add(candidateMap)
 					}
 					
 					map["recContent"] = candidates

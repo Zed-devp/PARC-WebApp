@@ -1,27 +1,27 @@
-var data = {
-  labels: [
-    'candidate1'
-  ],
-  series: [
-    {
-      label: 'pvt',
-      values: [4]
-    },
-    {
-      label: 'ind',
-      values: [12]
-    },
-    {
-      label: 'changes',
-      values: [31]
-    },]
-};
+//var data = {
+//		  labels: [
+//		           'Candidate'
+//		         ],
+//		         series: [
+//		           {
+//		             label: 'Pvt',
+//		             values: [4]
+//		           },
+//		           {
+//		             label: 'InD',
+//		             values: [12]
+//		           },
+//		           {
+//		             label: 'Changes',
+//		             values: [31]
+//		           },]
+//		       };
 
 var chartWidth       = 100,
     barHeight        = 20,
     groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = 10,
-    spaceForLabels   = 100,
+    spaceForLabels   = 75,
     spaceForLegend   = 100;
 
 // Zip the series data together (first values, second values, etc.)
