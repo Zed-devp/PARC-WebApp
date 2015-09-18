@@ -131,6 +131,27 @@ class DataCleaningController {
 				
 				newRec["search"] = rec["search"]
 				
+				// get the search setting
+				if (config && config[rec["search"]]) {
+					newRec["searchConfig"] = config[rec["search"]]
+				}
+				else {
+					switch (rec["search"]){
+						case "weighted":
+							newRec["searchConfig"] = resetWeightedSASetting()
+							break
+						case "constrained":
+							newRec["searchConfig"] = resetConstrainedSASetting()
+							break
+						case "dynamic":
+							newRec["searchConfig"] = resetDynamicSASetting()
+							break
+						case "lexical":
+							newRec["searchConfig"] = resetLexicalSASetting()
+							break
+					}
+				}
+				
 				def recommendation = []
 				//result for each constraint under the search result
 				for (def con: rec["recommendation"].keySet()) {

@@ -44,8 +44,18 @@
    	<div class="tab-content">
 	   	<g:each in="${recs}" var="recBySearch" >
 	   		<div id="${recBySearch["search"] }" class="tab-pane fade">
+	   		
 		   		<div class="panel">
 		  			<div class="panel-body">
+			  			<div class="panel panel-success">
+				   			<div class="panel-heading">
+				   				Search Algorithm Setting:
+				   			</div>
+				  			<div class="panel-body">
+			   					${recBySearch["searchConfig"] }
+		   					</div>
+						</div>
+		  			
 		  				<g:each in="${recBySearch["recommendation"] }" var="rec">
 		  					<div class="panel panel-success">
 		  						<div class="panel-heading">Constraint: ${rec["constraint"] }</div>
