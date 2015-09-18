@@ -3,7 +3,19 @@
     <meta name="layout" content="main" />
     
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'multi_bars.css')}" type="text/css">
+    
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+	$(document).ready(function(){ 
+	    $("#myTab a").click(function(e){
+	    	e.preventDefault();
+	    	$(this).tab('show');
+	    });
+	});
+	</script>
     
     <title>Data Cleaning</title>   
     
@@ -21,36 +33,45 @@
 	
     <h1>Data Cleaning Recommendations:</h1>
    	<br>
-   	<!--  <textarea style="width: 600px; height: 300px;">${recs}</textarea>  -->
    	
-   	<g:each in="${recs}" var="recBySearch" >
-   		<div class="panel panel-primary">
-   			<div class="panel-heading">Search Algorithm: ${recBySearch["search"] }</div>
-  			<div class="panel-body">
-  				<g:each in="${recBySearch["recommendation"] }" var="rec">
-  					<div class="panel panel-success">
-  						<div class="panel-heading">Constraint: ${rec["constraint"] }</div>
-  						<div class="panel-body">
-					   		<table class="table table-hover">
-					   			<tr class="active">
-					   				<td><p>Record #</p></td>
-								    <td><p>Attribute</p></td>
-								    <td><p>Change to</p></td>
-								  </tr>
-						   		<g:each in="${rec["recContent"] }" var="record" >
-						   			<tr>
-						   				<g:each in="${record }" var="recordCol" >
-						   					<td><p>${recordCol }</p></td>
-					   					</g:each>
-						   			</tr>
-						   		</g:each>
-						   	</table>
-					   	</div>
+   	<ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#weighted">Weighted Search</a></li>
+	  <li><a href="#constrained">Constrained Search</a></li>
+	  <li><a href="#dynamic">Dynamic Search</a></li>
+	  <li><a href="#lexical">Lexical Search</a></li>
+	</ul>
+   	
+   	<div class="tab-content">
+	   	<g:each in="${recs}" var="recBySearch" >
+	   		<div id="${recBySearch["search"] }" class="tab-pane fade">
+		   		<div class="panel">
+		  			<div class="panel-body">
+		  				<g:each in="${recBySearch["recommendation"] }" var="rec">
+		  					<div class="panel panel-success">
+		  						<div class="panel-heading">Constraint: ${rec["constraint"] }</div>
+		  						<div class="panel-body">
+							   		<table class="table table-hover">
+							   			<tr class="active">
+							   				<td><p>Record #</p></td>
+										    <td><p>Attribute</p></td>
+										    <td><p>Change to</p></td>
+										  </tr>
+								   		<g:each in="${rec["recContent"] }" var="record" >
+								   			<tr>
+								   				<g:each in="${record }" var="recordCol" >
+								   					<td><p>${recordCol }</p></td>
+							   					</g:each>
+								   			</tr>
+								   		</g:each>
+								   	</table>
+							   	</div>
+						   	</div>
+					   	</g:each>
 				   	</div>
-			   	</g:each>
+			   	</div>
 		   	</div>
-	   	</div>
-   	</g:each>
+	   	</g:each>
+   	</div>
    	
 	<g:if test="${flash.message}">
   		<p>${flash.message}</p>
