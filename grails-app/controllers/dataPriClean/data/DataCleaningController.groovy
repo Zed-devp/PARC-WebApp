@@ -220,6 +220,11 @@ class DataCleaningController {
 		[recs: recommendations]
 	}
 	
+	def recommendationDetails () {
+		def recommendationList = params.recommendationList
+		[recommendationList: recommendationList]
+	}
+	
 	//show weightedSA config setting page
 	def weightedSASetting () {
 		//current setting

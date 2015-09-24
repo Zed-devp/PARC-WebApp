@@ -74,7 +74,7 @@
 				  									<g:each in="${rec["recContent"] }" var="candidate" >
 					  									<div class="row">
    															<div class="col-md-8">
-														   		<table class="table table-hover">
+														   		<%--<table class="table table-hover">
 														   			<tr class="active">
 														   				<td><p>Record #</p></td>
 																	    <td><p>Attribute</p></td>
@@ -88,6 +88,8 @@
 															   			</tr>
 															   		</g:each>
 															   	</table>
+   														   	--%>
+   														   	<g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">Solution</g:link>
    														   	</div>
 											   				<div class="col-md-4">
 														   		<div class="panel panel-default">
