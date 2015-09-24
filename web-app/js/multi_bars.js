@@ -20,7 +20,7 @@
 var chartWidth       = 100,
     barHeight        = 20,
     groupHeight      = barHeight * data.series.length,
-    gapBetweenGroups = 10,
+    gapBetweenGroups = 20,
     spaceForLabels   = 75,
     spaceForLegend   = 100;
 
