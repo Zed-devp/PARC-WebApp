@@ -234,10 +234,18 @@ class DataCleaningController {
 	
 	def recommendationDetails () {
 		def recommendationList = params.recommendationList
+		def repairId = params.repairId
 		
 		def recommendations = utilsService.convertStringToDoubleArray(recommendationList)
 		
-		[recommendations: recommendations]
+		[recommendations: recommendations, repairId: repairId]
+	}
+	
+	def repairedRecords () {
+		def records = params.records
+		def repairId = params.repairId
+		
+		[records: records, repairId: repairId]
 	}
 	
 	//show weightedSA config setting page

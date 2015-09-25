@@ -36,7 +36,8 @@ class UtilsService {
 				i = i[2..(i.length() - 1)]
 			}
 			if (counter % 4 == 3) {
-				i = i[1..(i.length() - 2)]
+				i = i[2..(i.length() - 3)]
+				i = i.split(",")
 			}
 			temp.add(i)
 			counter ++

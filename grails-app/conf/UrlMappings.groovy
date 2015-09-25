@@ -39,6 +39,7 @@ class UrlMappings {
 		"/dataCleaningConfig"(controller:"dataCleaning",action:"dataCleaningConfig")
 		"/getRecommendations"(controller:"dataCleaning",action:"getRecommendations")
 		"/recommendationDetails"(controller:"dataCleaning",action:"recommendationDetails")
+		"/repairedRecords"(controller:"dataCleaning",action:"repairedRecords")
 		
 		"/weightedSASetting"(controller:"dataCleaning",action:"weightedSASetting")
 		"/constrainedSASetting"(controller:"dataCleaning",action:"constrainedSASetting")

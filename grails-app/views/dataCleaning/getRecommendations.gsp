@@ -66,7 +66,7 @@
 			  									<div class="row">
 			  									</g:if>
 			  										<div class="col-sm-1 col-md-1">
-			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">r${counter }</g:link></h4>
+			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }", repairId: "r${counter }" ]">r${counter }</g:link></h4>
 			  										</div>
 												   	<div class="col-sm-5 col-md-5">
 												   		<svg class="chart" id="chart${fdCounter }${counter }"></svg>

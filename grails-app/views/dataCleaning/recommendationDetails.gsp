@@ -10,8 +10,7 @@
   <body>
   	<g:render template="/dataCleaning/recommendationHeader" />
 	
-    <h3>Repair Details:</h3>
-   	<br>
+    <h3>Repair Details for <i>${repairId }</i>:</h3>
 			   		
 	<div class="col-md-8">
    		<table class="table table-hover">
@@ -36,8 +35,16 @@
 	   	--%>
 		   	<g:each in="${recommendations }" var="record" >
 	   			<tr>
+   					<g:set var="counter" value="${0 }" />
 	   				<g:each in="${record }" var="recordCol" >
-	   					<td><p>${recordCol }</p></td>
+	   					<g:set var="counter" value="${counter + 1}" />
+	   					<g:if test="${counter == 4 }">
+	   						<td><g:link controller="dataCleaning" action="repairedRecords" params="[records: "${recordCol }", repairId: "${repairId }"]">${recordCol.size() }</g:link></td>
+   						</g:if>
+   						<g:else>
+   							<td><p>${recordCol }</p></td>	
+   						</g:else>
+   						
    					</g:each>
 	   			</tr>
 	   		</g:each>
