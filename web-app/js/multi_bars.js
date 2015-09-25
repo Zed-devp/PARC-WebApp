@@ -50,7 +50,9 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 // Specify the chart area and dimensions
-var chart = d3.select(".chart")
+//var chart = d3.select(".chart")
+//var chart = d3.select(select).append("svg")
+var chart = d3.select(select)
     .attr("width", spaceForLabels + chartWidth + spaceForLegend)
     .attr("height", chartHeight);
 

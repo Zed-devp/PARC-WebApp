@@ -64,14 +64,18 @@
 				   					</div>
 								</div>
 				  			
+				  				<g:set var="fdCounter" value="${0}" />
 				  				<g:each in="${recBySearch["recommendation"] }" var="rec">
+				  				<g:set var="fdCounter" value="${fdCounter + 1}" />
 				  					<div class="panel panel-success">
 				  						<div class="panel-heading">Constraint: ${rec["constraint"] }</div>
 				  						<div class="panel-body">
 				  							<div class="panel panel-success">
 				  								<div class="panel-heading">Candidates</div>
+				  								<g:set var="counter" value="${0}" />
 				  								<div class="panel-body">
 				  									<g:each in="${rec["recContent"] }" var="candidate" >
+				  									<g:set var="counter" value="${counter + 1}" />
 					  									<div class="row">
    															<div class="col-md-8">
 														   		<%--<table class="table table-hover">
@@ -89,14 +93,15 @@
 															   		</g:each>
 															   	</table>
    														   	--%>
-   														   	<g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">Solution</g:link>
+   														   	<g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">R${counter }</g:link>
    														   	</div>
 											   				<div class="col-md-4">
 														   		<div class="panel panel-default">
 																  <div class="panel-heading">Objective Scores</div>
 																  <div class="panel-body">
-															    	<svg class="chart"></svg>
+																  		<svg class="chart" id="chart${fdCounter }${counter }"></svg>
 															    	<script>
+															    	var select = "#chart${fdCounter }${counter }"
 															    	var data = {labels: ['Candidate'],
 														    			         series: [
 														    			           {
