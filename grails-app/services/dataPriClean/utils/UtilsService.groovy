@@ -16,4 +16,32 @@ class UtilsService {
 		
 		return mapJava
 	}
+	
+	// convert [[Drug, Diphen , Benadryl, [2]], [Dosage, 25 mg , 20 mg, [2]], [Drug, Diphen , Banophen, [4]], [Dosage, 15 mg , 40 mg, [4]]] to a double string array
+	def convertStringToDoubleArray (def s) {
+		def result = []
+		
+		s = (String) s
+		s = s[0..(s.length() - 2)]
+		
+		s = s.split(",")
+		int counter = 0
+		def temp = []
+		for (def i: s) {
+			if (counter % 4 == 0) {
+				temp = []
+				result.add(temp)
+			}
+			if (counter % 4 == 0) {
+				i = i[2..(i.length() - 1)]
+			}
+			if (counter % 4 == 3) {
+				i = i[1..(i.length() - 2)]
+			}
+			temp.add(i)
+			counter ++
+		}
+		
+		return result
+	}
 }

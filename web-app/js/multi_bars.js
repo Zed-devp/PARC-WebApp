@@ -17,7 +17,7 @@
 //		           },]
 //		       };
 
-var chartWidth       = 200,
+var chartWidth       = 300,
     barHeight        = 20,
     groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = 20,
@@ -74,9 +74,10 @@ bar.append("rect")
 
 // Add text label in bar
 bar.append("text")
-    .attr("x", function(d) { return (x(d) + 33); })
+    .attr("x", function(d) { return (x(d) + 50); })
     .attr("y", barHeight / 2)
     .style("fill", "#000000")
+    .style("font-size","15px")
     .attr("dy", ".35em")
     .text(function(d) { return Math.round(d * 10000) / 10000; });
 

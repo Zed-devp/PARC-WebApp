@@ -46,9 +46,9 @@
 						   				<b>Similarity Threshold (&#964)</b>: ${recBySearch["simThreshold"] }
 					   				</div>
 					   				<div class="col-md-6">
-					   					<b>Privacy Loss (Pvt) Weight</b>: ${recBySearch["searchConfig"]["alphaPvt"] }<br>
-						   				<b>Cleaning Utility (InD) Weight</b>: ${recBySearch["searchConfig"]["betaInd"] }<br>
-						   				<b># Changes Weight</b>: ${recBySearch["searchConfig"]["gamaSize"] }
+					   					<b>Privacy Loss (Pvt)</b>: ${recBySearch["searchConfig"]["alphaPvt"] }<br>
+						   				<b>Cleaning Utility (InD)</b>: ${recBySearch["searchConfig"]["betaInd"] }<br>
+						   				<b># Changes</b>: ${recBySearch["searchConfig"]["gamaSize"] }
 					   				</div>
 								  </div>
 								</div>
@@ -66,7 +66,7 @@
 			  									<div class="row">
 			  									</g:if>
 			  										<div class="col-sm-1 col-md-1">
-			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">R${counter }</g:link></h4>
+			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">r${counter }</g:link></h4>
 			  										</div>
 												   	<div class="col-sm-5 col-md-5">
 												   		<svg class="chart" id="chart${fdCounter }${counter }"></svg>

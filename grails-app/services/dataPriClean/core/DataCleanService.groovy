@@ -166,7 +166,14 @@ class DataCleanService {
 					break
 			}
 			
+			//Very Important!!!!!!!!!!!!!!!
+			//get different format of result in Candidate map or Recommendation Patterns
+			
+			// this return Map<Constraint, Set<Candidate>>
 			def recommendation = dataCleanUtil.runDataCleaningMap(target, master, simThresholdF, searchType, config)
+			
+//			// this return Map<Constraint, List<List<RecommendationPattern>>>
+//			def recommendation = dataCleanUtil.runDataCleaningMapWithPatterns(target, master, simThresholdF, searchType, config)
 			result["recommendation"] = recommendation
 		}
 		else {

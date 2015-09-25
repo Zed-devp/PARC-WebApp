@@ -6,6 +6,7 @@ import dataPriClean.data.MasterDataset
 
 class DataCleaningController {
 	def dataCleanService
+	def utilsService
 
     //data cleaning config homepage
 	def dataCleaningConfig () {}
@@ -182,13 +183,24 @@ class DataCleaningController {
 						// candidate info
 						def candidateMap = [:]
 						
-						//convert the Candidate data type to List<String>
+						//convert the Candidate data type to List<List<String>>
 						def candidate = i.next()
-						for (def recmmendationTemp:candidate.getRecommendations()) {
+						// convert List<Recommendation> to List<List<String>>
+//						for (def recmmendationTemp:candidate.getRecommendations()) {
+//							def recmmendationRecord = []
+//							recmmendationRecord.add(recmmendationTemp.gettRid())
+//							recmmendationRecord.add(recmmendationTemp.getCol())
+//							recmmendationRecord.add(recmmendationTemp.getVal())
+//							// list of recommendation
+//							recContentList.add(recmmendationRecord)
+//						}
+						// convert List<RecommendationPattern> to List<List<String>>
+						for (def recmmendationPatternTemp:candidate.getRecommendationPatterns()) {
 							def recmmendationRecord = []
-							recmmendationRecord.add(recmmendationTemp.gettRid())
-							recmmendationRecord.add(recmmendationTemp.getCol())
-							recmmendationRecord.add(recmmendationTemp.getVal())
+							recmmendationRecord.add(recmmendationPatternTemp.getCol())
+							recmmendationRecord.add(recmmendationPatternTemp.gettVal())
+							recmmendationRecord.add(recmmendationPatternTemp.getmVal())
+							recmmendationRecord.add(recmmendationPatternTemp.gettIds())
 							// list of recommendation
 							recContentList.add(recmmendationRecord)
 						}
@@ -222,7 +234,10 @@ class DataCleaningController {
 	
 	def recommendationDetails () {
 		def recommendationList = params.recommendationList
-		[recommendationList: recommendationList]
+		
+		def recommendations = utilsService.convertStringToDoubleArray(recommendationList)
+		
+		[recommendations: recommendations]
 	}
 	
 	//show weightedSA config setting page

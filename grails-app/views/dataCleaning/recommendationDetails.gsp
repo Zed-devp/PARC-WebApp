@@ -8,23 +8,18 @@
     
   </head>
   <body>
-  	<nav>
-	  <ul class="pagination">
-	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-	    <li ><a href="#">Manage Dataset <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-	    <li ><a href="#">Identify Errors <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-	    <li class="active"><a href="#">Clean Dataset </a></li>
-	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
-	  </ul>
-	</nav>
+  	<g:render template="/dataCleaning/recommendationHeader" />
 	
-    <h1>Data Cleaning Recommendation:</h1>
+    <h3>Repair Details:</h3>
    	<br>
 			   		
 	<div class="col-md-8">
    		<table class="table table-hover">
-   			<tr>
-	   			<td>[Record #, Attribute, Change to]</td>
+   			<tr class="active">
+	   			<td>Attribute</td>
+	   			<td>Original Value</td>
+	   			<td>Change to</td>
+	   			<td># Repaired Records</td>
    			</tr>
    			<%--<tr class="active">
    				<td><p>Record #</p></td>
@@ -39,10 +34,13 @@
 	   			</tr>
 	   		</g:each>
 	   	--%>
-		   	<tr>
-		   		<td>"${recommendationList }"</td>
-	   		</tr>
-	   	
+		   	<g:each in="${recommendations }" var="record" >
+	   			<tr>
+	   				<g:each in="${record }" var="recordCol" >
+	   					<td><p>${recordCol }</p></td>
+   					</g:each>
+	   			</tr>
+	   		</g:each>
 	   	</table>
    	</div>
    	
