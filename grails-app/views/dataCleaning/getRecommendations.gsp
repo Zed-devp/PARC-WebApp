@@ -68,63 +68,42 @@
 				  				<g:each in="${recBySearch["recommendation"] }" var="rec">
 				  				<g:set var="fdCounter" value="${fdCounter + 1}" />
 				  					<div class="panel panel-success">
-				  						<div class="panel-heading">Constraint: ${rec["constraint"] }</div>
+				  						<div class="panel-heading">FD: ${rec["constraint"] }</div>
 				  						<div class="panel-body">
-				  							<div class="panel panel-success">
-				  								<div class="panel-heading">Candidates</div>
-				  								<g:set var="counter" value="${0}" />
-				  								<div class="panel-body">
-				  									<g:each in="${rec["recContent"] }" var="candidate" >
-				  									<g:set var="counter" value="${counter + 1}" />
-					  									<div class="row">
-   															<div class="col-md-8">
-														   		<%--<table class="table table-hover">
-														   			<tr class="active">
-														   				<td><p>Record #</p></td>
-																	    <td><p>Attribute</p></td>
-																	    <td><p>Change to</p></td>
-																	  </tr>
-															   		<g:each in="${candidate["recommendationList"] }" var="record" >
-															   			<tr>
-															   				<g:each in="${record }" var="recordCol" >
-															   					<td><p>${recordCol }</p></td>
-														   					</g:each>
-															   			</tr>
-															   		</g:each>
-															   	</table>
-   														   	--%>
-   														   	<g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">R${counter }</g:link>
-   														   	</div>
-											   				<div class="col-md-4">
-														   		<div class="panel panel-default">
-																  <div class="panel-heading">Objective Scores</div>
-																  <div class="panel-body">
-																  		<svg class="chart" id="chart${fdCounter }${counter }"></svg>
-															    	<script>
-															    	var select = "#chart${fdCounter }${counter }"
-															    	var data = {labels: ['Candidate'],
-														    			         series: [
-														    			           {
-														    			             label: 'Pvt',
-														    			             values: ["${candidate["pvt"]}"]
-														    			           },
-														    			           {
-														    			             label: 'InD',
-														    			             values: ["${candidate["ind"]}"]
-														    			           },
-														    			           {
-														    			             label: 'Changes',
-														    			             values: ["${candidate["changes"]}"]
-														    			           },]};
-															    	</script>
-														  			<script src="${resource(dir: 'js', file: 'multi_bars.js')}"></script>
-																  </div>
-																</div>
-														   	</div>
-											   			</div>
-												   	</g:each>
-											   	</div>
-										   	</div>
+		  								<g:set var="counter" value="${0}" />
+		  									<g:each in="${rec["recContent"] }" var="candidate" >
+		  									<g:set var="counter" value="${counter + 1}" />
+		  										<g:if test="${(counter % 2) == 1}">
+			  									<div class="row">
+			  									</g:if>
+			  										<div class="col-sm-1 col-md-1">
+			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }" ]">R${counter }</g:link></h4>
+			  										</div>
+												   	<div class="col-sm-5 col-md-5">
+												   		<svg class="chart" id="chart${fdCounter }${counter }"></svg>
+												   	</div>
+											    	<script>
+											    	var select = "#chart${fdCounter }${counter }"
+											    	var data = {labels: [''],
+										    			         series: [
+										    			           {
+										    			             label: 'Pvt',
+										    			             values: ["${candidate["pvt"]}"]
+										    			           },
+										    			           {
+										    			             label: 'InD',
+										    			             values: ["${candidate["ind"]}"]
+										    			           },
+										    			           {
+										    			             label: 'Changes',
+										    			             values: ["${candidate["changes"]}"]
+										    			           },]};
+											    	</script>
+										  			<script src="${resource(dir: 'js', file: 'multi_bars.js')}"></script>
+										  		<g:if test="${(counter % 2) == 0}">
+									  			</div>
+									  			</g:if>
+										   	</g:each>
 									   	</div>
 								   	</div>
 							   	</g:each>

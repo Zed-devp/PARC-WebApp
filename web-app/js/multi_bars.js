@@ -17,11 +17,11 @@
 //		           },]
 //		       };
 
-var chartWidth       = 100,
+var chartWidth       = 200,
     barHeight        = 20,
     groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = 20,
-    spaceForLabels   = 75,
+    spaceForLabels   = 0,
     spaceForLegend   = 100;
 
 // Zip the series data together (first values, second values, etc.)
@@ -37,7 +37,8 @@ var color = d3.scale.category20();
 var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 
 var x = d3.scale.linear()
-    .domain([0, d3.max(zippedData)])
+//    .domain([0, d3.max(zippedData)])
+    .domain([0, 1])
     .range([0, chartWidth]);
 
 var y = d3.scale.linear()
@@ -73,11 +74,11 @@ bar.append("rect")
 
 // Add text label in bar
 bar.append("text")
-    .attr("x", function(d) { return x(d) - 3; })
+    .attr("x", function(d) { return (x(d) + 33); })
     .attr("y", barHeight / 2)
-    .attr("fill", "red")
+    .style("fill", "#000000")
     .attr("dy", ".35em")
-    .text(function(d) { return d; });
+    .text(function(d) { return Math.round(d * 10000) / 10000; });
 
 // Draw labels
 bar.append("text")
