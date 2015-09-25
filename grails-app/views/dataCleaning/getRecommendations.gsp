@@ -21,24 +21,33 @@
     
   </head>
   <body>
-  	<nav>
-	  <ul class="pagination">
-	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-	    <li ><a href="#">Manage Dataset <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-	    <li ><a href="#">Identify Errors <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-	    <li class="active"><a href="#">Clean Dataset </a></li>
-	    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
-	  </ul>
-	</nav>
+  	<div class="row">
+  		<div class="col-md-6">
+		  	<nav>
+			  <ul class="pagination">
+			    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+			    <li ><a href="#">Manage Dataset <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+			    <li ><a href="#">Identify Errors <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+			    <li class="active"><a href="#">Clean Dataset </a></li>
+			    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+			  </ul>
+			</nav>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="pull-right">
+				<img src="${resource(dir: 'images', file: 'mcmaster-logo-web-280.png')}" class="img-responsive" alt="McMaster University Logo">
+			</div>
+		</div>
+	</div>
 	
-    <h1>Data Cleaning Recommendations:</h1>
-   	<br>
+    <h3>Recommended Repairs:</h3>
    	
 		   	<ul class="nav nav-tabs" id="myTab">
-		      <li class="active"><a href="#weighted">Weighted Search</a></li>
-			  <li><a href="#constrained">Constrained Search</a></li>
-			  <li><a href="#dynamic">Dynamic Search</a></li>
-			  <li><a href="#lexical">Lexical Search</a></li>
+		      <li class="active"><a href="#weighted"><b>Weighted Search</b></a></li>
+			  <li><a href="#constrained"><b>Constrained Search</b></a></li>
+			  <li><a href="#dynamic"><b>Dynamic Search</b></a></li>
+			  <li><a href="#lexical"><b>Lexical Search</b></a></li>
 			</ul>
 		   	
 		   	<div class="tab-content">
@@ -49,19 +58,17 @@
 				  			<div class="panel-body">
 				  				<div class="panel panel-default">
 								  <div class="panel-body">
-								    Master Dataset: ${recBySearch["masterDataset"] } <br>
-					   				Target Dataset: ${recBySearch["targetDataset"] } <br>
-					   				Similarity Threshold: ${recBySearch["simThreshold"] }
+								  	<div class="col-md-6">
+									    <b>Master Dataset</b>: ${recBySearch["masterDataset"] } <br>
+						   				<b>Target Dataset</b>: ${recBySearch["targetDataset"] } <br>
+						   				<b>Similarity Threshold (&#964)</b>: ${recBySearch["simThreshold"] }
+					   				</div>
+					   				<div class="col-md-6">
+					   					<b>Privacy Loss (Pvt) Weight</b>: ${recBySearch["searchConfig"]["alphaPvt"] }<br>
+						   				<b>Cleaning Utility (InD) Weight</b>: ${recBySearch["searchConfig"]["betaInd"] }<br>
+						   				<b># Changes Weight</b>: ${recBySearch["searchConfig"]["gamaSize"] }
+					   				</div>
 								  </div>
-								</div>
-				  			
-					  			<div class="panel panel-success">
-						   			<div class="panel-heading">
-						   				Search Algorithm Setting:
-						   			</div>
-						  			<div class="panel-body">
-					   					${recBySearch["searchConfig"] }
-				   					</div>
 								</div>
 				  			
 				  				<g:set var="fdCounter" value="${0}" />
