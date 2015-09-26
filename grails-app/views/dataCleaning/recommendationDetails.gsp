@@ -17,7 +17,7 @@
    			<tr class="active">
 	   			<td>Attribute</td>
 	   			<td>Original Value</td>
-	   			<td>Change to</td>
+	   			<td>Repair Value</td>
 	   			<td># Repaired Records</td>
    			</tr>
    			<%--<tr class="active">

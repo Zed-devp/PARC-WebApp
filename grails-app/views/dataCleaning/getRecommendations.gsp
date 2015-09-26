@@ -27,10 +27,10 @@
     <div class="col-md-8">
    	
 		   	<ul class="nav nav-tabs" id="myTab">
-		      <li class="active"><a href="#weighted"><b>Weighted Search</b></a></li>
-			  <li><a href="#constrained"><b>Constrained Search</b></a></li>
-			  <li><a href="#dynamic"><b>Dynamic Search</b></a></li>
-			  <li><a href="#lexical"><b>Lexical Search</b></a></li>
+		      <li class="active"><a href="#weighted"><font size="3"><b>Weighted Search</b></font></a></li>
+			  <li><a href="#constrained"><font size="3"><b>Constrained Search</b></font></a></li>
+			  <li><a href="#dynamic"><font size="3"><b>Dynamic Search</b></font></a></li>
+			  <li><a href="#lexical"><font size="3"><b>Lexical Search</b></font></a></li>
 			</ul>
 		   	
 		   	<div class="tab-content">
@@ -42,14 +42,14 @@
 				  				<div class="panel panel-default">
 								  <div class="panel-body">
 								  	<div class="col-md-6">
-									    <b>Master Dataset</b>: ${recBySearch["masterDataset"] } <br>
-						   				<b>Target Dataset</b>: ${recBySearch["targetDataset"] } <br>
-						   				<b>Similarity Threshold (&#964)</b>: ${recBySearch["simThreshold"] }
+									    <b>Master Dataset: ${recBySearch["masterDataset"] } </b><br>
+						   				<b>Target Dataset: ${recBySearch["targetDataset"] } </b><br>
+						   				<b>Similarity Threshold (&#964): ${recBySearch["simThreshold"] }</b>
 					   				</div>
 					   				<div class="col-md-6">
-					   					<b>Privacy Loss (Pvt)</b>: ${recBySearch["searchConfig"]["alphaPvt"] }<br>
-						   				<b>Cleaning Utility (InD)</b>: ${recBySearch["searchConfig"]["betaInd"] }<br>
-						   				<b># Changes</b>: ${recBySearch["searchConfig"]["gamaSize"] }
+					   					<b>Privacy Loss (pvt): ${recBySearch["searchConfig"]["alphaPvt"] }</b><br>
+						   				<b>Data Utility (util): ${recBySearch["searchConfig"]["betaInd"] }</b><br>
+						   				<b># Updates (upd): ${recBySearch["searchConfig"]["gamaSize"] }</b>
 					   				</div>
 								  </div>
 								</div>
@@ -58,7 +58,7 @@
 				  				<g:each in="${recBySearch["recommendation"] }" var="rec">
 				  				<g:set var="fdCounter" value="${fdCounter + 1}" />
 				  					<div class="panel panel-success">
-				  						<div class="panel-heading">FD: ${rec["constraint"] }</div>
+				  						<div class="panel-heading"><font size="3"><b>FD: ${rec["constraint"]["antecedent"] } &#8594; ${rec["constraint"]["consequent"] }</b></font></div>
 				  						<div class="panel-body">
 		  								<g:set var="counter" value="${0}" />
 		  									<g:each in="${rec["recContent"] }" var="candidate" >
@@ -77,15 +77,15 @@
 											    	var data = {labels: [''],
 										    			         series: [
 										    			           {
-										    			             label: 'Pvt',
+										    			             label: 'pvt',
 										    			             values: ["${candidate["pvt"]}"]
 										    			           },
 										    			           {
-										    			             label: 'InD',
+										    			             label: 'util',
 										    			             values: ["${candidate["ind"]}"]
 										    			           },
 										    			           {
-										    			             label: 'Changes',
+										    			             label: 'upd',
 										    			             values: ["${candidate["changes"]}"]
 										    			           },]};
 											    	</script>

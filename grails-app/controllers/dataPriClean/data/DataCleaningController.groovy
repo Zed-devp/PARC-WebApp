@@ -166,8 +166,33 @@ class DataCleaningController {
 					//the recommendation result for each constraint for every search
 					def map = [:]
 					
+					// get constraint output format
+					def antecedentCols = con.getAntecedentCols()
+					def antecedent = ""
+					for (int i = 0; i < antecedentCols.size(); i ++) {
+						if (i < antecedentCols.size() - 1) {
+							antecedent += antecedentCols[i] + ", "
+						}
+						else {
+							antecedent += antecedentCols[i]
+						}
+					}
+					def consequentCols = con.getConsequentCols()
+					def consequent = ""
+					for (int i = 0; i < consequentCols.size(); i ++) {
+						if (i < consequentCols.size() - 1) {
+							consequent += consequentCols[i] + ", "
+						}
+						else {
+							consequent += consequentCols[i]
+						}
+					}
+					def conOutput = [:]
+					conOutput["antecedent"] = antecedent
+					conOutput["consequent"] = consequent
+					
 					//constraint info
-					map["constraint"] = con.toString()
+					map["constraint"] = conOutput // con.toString()
 					map["constraintAttrs"] = con.getColsInConstraint()
 					
 					// candidates
