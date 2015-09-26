@@ -24,6 +24,7 @@
   	<g:render template="/dataCleaning/recommendationHeader" />
   
     <h3>Recommended Repairs:</h3>
+    <div class="col-md-8">
    	
 		   	<ul class="nav nav-tabs" id="myTab">
 		      <li class="active"><a href="#weighted"><b>Weighted Search</b></a></li>
@@ -100,7 +101,8 @@
 					   	</div>
 				   	</div>
 			   	</g:each>
-   	</div>
+   			</div>
+		</div>
    	
 	<g:if test="${flash.message}">
   		<p>${flash.message}</p>

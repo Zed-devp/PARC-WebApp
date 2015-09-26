@@ -17,7 +17,7 @@
 //		           },]
 //		       };
 
-var chartWidth       = 300,
+var chartWidth       = 180,
     barHeight        = 20,
     groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = 20,

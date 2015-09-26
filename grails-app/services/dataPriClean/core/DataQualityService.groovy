@@ -62,6 +62,15 @@ class DataQualityService {
 		   subResult["violatons"] = s
 		   result.add(subResult)
 	   }
+	   
+//	   //TODO: delete later, only for test
+//	   println "-------------------Violations-------------------------"
+//	   for (def t: result) {
+//		   def temp = t["violatons"]
+//		   for (def subTemp: temp) {
+//			   println subTemp[0]
+//		   }
+//	   }
 
 	   return result
    }
