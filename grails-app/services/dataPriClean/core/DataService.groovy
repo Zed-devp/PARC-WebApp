@@ -24,7 +24,7 @@ class DataService {
 									String fileName,
 									String fdUrl, 
 									char separator = ',', 
-									char quoteChar = '"') {
+									char quoteChar = '\"') {
 		DatasetService datasetService = new DatasetServiceImpl ()
 		return datasetService.loadTargetDataset(url, fileName, fdUrl, separator, quoteChar)
 	}
@@ -34,7 +34,7 @@ class DataService {
 									String fdUrl,
 									Long tid,
 									char separator = ',',
-									char quoteChar = '"') {
+									char quoteChar = '\"') {
         DatasetService datasetService = new DatasetServiceImpl ()
 		return datasetService.loadMasterDataset(url, fileName, fdUrl, tid, separator, quoteChar)
 	}

@@ -19,6 +19,8 @@ class UtilsService {
 	
 	// convert [[Drug, Diphen , Benadryl, [2]], [Dosage, 25 mg , 20 mg, [2]], [Drug, Diphen , Banophen, [4]], [Dosage, 15 mg , 40 mg, [4]]] to a double string array
 	def convertStringToDoubleArray (def s) {
+		println "s: " + s
+		
 		def result = []
 		
 		s = (String) s

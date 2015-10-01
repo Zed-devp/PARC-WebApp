@@ -41,8 +41,8 @@ class DataCleanService {
 			switch (searchObj) {
 				case "weighted":
 					//TODO
-//					searchType = SearchType.SA_WEIGHTED
-					searchType = SearchType.BRUTE_FORCE
+					searchType = SearchType.SA_WEIGHTED
+//					searchType = SearchType.BRUTE_FORCE
 					break
 				case "constrained":
 					searchType = SearchType.SA_EPS_FLEX
@@ -149,8 +149,8 @@ class DataCleanService {
 			switch (searchObj) {
 				case "weighted":
 					//TODO
-//					searchType = SearchType.SA_WEIGHTED
-					searchType = SearchType.BRUTE_FORCE
+					searchType = SearchType.SA_WEIGHTED
+//					searchType = SearchType.BRUTE_FORCE
 					break
 				case "constrained":
 					searchType = SearchType.SA_EPS_FLEX

@@ -230,6 +230,9 @@ class DataCleaningController {
 							recContentList.add(recmmendationRecord)
 						}
 						
+						//TODO: for test
+//						println "getRecommendation()::recContentList: " + recContentList
+						
 						candidateMap["recommendationList"] = recContentList
 						candidateMap["pvt"] = candidate.getPvtOut()
 						candidateMap["ind"] = candidate.getIndOut()
@@ -252,18 +255,25 @@ class DataCleaningController {
 			return
 		}
 		
-//		println(recommendations)
+		session.recommendations = recommendations
 		
 		[recs: recommendations]
 	}
 	
 	def recommendationDetails () {
-		def recommendationList = params.recommendationList
-		def repairId = params.repairId
+		def recommendations = session.recommendations
+		def repairId = params.repairId.toInteger()
+		def constraintId = params.constraintId.toInteger()
+		def searchId = params.searchId.toInteger()
 		
-		def recommendations = utilsService.convertStringToDoubleArray(recommendationList)
+		def recommendationList = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["recContent"].get([repairId - 1])["recommendationList"]
 		
-		[recommendations: recommendations, repairId: repairId]
+		//TODO: for test
+//		println "recommendationDetails::recommendationList: " + recommendationList
+		
+		recommendationList = utilsService.convertStringToDoubleArray(recommendationList)
+		
+		[recommendations: recommendationList, repairId: repairId]
 	}
 	
 	def repairedRecords () {

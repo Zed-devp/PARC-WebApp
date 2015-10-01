@@ -34,7 +34,9 @@
 			</ul>
 		   	
 		   	<div class="tab-content">
+		   		<g:set var="searchCounter" value="${0}" />
 			   	<g:each in="${recs}" var="recBySearch" >
+			   		<g:set var="searchCounter" value="${searchCounter + 1}" />
 			   		<div id="${recBySearch["search"] }" class="tab-pane fade">
 			   		
 				   		<div class="panel panel-default">
@@ -67,7 +69,7 @@
 			  									<div class="row">
 			  									</g:if>
 			  										<div class="col-sm-1 col-md-1">
-			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[recommendationList: "${candidate["recommendationList"] }", repairId: "r${counter }" ]">r${counter }</g:link></h4>
+			  											<h4 class="text-center"><g:link controller="dataCleaning" action="recommendationDetails" params="[constraintId: "${fdCounter }", repairId: "${counter }", searchId:"${searchCounter }" ]">r${counter }</g:link></h4>
 			  										</div>
 												   	<div class="col-sm-5 col-md-5">
 												   		<svg class="chart" id="chart${fdCounter }${counter }"></svg>
