@@ -268,10 +268,8 @@ class DataCleaningController {
 		
 		def recommendationList = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["recContent"].get([repairId - 1])["recommendationList"]
 		
-		//TODO: for test
-//		println "recommendationDetails::recommendationList: " + recommendationList
-		
-		recommendationList = utilsService.convertStringToDoubleArray(recommendationList)
+		// actually, no need this statement
+//		recommendationList = utilsService.convertStringToDoubleArray(recommendationList)
 		
 		[recommendations: recommendationList, repairId: repairId]
 	}
