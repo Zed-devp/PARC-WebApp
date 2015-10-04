@@ -269,6 +269,12 @@ class DataCleaningController {
 		def recommendationList = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["recContent"].get([repairId - 1])["recommendationList"]
 		def fdMap = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["constraint"]
 		
+		// sort the recommendationList by # Repaired Records from large to small
+		recommendationList.sort{ a, b ->
+		    // Compare by size of Repaired Records
+		    b.get(3).size() - a.get(3).size()
+		}
+		
 		// actually, no need this statement
 //		recommendationList = utilsService.convertStringToDoubleArray(recommendationList)
 		
