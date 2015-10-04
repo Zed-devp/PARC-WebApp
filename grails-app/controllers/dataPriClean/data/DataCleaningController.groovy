@@ -267,11 +267,12 @@ class DataCleaningController {
 		def searchId = params.searchId.toInteger()
 		
 		def recommendationList = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["recContent"].get([repairId - 1])["recommendationList"]
+		def fdMap = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["constraint"]
 		
 		// actually, no need this statement
 //		recommendationList = utilsService.convertStringToDoubleArray(recommendationList)
 		
-		[recommendations: recommendationList, repairId: repairId]
+		[recommendations: recommendationList, repairId: repairId, constraint: fdMap]
 	}
 	
 	def repairedRecords () {

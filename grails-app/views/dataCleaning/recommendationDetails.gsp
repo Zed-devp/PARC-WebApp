@@ -9,16 +9,23 @@
   </head>
   <body>
   	<g:render template="/dataCleaning/recommendationHeader" />
-	
-    <h3>Repair Details for <i>${repairId }</i>:</h3>
+  	
+  	<div class="row">
+  		<div class="col-md-4">
+    		<h3>Repair Details for <i>r${repairId }</i>:</h3>
+   		</div>
+   		<div class="col-md-4">
+   		 	<h3 class="text-right">FD: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</h3>
+ 		</div>
+   	</div>
 			   		
 	<div class="col-md-8">
    		<table class="table table-hover">
    			<tr class="active">
-	   			<td>Attribute</td>
-	   			<td>Original Value</td>
-	   			<td>Repair Value</td>
-	   			<td># Repaired Records</td>
+	   			<td><b>Attribute</b></td>
+	   			<td><b>Original Value</b></td>
+	   			<td><b>Repair Value</b></td>
+	   			<td><b># Repaired Records<b></td>
    			</tr>
    			<%--<tr class="active">
    				<td><p>Record #</p></td>
@@ -41,8 +48,11 @@
 	   					<g:if test="${counter == 4 }">
 	   						<td><g:link controller="dataCleaning" action="repairedRecords" params="[records: "${recordCol }", repairId: "${repairId }"]">${recordCol.size() }</g:link></td>
    						</g:if>
+   						<g:elseif test="${counter == 1 }">
+   							<td><b><p>${recordCol }</p></b></td>	
+   						</g:elseif>
    						<g:else>
-   							<td><p>${recordCol }</p></td>	
+   							<td><p>${recordCol }</p></td>
    						</g:else>
    						
    					</g:each>

@@ -60,7 +60,7 @@
 				  				<g:each in="${recBySearch["recommendation"] }" var="rec">
 				  				<g:set var="fdCounter" value="${fdCounter + 1}" />
 				  					<div class="panel panel-success">
-				  						<div class="panel-heading"><font size="3"><b>FD: ${rec["constraint"]["antecedent"] } &#8594; ${rec["constraint"]["consequent"] }</b></font></div>
+				  						<div class="panel-heading"><font size="3"><b>FD: [ ${rec["constraint"]["antecedent"] } ] &#8594; ${rec["constraint"]["consequent"] }</b></font></div>
 				  						<div class="panel-body">
 		  								<g:set var="counter" value="${0}" />
 		  									<g:each in="${rec["recContent"] }" var="candidate" >
