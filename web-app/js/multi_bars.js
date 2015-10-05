@@ -74,12 +74,14 @@ bar.append("rect")
 
 // Add text label in bar
 bar.append("text")
-    .attr("x", function(d) { return (x(d) + 50); })
+	.attr("class", "bar")
+	.attr("x", function(d) { return (x(d) + 5); })
     .attr("y", barHeight / 2)
     .style("fill", "#000000")
     .style("font-size","15px")
+    .style("text-anchor","start")
     .attr("dy", ".35em")
-    .text(function(d) { return Math.round(d * 10000) / 10000; });
+    .text(function(d) { return Math.round(d * 100000) / 100000; });
 
 // Draw labels
 bar.append("text")
