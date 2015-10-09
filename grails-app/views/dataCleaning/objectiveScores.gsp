@@ -39,44 +39,47 @@
   <body>
   	<g:render template="/dataCleaning/recommendationHeader" />
   	
-  	<div class="row">
-  		<div class="col-md-3">
-    		<h3>Repair Details:</h3>
-   		</div>
-   		<div class="col-md-5">
-   		 	<h3 class="text-right">FD: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</h3>
- 		</div>
-   	</div>
-   	
 	<div class="col-md-8">
-		<div class="row">
-			<p>Privacy Loss</p>
-			<svg class="chart" id="pvt"></svg>
-			<script>
-	    	var select = "#pvt"
-	    	var dataset = {data: ${pvtMapList}}
-	    	</script>
-			<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
+		<div class="panel panel-success">
+			<div class="panel-heading"><b>Repair Details for FD${constraintId}: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</b></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p><b>Privacy Loss</b></p>
+						<svg class="chart" id="pvt"></svg>
+						<script>
+				    	var select = "#pvt"
+				    	var dataset = {data: ${pvtMapList}}
+				    	</script>
+						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
+					</div>
+					
+					<div class="col-md-6">
+						<p><b>Data Utility</b></p>
+						<svg class="chart" id="ind"></svg>
+						<script>
+				    	var select = "#ind"
+				    	var dataset = {data: ${indMapList}}
+				    	</script>
+						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p><b># Updates</b></p>
+						<svg class="chart" id="changes"></svg>
+						<script>
+				    	var select = "#changes"
+				    	var dataset = {data: ${changesMapList}}
+				    	</script>
+						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="row">
-			<p>Data Utility</p>
-			<svg class="chart" id="ind"></svg>
-			<script>
-	    	var select = "#ind"
-	    	var dataset = {data: ${indMapList}}
-	    	</script>
-			<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
-		</div>
-		<div class="row">
-			<p># Changes</p>
-			<svg class="chart" id="changes"></svg>
-			<script>
-	    	var select = "#changes"
-	    	var dataset = {data: ${changesMapList}}
-	    	</script>
-			<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
-		</div>
-   	</div>
+	</div>
+   	
    	
 	<g:if test="${flash.message}">
   		<p>${flash.message}</p>

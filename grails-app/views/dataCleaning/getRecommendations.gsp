@@ -84,7 +84,7 @@
 										    			           },
 										    			           {
 										    			             label: 'util',
-										    			             values: ["${1 - candidate["ind"]}"]
+										    			             values: ["${candidate["ind"]}"]
 										    			           },
 										    			           {
 										    			             label: 'upd',

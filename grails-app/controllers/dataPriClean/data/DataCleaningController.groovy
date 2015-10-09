@@ -235,10 +235,10 @@ class DataCleaningController {
 						
 						candidateMap["recommendationList"] = recContentList
 						candidateMap["pvt"] = candidate.getPvtOut()
-						candidateMap["ind"] = candidate.getIndOut()
+						candidateMap["ind"] = 1 - candidate.getIndOut()
 						candidateMap["changes"] = candidate.getChangesOut()
 						candidateMap["pvtUnorm"] = candidate.getPvtOutUnorm()
-						candidateMap["indUnorm"] = candidate.getIndOutUnorm()
+						candidateMap["indUnorm"] = 1- candidate.getIndOutUnorm()
 						candidateMap["changesUnorm"] = candidate.getChangesOutUnorm()
 						
 						candidates.add(candidateMap)
@@ -286,17 +286,17 @@ class DataCleaningController {
 		def changesMapList = []
 		
 		def counter = pvtList.size()
-		(0..(counter - 1)).each {
+		(1..counter).each {
 			def pvtMap = [:]
 			def indMap = [:]
 			def changesMap = [:]
 			
 			pvtMap["items"] = it
-			pvtMap["values"] = pvtList.get(it)
+			pvtMap["values"] = pvtList.get(it - 1)
 			indMap["items"] = it
-			indMap["values"] = indList.get(it)
+			indMap["values"] = indList.get(it - 1)
 			changesMap["items"] = it
-			changesMap["values"] = changesList.get(it)
+			changesMap["values"] = changesList.get(it - 1)
 			pvtMapList.add(pvtMap)
 			indMapList.add(indMap)
 			changesMapList.add(changesMap)
@@ -320,7 +320,7 @@ class DataCleaningController {
 		}
 		changesR += "]"
 		
-		[pvtMapList: pvtR, indMapList: indR, changesMapList: changesR, constraint: fdMap]
+		[pvtMapList: pvtR, indMapList: indR, changesMapList: changesR, constraint: fdMap, constraintId: constraintId]
 	}
 	
 	def recommendationDetails () {
