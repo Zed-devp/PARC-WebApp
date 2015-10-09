@@ -237,6 +237,9 @@ class DataCleaningController {
 						candidateMap["pvt"] = candidate.getPvtOut()
 						candidateMap["ind"] = candidate.getIndOut()
 						candidateMap["changes"] = candidate.getChangesOut()
+						candidateMap["pvtUnorm"] = candidate.getPvtOutUnorm()
+						candidateMap["indUnorm"] = candidate.getIndOutUnorm()
+						candidateMap["changesUnorm"] = candidate.getChangesOutUnorm()
 						
 						candidates.add(candidateMap)
 					}
@@ -258,6 +261,66 @@ class DataCleaningController {
 		session.recommendations = recommendations
 		
 		[recs: recommendations]
+	}
+	
+	def objectiveScores () {
+		def recommendations = session.recommendations
+		def constraintId = params.constraintId.toInteger()
+		def searchId = params.searchId.toInteger()
+		
+		def pvtList = []
+		def indList = []
+		def changesList = []
+		
+		def fdMap = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["constraint"]
+		def solutionList = recommendations.get([searchId - 1])["recommendation"].get([constraintId - 1])["recContent"]
+		
+		for (def repair: solutionList) {
+			pvtList.add(repair["pvtUnorm"])
+			indList.add(repair["indUnorm"])
+			changesList.add(repair["changesUnorm"])
+		}
+		
+		def pvtMapList = []
+		def indMapList = []
+		def changesMapList = []
+		
+		def counter = pvtList.size()
+		(0..(counter - 1)).each {
+			def pvtMap = [:]
+			def indMap = [:]
+			def changesMap = [:]
+			
+			pvtMap["items"] = it
+			pvtMap["values"] = pvtList.get(it)
+			indMap["items"] = it
+			indMap["values"] = indList.get(it)
+			changesMap["items"] = it
+			changesMap["values"] = changesList.get(it)
+			pvtMapList.add(pvtMap)
+			indMapList.add(indMap)
+			changesMapList.add(changesMap)
+		}
+		
+		def pvtR = "["
+		for (def t: pvtMapList) {
+			pvtR += "{items:" + t["items"] + ",values:" + t["values"] + "},"
+		}
+		pvtR += "]"
+		
+		def indR = "["
+		for (def t: indMapList) {
+			indR += "{items:" + t["items"] + ",values:" + t["values"] + "},"
+		}
+		indR += "]"
+		
+		def changesR = "["
+		for (def t: changesMapList) {
+			changesR += "{items:" + t["items"] + ",values:" + t["values"] + "},"
+		}
+		changesR += "]"
+		
+		[pvtMapList: pvtR, indMapList: indR, changesMapList: changesR, constraint: fdMap]
 	}
 	
 	def recommendationDetails () {

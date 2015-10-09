@@ -40,6 +40,7 @@ class UrlMappings {
 		"/getRecommendations"(controller:"dataCleaning",action:"getRecommendations")
 		"/recommendationDetails"(controller:"dataCleaning",action:"recommendationDetails")
 		"/repairedRecords"(controller:"dataCleaning",action:"repairedRecords")
+		"/objectiveScores"(controller:"dataCleaning",action:"objectiveScores")
 		
 		"/weightedSASetting"(controller:"dataCleaning",action:"weightedSASetting")
 		"/constrainedSASetting"(controller:"dataCleaning",action:"constrainedSASetting")

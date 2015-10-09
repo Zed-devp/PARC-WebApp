@@ -1,0 +1,57 @@
+//var dataset = {data: [{items: 1, values: 22},
+//		{items: 2, values: 1},
+//		{items: 5, values: 3}]};
+
+//dataset = {data: [{items:0, values:1.254947835079646}, {items:1, values:1.254947835079646}, {items:2, values:0.627473917539823}]};
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 400 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+//var svg = d3.select("#pvt")
+var svg = d3.select(select)
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	  x.domain(dataset.data.map(function(d) { return d.items; }));
+	  y.domain([0, d3.max(dataset.data, function(d) { return d.values; })]);
+	  
+	  svg.append("g")
+	      .attr("class", "x axis")
+	      .attr("transform", "translate(0," + height + ")")
+	      .call(xAxis);
+	
+	  svg.append("g")
+	      .attr("class", "y axis")
+	      .call(yAxis)
+	    .append("text")
+	      .attr("transform", "rotate(-90)")
+	      .attr("y", 6)
+	      .attr("dy", ".71em")
+	      .style("text-anchor", "end")
+	      .text("Values");
+	
+	  svg.selectAll(".bar")
+	  	.data(dataset.data)
+	  	.enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d) { return x(d.items); })
+        .attr("width", x.rangeBand())
+        .attr("y", function(d) { return y(d.values); })
+        .attr("height", function(d) { return height - y(d.values); });
