@@ -46,10 +46,11 @@
 				<div class="row">
 					<div class="col-md-6">
 						<p><b>Privacy Loss</b></p>
+						<p id="random"></p>
 						<svg class="chart" id="pvt"></svg>
 						<script>
-				    	var select = "#pvt"
-				    	var dataset = {data: ${pvtMapList}}
+				    	var select = "#pvt";
+				    	var dataset = {data: ${pvtMapList}};
 				    	</script>
 						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
 					</div>
@@ -58,8 +59,8 @@
 						<p><b>Data Utility</b></p>
 						<svg class="chart" id="ind"></svg>
 						<script>
-				    	var select = "#ind"
-				    	var dataset = {data: ${indMapList}}
+				    	var select = "#ind";
+				    	var dataset = {data: ${indMapList}};
 				    	</script>
 						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
 					</div>
@@ -70,8 +71,8 @@
 						<p><b># Updates</b></p>
 						<svg class="chart" id="changes"></svg>
 						<script>
-				    	var select = "#changes"
-				    	var dataset = {data: ${changesMapList}}
+				    	var select = "#changes";
+				    	var dataset = {data: ${changesMapList}};
 				    	</script>
 						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
 					</div>

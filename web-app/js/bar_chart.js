@@ -54,10 +54,20 @@ var svg = d3.select(select)
 	      .call(yAxis)
 	    .append("text")
 	      .attr("transform", "translate(-20,-25)")
-	      .attr("y", 8)
+	      .attr("y", 10)
 	      .attr("dy", ".71em")
 //	      .style("text-anchor", "end")
 	      .text("Value");
+	  
+	  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "translate(0,150)")
+      .attr("y", 10)
+      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+      .text("Repair");
 	
 	  svg.selectAll(".bar")
 	  	.data(dataset.data)

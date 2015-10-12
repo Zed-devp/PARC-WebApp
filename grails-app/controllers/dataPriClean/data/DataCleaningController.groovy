@@ -200,6 +200,17 @@ class DataCleaningController {
 					
 					//convert the Set<Candidat> data type to List<List<String>> 
 					def setCandidate = rec["recommendation"].get(con)
+					
+					//sort a set of candidates by comprehensive scores
+					def listCandidate = []
+					def iTemp = setCandidate.iterator()
+					while (iTemp.hasNext()) {
+						listCandidate.add(iTemp.next())
+					}
+					listCandidate.sort([compare:{a,b-> 
+						(a.getPvtOut() * 0.10 + a.getIndOut() * 0.895 + a.getChangesOut() * 0.005) <=> (b.getPvtOut() * 0.10 + b.getIndOut() * 0.895 + b.getChangesOut() * 0.005) }] as Comparator)
+					setCandidate = listCandidate
+					
 					def i = setCandidate.iterator()
 					while (i.hasNext()) {
 						//recommendation content info
