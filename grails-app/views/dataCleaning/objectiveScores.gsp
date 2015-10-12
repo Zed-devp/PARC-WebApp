@@ -2,36 +2,11 @@
   <head>
     <meta name="layout" content="main" />
     
+     <link rel="stylesheet" href="${resource(dir: 'css', file: 'bar_chart.css')}" type="text/css">
+    
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    
-    <style>
-
-.bar {
-  fill: steelblue;
-}
-
-.bar:hover {
-  fill: brown;
-}
-
-.axis {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-</style>
     
     <title>Data Cleaning</title>   
     
