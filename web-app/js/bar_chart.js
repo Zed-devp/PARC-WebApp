@@ -4,7 +4,7 @@
 
 //dataset = {data: [{items: r1, values:1.254947835079646},{items: r2, values:1.254947835079646},{items: r3, values: 0.627473917539823},]}
 
-var margin = {top: 20, right: 20, bottom: 30, left: 30},
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 365 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom
 
