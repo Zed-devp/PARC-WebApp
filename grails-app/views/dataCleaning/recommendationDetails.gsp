@@ -11,12 +11,9 @@
   	<g:render template="/dataCleaning/recommendationHeader" />
   	
   	<div class="row">
-  		<div class="col-md-3">
-    		<h3>Repair Details for <i>r${repairId }</i>:</h3>
+  		<div class="col-md-8">
+    		<h4>Repair Details for r${repairId } in F${constraintId }: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</h4>
    		</div>
-   		<div class="col-md-5">
-   		 	<h3 class="text-right">FD: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</h3>
- 		</div>
    	</div>
 			   		
 	<div class="col-md-8">
@@ -24,7 +21,7 @@
    			<tr class="active">
 	   			<td><b>Attribute</b></td>
 	   			<td><b>Original Value</b></td>
-	   			<td><b>Repair Value</b></td>
+	   			<td><b>Recommended Value</b></td>
 	   			<td><b># Repaired Records<b></td>
    			</tr>
    			<%--<tr class="active">

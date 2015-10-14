@@ -4,7 +4,7 @@
 
 //dataset = {data: [{items: r1, values:1.254947835079646},{items: r2, values:1.254947835079646},{items: r3, values: 0.627473917539823},]}
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 30, left: 45},
     width = 365 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom
     
@@ -23,7 +23,8 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .orient("left");
+    .orient("left")
+    .ticks(5);
 
 //var svg = d3.select("#pvt")
 var svg = d3.select(select)
@@ -56,12 +57,12 @@ svg.append("g")
   .attr("class", "y axis")
   .call(yAxis)
   .append("text")
-  .attr("transform", "translate(-20,-35)")
+  .attr("transform", "translate(135,-35)")
   .attr("y", 15)
   .attr("dy", ".71em")
 //	      .style("text-anchor", "end")
-  .style("font-size", "15px")
-  .text("Value");
+  .style("font-size", "20px")
+  .text(title);
   
 svg.append("g")
   .attr("class", "y axis")

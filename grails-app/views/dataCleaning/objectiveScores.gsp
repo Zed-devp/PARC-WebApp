@@ -16,26 +16,25 @@
   	
 	<div class="col-md-8">
 		<div class="panel panel-success">
-			<div class="panel-heading"><b>Repair Details for FD${constraintId}: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</b></div>
+			<div class="panel-heading"><b>Repair Details for F${constraintId}: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</b></div>
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-6">
-						<p><b>Privacy Loss</b></p>
-						<p id="random"></p>
 						<svg class="chart" id="pvt"></svg>
 						<script>
 				    	var select = "#pvt";
 				    	var dataset = {data: ${pvtMapList}};
+				    	var title = "pvt";
 				    	</script>
 						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
 					</div>
 					
 					<div class="col-md-6">
-						<p><b>Data Utility</b></p>
 						<svg class="chart" id="ind"></svg>
 						<script>
 				    	var select = "#ind";
 				    	var dataset = {data: ${indMapList}};
+				    	var title = "util";
 				    	</script>
 						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
 					</div>
@@ -43,11 +42,11 @@
 				
 				<div class="row">
 					<div class="col-md-6">
-						<p><b># Updates</b></p>
 						<svg class="chart" id="changes"></svg>
 						<script>
 				    	var select = "#changes";
 				    	var dataset = {data: ${changesMapList}};
+				    	var title = "upd";
 				    	</script>
 						<script src="${resource(dir: 'js', file: 'bar_chart.js')}"></script>
 					</div>

@@ -352,7 +352,7 @@ class DataCleaningController {
 		// actually, no need this statement
 //		recommendationList = utilsService.convertStringToDoubleArray(recommendationList)
 		
-		[recommendations: recommendationList, repairId: repairId, constraint: fdMap]
+		[recommendations: recommendationList, repairId: repairId, constraint: fdMap, constraintId: constraintId]
 	}
 	
 	def repairedRecords () {
