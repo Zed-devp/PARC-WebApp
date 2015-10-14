@@ -5,15 +5,7 @@
   </head>
   <body>
     	<g:if test="${session.user}">
-    		<nav>
-			  <ul class="pagination">
-			    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-			    <li class="active"><a href="#">Manage Dataset <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-			    <li ><a href="#">Identify Errors <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-			    <li ><a href="#">Clean Dataset </a></li>
-			    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
-			  </ul>
-			</nav>
+    		<g:render template="/navigates/navigates_ManageDatasets" />
 			
     		<h1>Target Datasets:</h1>
     		
