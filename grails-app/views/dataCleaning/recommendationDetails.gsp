@@ -12,7 +12,7 @@
   	
   	<div class="row">
   		<div class="col-md-8">
-    		<h4>Repair Details for r${repairId } in F${constraintId }: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</h4>
+    		<h4>Repair Details for r${repairId } <span style="float:right;">F${constraintId }: [ ${constraint["antecedent"] } ] &#8594; ${constraint["consequent"] }</span></h4>
    		</div>
    	</div>
 			   		

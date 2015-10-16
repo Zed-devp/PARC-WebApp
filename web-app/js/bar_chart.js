@@ -4,7 +4,7 @@
 
 //dataset = {data: [{items: r1, values:1.254947835079646},{items: r2, values:1.254947835079646},{items: r3, values: 0.627473917539823},]}
 
-var margin = {top: 20, right: 20, bottom: 30, left: 45},
+var margin = {top: 5, right: 20, bottom: 30, left: 65},
     width = 365 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom
     
@@ -57,7 +57,7 @@ svg.append("g")
   .attr("class", "y axis")
   .call(yAxis)
   .append("text")
-  .attr("transform", "translate(135,-35)")
+  .attr("transform", "translate(-80,90)rotate(270)")
   .attr("y", 15)
   .attr("dy", ".71em")
 //	      .style("text-anchor", "end")
@@ -68,7 +68,7 @@ svg.append("g")
   .attr("class", "y axis")
   .call(yAxis)
   .append("text")
-  .attr("transform", "translate(-10,150)")
+  .attr("transform", "translate(-20,163)")
   .attr("y", 10)
   .attr("dy", ".71em")
 //      .style("text-anchor", "end")
