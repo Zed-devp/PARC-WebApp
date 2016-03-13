@@ -10,6 +10,8 @@ Grails 2.4.4, Java 7 64-bit, Maven 3.0.3, MySQL 5.6.22
 
 The project uses Grails as the web framework and use a wrapper for running grails commands so that users are not required to install grails locally.
 
+Install the dependencies into the local repository: [PARC-Core](https://github.com/dejunhuang/PARC-Core), [privacyCleaning](https://github.com/dhruvgairola/privacyCleaning)
+
 To download the project:
 
 ```
