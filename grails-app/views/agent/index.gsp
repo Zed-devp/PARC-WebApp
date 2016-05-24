@@ -7,7 +7,6 @@
   		<div class="container">
 		    <div class="jumbotron">
 	            <h2>Privacy Preserving Data Cleaning</h2>
-	            <p>A data cleaning tool</p>
           	</div>
         </div>
   
@@ -22,9 +21,7 @@
 			    </h1>
 			  </div>
 			  <div class="panel-body">
-			  	Manage Master&Target dataset.
-			  	Upload and delete dataset. 
-			  	Define your own FD (Function Dependency).
+			  	Manage the input datasets. Define your functional dependencies
 			  	<br>
 			  	<br>
 			  	<button type="button" onclick="location.href='dataset'" class="btn btn-primary">Go</button>
@@ -39,8 +36,7 @@
 				    </h1>
 				  </div>
 				  <div class="panel-body">
-				  	Inspect your data quality.
-				  	Automatically detect errors w.r.t the customized FDs.
+				  	Check the quality of your data. Automatically detect errors with respect to your data quality rules.
 				  	<br>
 				  	<br>
 				  	<button type="button" onclick="location.href='datasetSelectionQua'" class="btn btn-success">Go</button>
@@ -55,7 +51,7 @@
 				    </h1>
 				  </div>
 				  <div class="panel-body">
-				  	Clean the dataset while protecting your privacy.
+				  	Correct your data errors while maintaining the privacy of your data values.
 				  	<br>
 				  	<br>
 				  	<button type="button" onclick="location.href='datasetSelectionClean'" class="btn btn-info">Go</button>
