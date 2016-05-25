@@ -6,7 +6,7 @@
   <body>
   		<div class="container">
 		    <div class="jumbotron">
-	            <h2>Privacy Preserving Data Cleaning</h2>
+	            <h2>PARC: Privacy-AwaRe data Cleaning</h2>
           	</div>
         </div>
   
@@ -16,12 +16,12 @@
 	        <div class="col-md-4">
 	         <div class="panel panel-primary">
 			  <div class="panel-heading">
-			    <h1>
-			    1. Manage Dataset
-			    </h1>
+			    <h2>
+			    1. Manage Datasets
+			    </h2>
 			  </div>
 			  <div class="panel-body">
-			  	Manage the input datasets. Define your functional dependencies
+			  	Manage the input datasets. Define your functional dependencies.
 			  	<br>
 			  	<br>
 			  	<button type="button" onclick="location.href='dataset'" class="btn btn-primary">Go</button>
@@ -31,9 +31,9 @@
 	        <div class="col-md-4">
 	        	<div class="panel panel-success">
 				  <div class="panel-heading">
-				    <h1>
+				    <h2>
 				    2. Identify Errors
-				    </h1>
+				    </h2>
 				  </div>
 				  <div class="panel-body">
 				  	Check the quality of your data. Automatically detect errors with respect to your data quality rules.
@@ -46,9 +46,9 @@
 	        <div class="col-md-4">
 	        	<div class="panel panel-info">
 				  <div class="panel-heading">
-				    <h1>
-				    3. Clean Dataset
-				    </h1>
+				    <h2>
+				    3. Clean Datasets
+				    </h2>
 				  </div>
 				  <div class="panel-body">
 				  	Correct your data errors while maintaining the privacy of your data values.

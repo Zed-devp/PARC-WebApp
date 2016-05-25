@@ -36,9 +36,9 @@
 	        <div id="navbar">
 	          <ul class="nav navbar-nav">
 	            <li><g:link controller="agent" action="index">Home</g:link></li>
-	            <li><g:link controller="dataset" action="index">Manage Dataset</g:link></li>
+	            <li><g:link controller="dataset" action="index">Manage Datasets</g:link></li>
 	            <li><g:link controller="dataQuality" action="datasetSelectionQua">Identify Errors</g:link></li>
-	            <li><g:link controller="dataCleaning" action="datasetSelectionClean">Clean Dataset</g:link></li>
+	            <li><g:link controller="dataCleaning" action="datasetSelectionClean">Clean Datasets</g:link></li>
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
 	          	<g:if test="${session.user}">

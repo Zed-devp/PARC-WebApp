@@ -6,7 +6,7 @@
   <body>
   	<g:render template="/navigates/navigates_ManageDatasets" />
   
-   	<h1>Upload your dataset and constraint file:</h1>
+   	<h1>Upload your datasets and define your constraints</h1>
    	
    	<br>
    	<br>
