@@ -14,6 +14,7 @@
 	    	e.preventDefault();
 	    	$(this).tab('show');
 	    });
+	    $("#myTab-weighted").tab('show');
 	});
 	</script>
     
@@ -27,10 +28,10 @@
     <div class="col-md-8">
    	
 		   	<ul class="nav nav-tabs" id="myTab">
-		      <li class="active"><a href="#weighted"><font size="3"><b>Weighted Search</b></font></a></li>
-			  <li><a href="#constrained"><font size="3"><b>Constrained Search</b></font></a></li>
-			  <li><a href="#dynamic"><font size="3"><b>Dynamic Search</b></font></a></li>
-			  <li><a href="#lexical"><font size="3"><b>Hierarchical Search</b></font></a></li>
+		      <li><a id="myTab-weighted" href="#weighted"><font size="3"><b>Weighted Search</b></font></a></li>
+			  <li><a id="myTab-constrained" href="#constrained"><font size="3"><b>Constrained Search</b></font></a></li>
+			  <li><a id="myTab-dynamic" href="#dynamic"><font size="3"><b>Dynamic Search</b></font></a></li>
+			  <li><a id="myTab-lexical" href="#lexical"><font size="3"><b>Hierarchical Search</b></font></a></li>
 			</ul>
 		   	
 		   	<div class="tab-content">
