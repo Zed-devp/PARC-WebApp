@@ -4,7 +4,7 @@ This a web application designed for a [Privacy-preserving Data Cleaning framewor
 
 ### Working Environment
 
-Grails 2.4.4, Java 8 64-bit, Maven 3.0.3, MySQL 5.6.22
+Grails 2.4.4, Java 8 (1.8.0_25) 64-bit, Maven 3.0.3, MySQL 5.6.22
 
 ### Installation 
 
