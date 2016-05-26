@@ -13,9 +13,9 @@
    	
 	<g:uploadForm controller="dataset" action="uploadData">
         <div class="form-group">
-		    <label>Dataset File</label>
+		    <label>Master dataset</label>
 		    <input type="file" name="dataFile" />
-		    <p class="help-block">Dataset file name should be unique and of .csv file. </p>
+		    <p class="help-block">File should be .csv format.</p>
 	    </div>
         <br>
         

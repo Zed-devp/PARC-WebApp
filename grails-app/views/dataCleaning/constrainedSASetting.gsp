@@ -7,7 +7,7 @@
   <body>
 	 	<g:render template="/navigates/navigates_CleanData" />
 		
-		<h3>ConstrainedSimulated Annealing Advanced Setting</h3>
+		<h3>Constrained Search Advanced Settings</h3>
     	<br>
     	
 		<g:uploadForm controller="dataCleaning" action="constrainedSASetting" method="POST">

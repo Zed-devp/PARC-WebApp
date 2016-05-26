@@ -7,16 +7,16 @@
   	<nav>
 	 <g:render template="/navigates/navigates_ManageDatasets" />
   
-   	<h1>Upload your dataset and constraint file:</h1>
+   	<h1>Upload your datasets and define your constraints</h1>
    	
    	<br>
    	<br>
    	
 	<g:uploadForm controller="dataset" action="uploadData">
         <div class="form-group">
-		    <label>Dataset File</label>
+		    <label>Target dataset</label>
 		    <input type="file" name="dataFile" />
-		    <p class="help-block">Dataset file name should be unique and of .csv file. </p>
+		    <p class="help-block">File should be .csv format.</p>
 	    </div>
         <br>
         
@@ -40,7 +40,7 @@
 	    
 	    <div class="form-group">
 	    	<div>
-		    	<label>Master Dataset</label>
+		    	<label>Master dataset file name</label>
 	    	</div>
 		    <div class="col-sm-4">
 		      <input type="text" class="form-control" name="masterDataset" placeholder="Master Dataset File Name">

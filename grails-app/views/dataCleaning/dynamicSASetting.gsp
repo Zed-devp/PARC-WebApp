@@ -7,7 +7,7 @@
   <body>
   		<g:render template="/navigates/navigates_CleanData" />
 		
-    	<h3>Dynamic Simulated Annealing Advanced Setting</h3>
+    	<h3>Dynamic Search Advanced Settings</h3>
     	<br>
     	
 		<g:uploadForm controller="dataCleaning" action="dynamicSASetting" method="POST">

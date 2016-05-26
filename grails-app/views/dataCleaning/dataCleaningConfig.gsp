@@ -7,7 +7,7 @@
   <body>
   	<g:render template="/navigates/navigates_CleanData" />
   
-   	<h1>Data Cleaning Parameter Configuration</h1>
+   	<h1>Parameter Configuration</h1>
 	<g:uploadForm controller="dataCleaning" action="getRecommendations" method="POST">
         <br>
         <div class="row">
@@ -23,29 +23,29 @@
         <div class="row">
 	        <div class="col-xs-6">
 		        <div class="panel panel-primary">
-					<div class="panel-heading">Searching Objective:</div>
+					<div class="panel-heading">Objective Functions:</div>
 					<div class="panel-body">
 						<div class="checkbox">
 					    	<label>
-						      <input type="checkbox" name="searchObj" value="weighted" checked>Weighted Simulated Annealing  <g:link controller="dataCleaning" action="weightedSASetting">[Advanced Setting]</g:link>
+						      <input type="checkbox" name="searchObj" value="weighted" checked>Weighted Search <g:link controller="dataCleaning" action="weightedSASetting">[Advanced Setting]</g:link>
 						    </label>
 						</div>
 						
 						<div class="checkbox">
 					    	<label>
-						      <input type="checkbox" name="searchObj" value="constrained">Constrained Simulated Annealing  <g:link controller="dataCleaning" action="constrainedSASetting">[Advanced Setting]</g:link>
+						      <input type="checkbox" name="searchObj" value="constrained">Constrained Search <g:link controller="dataCleaning" action="constrainedSASetting">[Advanced Setting]</g:link>
 						    </label>
 						</div>
 						
 						<div class="checkbox">
 					    	<label>
-						      <input type="checkbox" name="searchObj" value="dynamic">Dynamic Simulated Annealing  <g:link controller="dataCleaning" action="dynamicSASetting">[Advanced Setting]</g:link>
+						      <input type="checkbox" name="searchObj" value="dynamic">Dynamic Search <g:link controller="dataCleaning" action="dynamicSASetting">[Advanced Setting]</g:link>
 						    </label>
 						</div>
 						
 						<div class="checkbox">
 					    	<label>
-						      <input type="checkbox" name="searchObj" value="lexical">Lexical Simulated Annealing  <g:link controller="dataCleaning" action="lexicalSASetting">[Advanced Setting]</g:link>
+						      <input type="checkbox" name="searchObj" value="lexical">Lexical Search <g:link controller="dataCleaning" action="lexicalSASetting">[Advanced Setting]</g:link>
 						    </label>
 						</div>
 						

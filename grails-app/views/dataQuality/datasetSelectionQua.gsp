@@ -34,7 +34,7 @@
 				</table>
 				<br>
 				
-				<input type="submit" class="btn btn-success" name="func" value="Violation Detection">
+				<input type="submit" class="btn btn-success" name="func" value="Identify Errors">
 			 </g:form>
 			
     	</g:if>
