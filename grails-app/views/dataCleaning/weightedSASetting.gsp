@@ -8,7 +8,7 @@
   	<div class="col-xs-6">
   		<g:render template="/navigates/navigates_CleanData" />
   	
-    	<h3>Configure Parameters</h3>
+    	<h3>Weighted Search Advanced Settings</h3>
     	
 		<g:uploadForm controller="dataCleaning" action="weightedSASetting" method="POST">
 		  <g:render template="/dataCleaning/searchConfigSetting" />
