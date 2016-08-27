@@ -8,7 +8,6 @@
 	 <g:render template="/navigates/navigates_ManageDatasets" />
   
    	<h1>Upload your datasets and define your constraints</h1>
-   	<p class="help-block">Define functional dependencies (FDs). FDs can be specified as a list of comma separated attributes, where the last attribute represents the RHS of the FD. Define each FD on a single line.</p>
    	
    	<br>
    	<br>
@@ -24,7 +23,7 @@
         <div class="form-group">
 		    <!-- <label>Constraint File</label> -->
 		    <input type="file" name="conFile" />
-		    <p class="help-block">Constraint file name should be unique and of .csv file. </p>
+		    <p class="help-block">Define functional dependencies (FDs). FDs can be specified as a list of comma separated attributes, where the last attribute represents the RHS of the FD. Define each FD on a single line.</p>
 	    </div>
         <br>
         

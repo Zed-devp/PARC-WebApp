@@ -141,7 +141,7 @@ class DataCleaningController {
 				
 				// get the search setting
 				if (config && config[rec["search"]]) {
-					newRec["searchConfig"] = config[rec["search"]]
+					newRec["searchConfig"] = config[rec["search"]]				
 				}
 				else {
 					switch (rec["search"]){
@@ -709,6 +709,9 @@ class DataCleaningController {
 		//weighted SA Setting
 		config["cleaning"] = 1
 		config["size"] = 1
+//		config["alphaPvt"] = 0.10
+//		config["betaInd"] = 0.895
+//		config["gamaSize"] = 0.005
 		
 		return config
 	}
@@ -728,6 +731,9 @@ class DataCleaningController {
 		config["privacy"] = 1
 		config["cleaning"] = 1
 		config["size"] = 1
+//		config["alphaPvt"] = 0.10
+//		config["betaInd"] = 0.895
+//		config["gamaSize"] = 0.005
 		
 		return config
 	}
@@ -746,6 +752,9 @@ class DataCleaningController {
 		//weighted SA Setting
 		config["privacy"] = 1
 		config["cleaning"] = 1
+//		config["alphaPvt"] = 0.10
+//		config["betaInd"] = 0.895
+//		config["gamaSize"] = 0.005
 		
 		return config
 	}
